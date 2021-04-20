@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/Auth"
+        android:title="Authentication"
+        android:orderInCategory="100"
+        />
+    <item
+        android:id="@+id/MapActiv"
+        android:title="Map"
+        android:orderInCategory="200"
+        />
+    <item
+        android:id="@+id/SmsSender"
+        android:title="Sms"
+        android:orderInCategory="300"
+        />
+    <item
+        android:id="@+id/RentActivity"
+        android:title="Set to rent"
+        android:orderInCategory="400"
+        />
+    <item
+        android:id="@+id/register"
+        android:title="Register"
+        android:orderInCategory="50"
+        />
+</menu>

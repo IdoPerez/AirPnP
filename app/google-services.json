@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "226031335849",
+    "firebase_url": "https://airpnp-f5e5d.firebaseio.com",
+    "project_id": "airpnp-f5e5d",
+    "storage_bucket": "airpnp-f5e5d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226031335849:android:eed67a3569266324356cb8",
+        "android_client_info": {
+          "package_name": "com.example.airpnp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "226031335849-48oig4d4lo2qau7aflksr268mehfildg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.airpnp",
+            "certificate_hash": "126c5bac935314251b1880555fb8c30ebbcfff05"
+          }
+        },
+        {
+          "client_id": "226031335849-e7vr50cfe71l8kbtsnfk4egoh1eeb100.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQzMdhN8Fv2TF9CpxwTAU2MnWp4vvk5GI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "226031335849-e7vr50cfe71l8kbtsnfk4egoh1eeb100.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
