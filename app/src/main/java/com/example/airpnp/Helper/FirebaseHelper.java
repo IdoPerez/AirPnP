@@ -47,7 +47,7 @@ public class FirebaseHelper {
         user = auth.getCurrentUser();
         mDataBase = FirebaseDatabase.getInstance().getReference();
         mStorageRef = FirebaseStorage.getInstance().getReference();
-        //CURRENT_USER_UID = user.getUid();
+        CURRENT_USER_UID = user.getUid();
     }
 
     //FirebaseStorage.getInstance().getReference().child("userLogo").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -184,11 +184,7 @@ public class FirebaseHelper {
                 for (DataSnapshot data :
                         snapshot.getChildren()) {
                     ParkingSpace parkingSpace = data.getValue(ParkingSpace.class);
-                    if (parkingSpace.getUserUID().equals(getUserUid())){
-                        parkingSpaceControl.userParkingSpacesList.add(parkingSpace);
-                    }else{
                         parkingSpaceControl.parkingSpacesList.add(parkingSpace);
-                    }
                 }
                 actionDone.onSuccess();
             }

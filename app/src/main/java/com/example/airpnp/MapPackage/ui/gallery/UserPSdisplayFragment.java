@@ -17,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.airpnp.Helper.FirebaseHelper;
 import com.example.airpnp.R;
 import com.example.airpnp.UserPackage.ParkingSpace;
 import com.example.airpnp.UserPackage.ParkingSpaceControl;
@@ -36,13 +37,29 @@ public class UserPSdisplayFragment extends Fragment implements AdapterView.OnIte
     CoordinatorLayout bottomSheetLayout;
     BottomSheetBehavior bottomSheetBehavior;
 
+    TextView tvSize, tvPrice, tvAddress,tvCity;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
         parkingSpacesListView = root.findViewById(R.id.parkingSpacesList);
+
         bottomSheetLayout = root.findViewById(R.id.bottom_sheet_layout_UPD);
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
+
+        //UI views inside the bottom sheet and initialize them
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+        bottomSheetBehavior.setFitToContents(false);
+        bottomSheetBehavior.setHalfExpandedRatio(0.4f);
+
+        tvAddress = root.findViewById(R.id.address);
+        tvCity = root.findViewById(R.id.city);
+        tvPrice = root.findViewById(R.id.price);
+        tvSize = root.findViewById(R.id.size);
+
+        bottomSheetCallBack(bottomSheetBehavior);
+
 
         listHeader = root.findViewById(R.id.listHeader);
         parkingSpaceControl = ParkingSpaceControl.getInstance();
@@ -50,15 +67,15 @@ public class UserPSdisplayFragment extends Fragment implements AdapterView.OnIte
         parkingSpacesNames = new ArrayList<>();
         for (ParkingSpace parkingSpace:
              parkingSpaceControl.parkingSpacesList) {
-            parkingSpacesNames.add(parkingSpace.getAddress());
+            if (parkingSpace.getUserUID().equals(FirebaseHelper.CURRENT_USER_UID))
+                parkingSpacesNames.add(parkingSpace.getAddress());
         }
-
-
 
         parkingSpacesListView.setOnItemClickListener(this);
 
         adapter = new ArrayAdapter<String>(requireContext(), R.layout.support_simple_spinner_dropdown_item, parkingSpacesNames);
         parkingSpacesListView.setAdapter(adapter);
+
         return root;
     }
 
@@ -66,10 +83,45 @@ public class UserPSdisplayFragment extends Fragment implements AdapterView.OnIte
 
     }
 
+    public void bottomSheetCallBack(final BottomSheetBehavior bottomSheetBehavior){
+        bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+
+                switch (newState) {
+
+                    case BottomSheetBehavior.STATE_COLLAPSED:{
+                        break;
+                    }
+                    case BottomSheetBehavior.STATE_DRAGGING:
+                        break;
+                    case BottomSheetBehavior.STATE_EXPANDED:
+                        break;
+                    case BottomSheetBehavior.STATE_HALF_EXPANDED:{
+                    }
+                    case BottomSheetBehavior.STATE_HIDDEN:
+                        break;
+                    case BottomSheetBehavior.STATE_SETTLING:
+                        break;
+                }
+            }
+
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+
+            }
+        });
+    }
+
+    private void openBottomSheet(ParkingSpace parkingSpace){
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
+    }
+
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (parkingSpaceControl.userParkingSpacesList.size() > position){
-            ParkingSpace parkingSpace = parkingSpaceControl.userParkingSpacesList.get(position);
+        if (parkingSpaceControl.parkingSpacesList.size() > position){
+            ParkingSpace parkingSpace = parkingSpaceControl.parkingSpacesList.get(position);
+            openBottomSheet(parkingSpace);
         }
     }
 }

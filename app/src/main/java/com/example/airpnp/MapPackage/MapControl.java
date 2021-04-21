@@ -111,7 +111,6 @@ public class MapControl {
 
     public void createMarkers(){
         markerButtonsList.clear();
-        parkingSpaceControl.userParkingSpacesList.clear();
         for (ParkingSpace parkingSpace: parkingSpaceControl.parkingSpacesList) {
             /*
             if (!markerDisplayed(parkingSpace)){
@@ -123,12 +122,6 @@ public class MapControl {
              */
             MarkerButton markerButton = new MarkerButton(googleMap, parkingSpace, false);
             markerButtonsList.add(markerButton);
-            markerButton.addMarkerOnMap();
-
-        }
-        for (ParkingSpace parkingSpace:
-                parkingSpaceControl.userParkingSpacesList) {
-            MarkerButton markerButton = new MarkerButton(googleMap, parkingSpace, true);
             markerButton.addMarkerOnMap();
         }
     }

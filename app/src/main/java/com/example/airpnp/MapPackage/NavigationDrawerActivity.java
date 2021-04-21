@@ -170,6 +170,7 @@ public class NavigationDrawerActivity extends AppCompatActivity implements OnMap
                     case R.id.nav_map:{
                         fragment = new MapActivity();
                         transferFragment(fragment);
+                        drawerLayout.close();
                     }
                 }
                 return false;
