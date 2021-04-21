@@ -121,11 +121,14 @@ public class MapControl {
             }
 
              */
-            boolean isUserParkingSpace = (parkingSpace.getUserUID().equals(FirebaseHelper.CURRENT_USER_UID));
-            if (isUserParkingSpace)
-                parkingSpaceControl.userParkingSpacesList.add(parkingSpace);
-            MarkerButton markerButton = new MarkerButton(googleMap, parkingSpace, isUserParkingSpace);
+            MarkerButton markerButton = new MarkerButton(googleMap, parkingSpace, false);
             markerButtonsList.add(markerButton);
+            markerButton.addMarkerOnMap();
+
+        }
+        for (ParkingSpace parkingSpace:
+                parkingSpaceControl.userParkingSpacesList) {
+            MarkerButton markerButton = new MarkerButton(googleMap, parkingSpace, true);
             markerButton.addMarkerOnMap();
         }
     }

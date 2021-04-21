@@ -6,8 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MapPackage.ui.gallery.UserPSdisplayFragment"
     android:orientation="horizontal">
-
-
+    <include
+        android:id="@+id/bottom_sheet_layout_UPD"
+        layout="@layout/bottom_sheet_layout_parkingspace_display"/>
     <Space
         android:layout_width="0dp"
         android:layout_height="match_parent"

@@ -7,6 +7,9 @@
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8fd0619cd4e29a9683cad21b422be109/jetified-firebase-analytics-impl-12.0.1/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8fd0619cd4e29a9683cad21b422be109/jetified-firebase-analytics-impl-12.0.1/res" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8fd0619cd4e29a9683cad21b422be109/jetified-firebase-analytics-impl-12.0.1/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/91929096389d867b0422e5bb2803ae73/jetified-firebase-analytics-impl-12.0.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/91929096389d867b0422e5bb2803ae73/jetified-firebase-analytics-impl-12.0.1/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/91929096389d867b0422e5bb2803ae73/jetified-firebase-analytics-impl-12.0.1/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

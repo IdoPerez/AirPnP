@@ -1,6 +1,7 @@
 package com.example.airpnp.MapPackage.ui.gallery;
 
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -18,6 +20,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.airpnp.R;
 import com.example.airpnp.UserPackage.ParkingSpace;
 import com.example.airpnp.UserPackage.ParkingSpaceControl;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.ArrayList;
 
@@ -30,24 +33,37 @@ public class UserPSdisplayFragment extends Fragment implements AdapterView.OnIte
     private ArrayList<String> parkingSpacesNames;
     ArrayAdapter<String> adapter;
 
+    CoordinatorLayout bottomSheetLayout;
+    BottomSheetBehavior bottomSheetBehavior;
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
         parkingSpacesListView = root.findViewById(R.id.parkingSpacesList);
+        bottomSheetLayout = root.findViewById(R.id.bottom_sheet_layout_UPD);
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
+
         listHeader = root.findViewById(R.id.listHeader);
         parkingSpaceControl = ParkingSpaceControl.getInstance();
 
         parkingSpacesNames = new ArrayList<>();
         for (ParkingSpace parkingSpace:
-             parkingSpaceControl.userParkingSpacesList) {
+             parkingSpaceControl.parkingSpacesList) {
             parkingSpacesNames.add(parkingSpace.getAddress());
         }
+
+
+
         parkingSpacesListView.setOnItemClickListener(this);
 
         adapter = new ArrayAdapter<String>(requireContext(), R.layout.support_simple_spinner_dropdown_item, parkingSpacesNames);
         parkingSpacesListView.setAdapter(adapter);
         return root;
+    }
+
+    private void findUserParkingSpaces(){
+
     }
 
     @Override
