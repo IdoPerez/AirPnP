@@ -1,0 +1,202 @@
+[
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_custom_window_layout.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\custom_window_layout.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_profile.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\activity_profile.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_parkingspace_display_bottomsheet_design.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\parkingspace_display_bottomsheet_design.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_bottom_sheet_layout_parkingspace_display.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\bottom_sheet_layout_parkingspace_display.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\menu_navigation_drawer.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\menu\\navigation_drawer.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_gallery.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\drawable\\ic_menu_gallery.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_side_nav_bar.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\drawable\\side_nav_bar.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_custom_dialog.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\custom_dialog.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_navigation_drawer.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\activity_navigation_drawer.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\navigation_mobile_navigation.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_icon_plus.png.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\drawable\\ic_icon_plus.png"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_content_main.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\content_main.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_camera.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\drawable\\ic_menu_camera.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_button.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\drawable\\button.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_slideshow.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\fragment_slideshow.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_rent_first_step.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\fragment_rent_first_step.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_rent.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\activity_rent.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_app_bar_main.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\app_bar_main.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_user_parking_spaces_profile.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\user_parking_spaces_profile.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_bottom_sheet_design.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\bottom_sheet_design.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\menu_activity_main_drawer.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_sms_sender.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\activity_sms_sender.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\raw_credentials.json.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\raw\\credentials.json"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_bottom_sheet_layout.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\bottom_sheet_layout.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_authentication.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\activity_authentication.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_rent_sec_step.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\fragment_rent_sec_step.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_map.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\activity_map.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_gallery.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\fragment_gallery.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_email_verification.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\activity_email_verification.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_slideshow.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\drawable\\ic_menu_slideshow.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_nav_header_main.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\nav_header_main.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_register_user.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\activity_register_user.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_map_fragment.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\map_fragment.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_user_ps_display_design.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\user_ps_display_design.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\menu_main.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\menu\\main.xml"
+    }
+]
