@@ -1,5 +1,7 @@
 package com.example.airpnp.UserPackage;
 
+import com.example.airpnp.Helper.FirebaseHelper;
+
 import java.util.ArrayList;
 
 public class ParkingSpaceControl {
@@ -18,5 +20,13 @@ public class ParkingSpaceControl {
             parkingSpaceControl_instance = new ParkingSpaceControl();
         }
         return parkingSpaceControl_instance;
+    }
+
+    public void getUserParkingSpaces(){
+        for (ParkingSpace parkingSpace:
+             parkingSpacesList) {
+            if (parkingSpace.getUserUID().equals(FirebaseHelper.CURRENT_USER_UID))
+                userParkingSpacesList.add(parkingSpace);
+        }
     }
 }

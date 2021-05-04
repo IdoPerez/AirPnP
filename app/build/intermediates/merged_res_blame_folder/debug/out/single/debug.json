@@ -52,12 +52,12 @@
         "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\activity_navigation_drawer.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\navigation_mobile_navigation.xml.flat",
-        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
-    },
-    {
         "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\navigation_mobile_navigation.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\navigation\\mobile_navigation.xml"
     },
     {
         "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_icon_plus.png.flat",
@@ -188,12 +188,12 @@
         "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\activity_register_user.xml"
     },
     {
-        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_map_fragment.xml.flat",
-        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\map_fragment.xml"
-    },
-    {
         "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_user_ps_display_design.xml.flat",
         "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\user_ps_display_design.xml"
+    },
+    {
+        "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_map_fragment.xml.flat",
+        "source": "D:\\AndroidProjects\\AirPnP\\app\\src\\main\\res\\layout\\map_fragment.xml"
     },
     {
         "merged": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\menu_main.xml.flat",

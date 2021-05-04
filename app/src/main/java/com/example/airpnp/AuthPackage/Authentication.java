@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.airpnp.ContactUser.SmsSender;
+import com.example.airpnp.Helper.ActionDone;
+import com.example.airpnp.Helper.FirebaseHelper;
 import com.example.airpnp.MapPackage.MapActivity;
 import com.example.airpnp.MapPackage.NavigationDrawerActivity;
 import com.example.airpnp.R;
@@ -61,6 +63,7 @@ public class Authentication extends AppCompatActivity {
             edPassword.requestFocus();
             return;
         }
+
         if(password.length() < 6){
             edPassword.setError("Min characters 6");
             edPassword.requestFocus();
@@ -72,7 +75,19 @@ public class Authentication extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     //redirect profile
-                    startActivity(new Intent(Authentication.this, NavigationDrawerActivity.class));
+                    FirebaseHelper firebaseHelper = new FirebaseHelper();
+                    firebaseHelper.getUserParkingSpaces(new ActionDone() {
+                        @Override
+                        public void onSuccess() {
+                            startActivity(new Intent(Authentication.this,
+                                    NavigationDrawerActivity.class));
+                        }
+
+                        @Override
+                        public void onFailed() {
+
+                        }
+                    });
                 }
                 else{
                     Toast.makeText(Authentication.this, "login failed! Try again", Toast.LENGTH_LONG).show();

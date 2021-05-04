@@ -59,6 +59,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
     MapControl mapControl;
     FirebaseHelper firebaseHelper;
     LocationControl locationControl;
+    ParkingSpaceControl parkingSpaceControl;
 
     FusedLocationProviderClient fusedLocationProviderClient;
     Location lastKnownLocation;
@@ -200,7 +201,21 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         getDeviceLocation(new ActionDone() {
             @Override
             public void onSuccess() {
-                onDeviceLocationFound();
+                Log.v("Path",ParkingSpaceControl.parkingSpacesPath+locationControl.getUserCityName());
+                firebaseHelper.getAllParkingSpacesInCity(locationControl, new ActionDone() {
+                    @Override
+                    public void onSuccess() {
+                        mapControl.createMarkers();
+                /*
+             Log.v("ButtonListArray", String.valueOf(mapControl.getLength()));
+             Log.v("ParkingSpaceList", String.valueOf(parkingSpaceControl.parkingSpacesList.size()));
+              */
+                    }
+                    @Override
+                    public void onFailed(){
+
+                    }
+                });;
             }
 
             @Override
@@ -246,24 +261,6 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         } catch (SecurityException e)  {
             Log.e("Exception: %s", e.getMessage(), e);
         }
-    }
-
-    public void onDeviceLocationFound(){
-        Log.v("Path",ParkingSpaceControl.parkingSpacesPath+locationControl.getUserCityName());
-        firebaseHelper.getAllParkingSpacesInCity(locationControl, new ActionDone() {
-            @Override
-            public void onSuccess() {
-                mapControl.createMarkers();
-                /*
-             Log.v("ButtonListArray", String.valueOf(mapControl.getLength()));
-             Log.v("ParkingSpaceList", String.valueOf(parkingSpaceControl.parkingSpacesList.size()));
-              */
-            }
-            @Override
-            public void onFailed(){
-
-            }
-        });
     }
 
     //    @Override

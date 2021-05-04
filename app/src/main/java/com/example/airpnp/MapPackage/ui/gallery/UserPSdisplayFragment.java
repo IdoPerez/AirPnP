@@ -66,9 +66,8 @@ public class UserPSdisplayFragment extends Fragment implements AdapterView.OnIte
 
         parkingSpacesNames = new ArrayList<>();
         for (ParkingSpace parkingSpace:
-             parkingSpaceControl.parkingSpacesList) {
-            if (parkingSpace.getUserUID().equals(FirebaseHelper.CURRENT_USER_UID))
-                parkingSpacesNames.add(parkingSpace.getAddress());
+             parkingSpaceControl.userParkingSpacesList) {
+            parkingSpacesNames.add(parkingSpace.getAddress());
         }
 
         parkingSpacesListView.setOnItemClickListener(this);
@@ -120,7 +119,7 @@ public class UserPSdisplayFragment extends Fragment implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (parkingSpaceControl.parkingSpacesList.size() > position){
-            ParkingSpace parkingSpace = parkingSpaceControl.parkingSpacesList.get(position);
+            ParkingSpace parkingSpace = parkingSpaceControl.userParkingSpacesList.get(position);
             openBottomSheet(parkingSpace);
         }
     }

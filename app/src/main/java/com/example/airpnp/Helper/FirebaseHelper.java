@@ -200,6 +200,30 @@ public class FirebaseHelper {
          */
     }
 
+    public void getUserParkingSpaces(final ActionDone actionDone){
+        final ParkingSpaceControl parkingSpaceControl = ParkingSpaceControl.getInstance();
+
+        String path = ParkingSpaceControl.parkingSpacesPath+"userUID";
+        mDataBase = FirebaseDatabase.getInstance().getReference();
+        Query query = mDataBase.orderByChild(path).equalTo(user.getUid());
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot data :
+                        snapshot.getChildren()) {
+                    ParkingSpace parkingSpace = data.getValue(ParkingSpace.class);
+                    parkingSpaceControl.userParkingSpacesList.add(parkingSpace);
+                }
+                actionDone.onSuccess();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                actionDone.onFailed();
+            }
+        });
+    }
+
     public String getObjectKey(String fileLocation){
         return mDataBase.child(fileLocation).push().getKey();
     }

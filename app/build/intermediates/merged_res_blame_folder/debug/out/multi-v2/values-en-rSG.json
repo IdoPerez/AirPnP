@@ -4,7 +4,7 @@
             "outputFile": "D:\\AndroidProjects\\AirPnP\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rSG\\values-en-rSG.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\54a60a12c39ecb280106a70e6fa2f57f\\jetified-play-services-wallet-12.0.1\\res\\values-en-rSG\\values.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\ff5682bd07935824a4d4aeeeb8f80414\\jetified-play-services-wallet-12.0.1\\res\\values-en-rSG\\values.xml",
                     "from": {
                         "startLines": "4",
                         "startColumns": "0",
