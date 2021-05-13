@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -197,5 +199,8 @@ public class RentActivity extends AppCompatActivity {
             }
         }
         return true;
+    }
+
+    public void onDayCheckBoxClicked(View view) {
     }
 }

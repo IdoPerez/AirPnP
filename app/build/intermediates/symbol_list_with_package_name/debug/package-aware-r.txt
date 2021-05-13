@@ -2172,6 +2172,7 @@ dimen tooltip_precise_anchor_threshold
 dimen tooltip_vertical_padding
 dimen tooltip_y_offset_non_touch
 dimen tooltip_y_offset_touch
+drawable a
 drawable abc_ab_share_pack_mtrl_alpha
 drawable abc_action_bar_item_background_material
 drawable abc_btn_borderless_material
@@ -2342,6 +2343,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
+drawable custom_radio_button
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -2647,6 +2649,7 @@ drawable quantum_ic_volume_off_grey600_36
 drawable quantum_ic_volume_off_white_36
 drawable quantum_ic_volume_up_grey600_36
 drawable quantum_ic_volume_up_white_36
+drawable radio_button_regular_state
 drawable side_nav_bar
 drawable test_custom_background
 drawable tooltip_frame_dark
@@ -2807,6 +2810,13 @@ id center_horizontal
 id center_vertical
 id chain
 id chains
+id checkBox2
+id checkBox3
+id checkBox4
+id checkBox5
+id checkBox6
+id checkBox7
+id checkBox9
 id checkbox
 id checked
 id chip
@@ -2842,10 +2852,12 @@ id cut
 id dark
 id date
 id date_picker_actions
+id days_check_box_group
 id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
+id deleteButtonBottomSheet
 id deltaRelative
 id demote_common_words
 id demote_rfc822_hostnames
@@ -2878,6 +2890,7 @@ id easeInOut
 id easeOut
 id edEmail
 id edPassword
+id editButtonBottomSheet
 id editText
 id editText2
 id edit_query
@@ -3162,7 +3175,6 @@ id ratio
 id rectangles
 id register
 id rentButtonBottomSheet
-id rentButtonBottomSheet2
 id reverseSawtooth
 id rfc822
 id right
@@ -3398,6 +3410,7 @@ layout app_bar_main
 layout bottom_sheet_design
 layout bottom_sheet_layout
 layout bottom_sheet_layout_parkingspace_display
+layout button_test
 layout cast_expanded_controller_activity
 layout cast_help_text
 layout cast_intro_overlay

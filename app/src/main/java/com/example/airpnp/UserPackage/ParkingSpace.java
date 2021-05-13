@@ -1,5 +1,9 @@
 package com.example.airpnp.UserPackage;
 
+import android.net.Uri;
+
+import java.util.ArrayList;
+
 public class ParkingSpace {
 
     private String parkingSpaceID;
@@ -12,6 +16,7 @@ public class ParkingSpace {
     private int size;
     private boolean isActive;
     private boolean isAvailable;
+    private ArrayList<String> parkingSpaceImages;
 
     public ParkingSpace(String address, String city, String country, double price, int size, String userUID, double latitude, double longitude){
         this.address = address;
@@ -22,6 +27,7 @@ public class ParkingSpace {
         this.latitude = latitude;
         this.longitude = longitude;
         this.country = country;
+        parkingSpaceImages = new ArrayList<>();
     }
 
     public String toString(){
@@ -106,5 +112,13 @@ public class ParkingSpace {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public ArrayList<String> getParkingSpaceImages() {
+        return parkingSpaceImages;
+    }
+
+    public void setParkingSpaceImages(ArrayList<String> parkingSpaceImages) {
+        this.parkingSpaceImages = parkingSpaceImages;
     }
 }

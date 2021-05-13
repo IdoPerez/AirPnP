@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#fff"
     tools:context=".RentPackage.RentActivity">
 
   <TextView
@@ -18,17 +19,31 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
+  <TextView
+      android:id="@+id/textView"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="19dp"
+      android:text="Address:"
+      android:textSize="15dp"
+      app:layout_constraintBottom_toTopOf="@+id/autocomplete_fragment"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="@+id/autocomplete_fragment"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="1.0" />
+
   <fragment
       android:id="@+id/autocomplete_fragment"
+      android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
       android:layout_width="304dp"
       android:layout_height="wrap_content"
-      android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_bias="0.57"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.231"/>
+      app:layout_constraintVertical_bias="0.231" />
 
   <com.google.android.material.textfield.TextInputLayout
       android:id="@+id/layoutPrice"
@@ -36,7 +51,7 @@
       android:layout_height="wrap_content"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="@+id/autocomplete_fragment"
-      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintHorizontal_bias="0.06"
       app:layout_constraintStart_toStartOf="@+id/autocomplete_fragment"
       app:layout_constraintTop_toBottomOf="@+id/autocomplete_fragment"
       app:layout_constraintVertical_bias="0.109">
@@ -53,7 +68,7 @@
       android:layout_height="wrap_content"
       app:layout_constraintBottom_toBottomOf="@+id/layoutPrice"
       app:layout_constraintEnd_toEndOf="@+id/autocomplete_fragment"
-      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintHorizontal_bias="0.88"
       app:layout_constraintStart_toStartOf="@+id/autocomplete_fragment"
       app:layout_constraintTop_toBottomOf="@+id/autocomplete_fragment"
       app:layout_constraintVertical_bias="1.0">
@@ -73,54 +88,58 @@
       app:layout_constraintHorizontal_bias="0.27"
       app:layout_constraintStart_toStartOf="@+id/autocomplete_fragment"
       app:layout_constraintTop_toBottomOf="@+id/autocomplete_fragment"
-      app:layout_constraintVertical_bias="0.355">
+      app:layout_constraintVertical_bias="0.25">
 
     <com.google.android.material.textfield.TextInputEditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Time" />
+        android:hint="Time: hh:mm" />
   </com.google.android.material.textfield.TextInputLayout>
+
+  <include
+      android:id="@+id/days_check_box_group"
+      layout="@layout/days_checkboxes"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="15dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="@+id/layoutTime"
+      app:layout_constraintStart_toStartOf="@+id/layoutTime"
+      app:layout_constraintTop_toBottomOf="@+id/layoutTime"
+      app:layout_constraintVertical_bias="0.0" />
 
   <Button
       android:id="@+id/nextBtn"
       style="@style/Widget.App.Button.TextButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginBottom="32dp"
       android:background="@drawable/button"
       android:onClick="nextStep"
       android:text="next"
       app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="@+id/autocomplete_fragment"
-      app:layout_constraintHorizontal_bias="0.971"
+      app:layout_constraintEnd_toEndOf="@+id/layoutTime"
+      app:layout_constraintHorizontal_bias="1.0"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="1.0" />
+      app:layout_constraintTop_toBottomOf="@+id/layoutTime"
+      app:layout_constraintVertical_bias="0.88" />
 
-  <com.google.android.material.button.MaterialButton
+  <Button
       android:id="@+id/button4"
       style="@style/Widget.App.Button.TextButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:background="@drawable/button"
       android:onClick="cancelRent"
-      android:text="Cancel"
+      android:text="cancel"
+      android:textAllCaps="false"
       app:layout_constraintBottom_toBottomOf="@+id/nextBtn"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.106"
-      app:layout_constraintStart_toStartOf="@+id/autocomplete_fragment"
+      app:layout_constraintEnd_toStartOf="@+id/nextBtn"
+      app:layout_constraintHorizontal_bias="0.25"
+      app:layout_constraintStart_toStartOf="@+id/layoutTime"
       app:layout_constraintTop_toTopOf="@+id/nextBtn"
       app:layout_constraintVertical_bias="0.0" />
-
-  <ImageView
-      android:id="@+id/imageView2"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/layoutTime"
-      app:layout_constraintVertical_bias="0.271"
-      tools:src="@tools:sample/avatars" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

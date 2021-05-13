@@ -1,5 +1,6 @@
 package com.example.airpnp.MapPackage.ui.gallery;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -19,6 +21,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.airpnp.Helper.FirebaseHelper;
 import com.example.airpnp.R;
+import com.example.airpnp.RentPackage.RentActivity;
 import com.example.airpnp.UserPackage.ParkingSpace;
 import com.example.airpnp.UserPackage.ParkingSpaceControl;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -38,6 +41,7 @@ public class UserPSdisplayFragment extends Fragment implements AdapterView.OnIte
     BottomSheetBehavior bottomSheetBehavior;
 
     TextView tvSize, tvPrice, tvAddress,tvCity;
+    Button edit, delete;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -58,6 +62,9 @@ public class UserPSdisplayFragment extends Fragment implements AdapterView.OnIte
         tvPrice = root.findViewById(R.id.price);
         tvSize = root.findViewById(R.id.size);
 
+        edit = root.findViewById(R.id.editButtonBottomSheet);
+        delete = root.findViewById(R.id.deleteButtonBottomSheet);
+
         bottomSheetCallBack(bottomSheetBehavior);
 
 
@@ -75,11 +82,22 @@ public class UserPSdisplayFragment extends Fragment implements AdapterView.OnIte
         adapter = new ArrayAdapter<String>(requireContext(), R.layout.support_simple_spinner_dropdown_item, parkingSpacesNames);
         parkingSpacesListView.setAdapter(adapter);
 
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent  = new Intent(requireActivity(), RentActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //delete the parking space.
+            }
+        });
+
         return root;
-    }
-
-    private void findUserParkingSpaces(){
-
     }
 
     public void bottomSheetCallBack(final BottomSheetBehavior bottomSheetBehavior){
@@ -114,6 +132,10 @@ public class UserPSdisplayFragment extends Fragment implements AdapterView.OnIte
 
     private void openBottomSheet(ParkingSpace parkingSpace){
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
+        tvAddress.setText("Address: "+parkingSpace.getAddress());
+        tvCity.setText("City: "+parkingSpace.getParkingSpaceCity());
+        tvPrice.setText("Price: "+parkingSpace.getPrice());
+        tvSize.setText("Size: "+parkingSpace.getSize());
     }
 
     @Override

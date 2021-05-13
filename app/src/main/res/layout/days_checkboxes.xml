@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".RentPackage.RentActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkBox9"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custom_checkboxes"
+            android:button="@drawable/custom_checkboxes"
+            android:checked="false"
+            android:gravity="center"
+            android:onClick="onDayCheckBoxClicked"
+            android:text="ש"
+            android:textColor="#EA2424"
+            android:textSize="15dp" />
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custom_checkboxes"
+            android:button="@drawable/custom_checkboxes"
+            android:checked="false"
+            android:gravity="center"
+            android:onClick="onDayCheckBoxClicked"
+            android:text="ו"
+            android:textColor="#0C8EEF"
+            android:textSize="18dp" />
+
+        <CheckBox
+            android:id="@+id/checkBox4"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custom_checkboxes"
+            android:button="@drawable/custom_checkboxes"
+            android:checked="false"
+            android:gravity="center"
+            android:onClick="onDayCheckBoxClicked"
+            android:text="ה"
+            android:textSize="15dp" />
+
+        <CheckBox
+            android:id="@+id/checkBox5"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custom_checkboxes"
+            android:button="@drawable/custom_checkboxes"
+            android:checked="false"
+            android:gravity="center"
+            android:onClick="onDayCheckBoxClicked"
+            android:text="ד"
+            android:textSize="15dp" />
+
+        <CheckBox
+            android:id="@+id/checkBox6"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custom_checkboxes"
+            android:button="@drawable/custom_checkboxes"
+            android:checked="false"
+            android:gravity="center"
+            android:onClick="onDayCheckBoxClicked"
+            android:text="ג"
+            android:textSize="15dp" />
+
+        <CheckBox
+            android:id="@+id/checkBox7"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custom_checkboxes"
+            android:button="@drawable/custom_checkboxes"
+            android:checked="false"
+            android:gravity="center"
+            android:onClick="onDayCheckBoxClicked"
+            android:text="ב"
+            android:textSize="15dp" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@drawable/custom_checkboxes"
+            android:button="@drawable/custom_checkboxes"
+            android:checked="false"
+            android:gravity="center"
+            android:onClick="onDayCheckBoxClicked"
+            android:text="א"
+            android:textSize="15dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="45" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="35"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editTextTime"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/editTextTime13"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/editTextTime50"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingRight="3dp">
+
+            <TextView
+                android:id="@+id/thursday"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/checkboxes_checked_state"
+                android:gravity="center"
+                android:text="ה"
+                android:textAllCaps="false"
+                android:textColor="#53aade"
+                android:textSize="10dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:id="@+id/friday"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/checkboxes_checked_state"
+                android:gravity="center"
+                android:text="ו"
+                android:textAllCaps="false" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:id="@+id/saturday"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/checkboxes_checked_state"
+                android:gravity="center"
+                android:text="ש"
+                android:textAllCaps="false" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="35"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editTextTime8"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:inputType="time"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/editTextTime9"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/editTextTime10"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                android:visibility="visible" />
+
+            <EditText
+                android:id="@+id/editTextTime11"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:ems="10"
+                android:inputType="time"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="10" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="20"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:paddingTop="8dp"
+            android:paddingRight="3dp">
+
+            <TextView
+                android:id="@+id/sunday"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/checkboxes_checked_state"
+                android:gravity="center"
+                android:text="א"
+                android:textAllCaps="false"
+                android:textColor="#53aade"
+                android:textSize="10dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:id="@+id/monday"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/checkboxes_checked_state"
+                android:gravity="center"
+                android:text="ב"
+                android:textAllCaps="false" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:id="@+id/tuesday"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/checkboxes_checked_state"
+                android:gravity="center"
+                android:text="ג"
+                android:textAllCaps="false" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+
+            <TextView
+                android:id="@+id/wednesday"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/checkboxes_checked_state"
+                android:gravity="center"
+                android:text="ד"
+                android:textAllCaps="false" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="40" />
+
+    </LinearLayout>
+
+</LinearLayout>

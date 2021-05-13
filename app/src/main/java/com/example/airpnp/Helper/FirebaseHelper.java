@@ -153,8 +153,12 @@ public class FirebaseHelper {
     }
 
     public void uploadParkingSpace(ParkingSpace parkingSpace, String path){
-        String parkingSpaceKey = getObjectKey(path);
-        parkingSpace.setParkingSpaceID(parkingSpaceKey);
+        String parkingSpaceKey;
+        if (parkingSpace.getParkingSpaceID() == null){
+             parkingSpaceKey = getObjectKey(path);
+            parkingSpace.setParkingSpaceID(parkingSpaceKey);
+        } else
+            parkingSpaceKey = parkingSpace.getParkingSpaceID();
         mDataBase = FirebaseDatabase.getInstance().getReference();
         mDataBase.child(path).child(parkingSpaceKey).setValue(parkingSpace);
         Log.v("ParkingSpace Path",parkingSpace.toString()+", "+ "Path:"+path+parkingSpaceKey);
@@ -180,7 +184,7 @@ public class FirebaseHelper {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 parkingSpaceControl.parkingSpacesList.clear();
-                parkingSpaceControl.userParkingSpacesList.clear();
+//                parkingSpaceControl.userParkingSpacesList.clear();
                 for (DataSnapshot data :
                         snapshot.getChildren()) {
                     ParkingSpace parkingSpace = data.getValue(ParkingSpace.class);
@@ -203,12 +207,13 @@ public class FirebaseHelper {
     public void getUserParkingSpaces(final ActionDone actionDone){
         final ParkingSpaceControl parkingSpaceControl = ParkingSpaceControl.getInstance();
 
-        String path = ParkingSpaceControl.parkingSpacesPath+"userUID";
-        mDataBase = FirebaseDatabase.getInstance().getReference();
-        Query query = mDataBase.orderByChild(path).equalTo(user.getUid());
+        String path = ParkingSpaceControl.parkingSpacesPath;
+        mDataBase = FirebaseDatabase.getInstance().getReference(path);
+        Query query = mDataBase.orderByChild("userUID").equalTo(user.getUid());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                parkingSpaceControl.userParkingSpacesList.clear();
                 for (DataSnapshot data :
                         snapshot.getChildren()) {
                     ParkingSpace parkingSpace = data.getValue(ParkingSpace.class);

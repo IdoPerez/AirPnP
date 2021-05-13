@@ -110,10 +110,11 @@
         app:layout_constraintVertical_bias="0.033" />
 
     <Button
-        android:id="@+id/rentButtonBottomSheet"
+        android:id="@+id/deleteButtonBottomSheet"
         android:layout_width="wrap_content"
         android:layout_height="42dp"
         android:text="Delete"
+        android:background="@drawable/button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.74"
@@ -122,15 +123,19 @@
         app:layout_constraintVertical_bias="0.154" />
 
     <Button
-        android:id="@+id/rentButtonBottomSheet2"
-        android:layout_width="wrap_content"
+        android:id="@+id/editButtonBottomSheet"
+        android:layout_width="100dp"
         android:layout_height="42dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
         android:text="Edit"
+        android:textAllCaps="false"
+        android:background="@drawable/button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/rentButtonBottomSheet"
         app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.151" />
+        app:layout_constraintVertical_bias="0.13999999" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

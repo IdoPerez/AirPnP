@@ -51,6 +51,8 @@ com/example/airpnp/RentPackage/RentControl.java
 com/example/airpnp/MapPackage/ui/gallery/UserPSdisplayFragment.java
  com.example.airpnp.MapPackage.ui.gallery.UserPSdisplayFragment
  com.example.airpnp.MapPackage.ui.gallery.UserPSdisplayFragment$1
+ com.example.airpnp.MapPackage.ui.gallery.UserPSdisplayFragment$2
+ com.example.airpnp.MapPackage.ui.gallery.UserPSdisplayFragment$3
 com/example/airpnp/AuthPackage/EmailVerification.java
  com.example.airpnp.AuthPackage.EmailVerification
 com/example/airpnp/UserPackage/ParkingSpace.java
