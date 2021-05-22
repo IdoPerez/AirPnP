@@ -19,6 +19,18 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
+  <fragment
+      android:id="@+id/autocomplete_fragment"
+      android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+      android:layout_width="304dp"
+      android:layout_height="wrap_content"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.57"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="0.231" />
+
   <TextView
       android:id="@+id/textView"
       android:layout_width="wrap_content"
@@ -33,27 +45,15 @@
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="1.0" />
 
-  <fragment
-      android:id="@+id/autocomplete_fragment"
-      android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-      android:layout_width="304dp"
-      android:layout_height="wrap_content"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.57"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.231" />
-
   <com.google.android.material.textfield.TextInputLayout
       android:id="@+id/layoutPrice"
       android:layout_width="92dp"
       android:layout_height="wrap_content"
-      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintBottom_toBottomOf="@+id/layoutSize"
       app:layout_constraintEnd_toEndOf="@+id/autocomplete_fragment"
-      app:layout_constraintHorizontal_bias="0.06"
+      app:layout_constraintHorizontal_bias="0.09"
       app:layout_constraintStart_toStartOf="@+id/autocomplete_fragment"
-      app:layout_constraintTop_toBottomOf="@+id/autocomplete_fragment"
+      app:layout_constraintTop_toTopOf="@+id/layoutSize"
       app:layout_constraintVertical_bias="0.109">
 
     <com.google.android.material.textfield.TextInputEditText
@@ -62,22 +62,20 @@
         android:hint="Price" />
   </com.google.android.material.textfield.TextInputLayout>
 
-  <com.google.android.material.textfield.TextInputLayout
+  <Spinner
       android:id="@+id/layoutSize"
-      android:layout_width="96dp"
+      android:layout_width="100dp"
       android:layout_height="wrap_content"
-      app:layout_constraintBottom_toBottomOf="@+id/layoutPrice"
+      android:hint="Size"
+      app:layout_constraintBottom_toTopOf="@+id/layoutTime"
       app:layout_constraintEnd_toEndOf="@+id/autocomplete_fragment"
       app:layout_constraintHorizontal_bias="0.88"
       app:layout_constraintStart_toStartOf="@+id/autocomplete_fragment"
       app:layout_constraintTop_toBottomOf="@+id/autocomplete_fragment"
-      app:layout_constraintVertical_bias="1.0">
+      app:layout_constraintVertical_bias="0.74">
+  </Spinner>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Size" />
-  </com.google.android.material.textfield.TextInputLayout>
+
 
   <com.google.android.material.textfield.TextInputLayout
       android:id="@+id/layoutTime"
@@ -98,10 +96,11 @@
 
   <include
       android:id="@+id/days_check_box_group"
-      layout="@layout/days_checkboxes"
+      layout="@layout/days_test"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="15dp"
+      android:visibility="gone"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="@+id/layoutTime"
       app:layout_constraintStart_toStartOf="@+id/layoutTime"
@@ -110,7 +109,6 @@
 
   <Button
       android:id="@+id/nextBtn"
-      style="@style/Widget.App.Button.TextButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginStart="16dp"
@@ -127,7 +125,6 @@
 
   <Button
       android:id="@+id/button4"
-      style="@style/Widget.App.Button.TextButton"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:background="@drawable/button"

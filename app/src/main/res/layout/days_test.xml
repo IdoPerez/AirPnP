@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <CheckBox
-            android:id="@+id/checkBox9"
+            android:id="@+id/saturdayCheckBox"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:background="@drawable/custom_checkboxes"
@@ -31,7 +32,7 @@
             android:textSize="15dp" />
 
         <CheckBox
-            android:id="@+id/checkBox3"
+            android:id="@+id/fridayCheckBox"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:background="@drawable/custom_checkboxes"
@@ -44,7 +45,7 @@
             android:textSize="18dp" />
 
         <CheckBox
-            android:id="@+id/checkBox4"
+            android:id="@+id/thursdayCheckBox"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:background="@drawable/custom_checkboxes"
@@ -56,7 +57,7 @@
             android:textSize="15dp" />
 
         <CheckBox
-            android:id="@+id/checkBox5"
+            android:id="@+id/wednesdayCheckBox"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:background="@drawable/custom_checkboxes"
@@ -68,7 +69,7 @@
             android:textSize="15dp" />
 
         <CheckBox
-            android:id="@+id/checkBox6"
+            android:id="@+id/tuesdayCheckBox"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:background="@drawable/custom_checkboxes"
@@ -80,7 +81,7 @@
             android:textSize="15dp" />
 
         <CheckBox
-            android:id="@+id/checkBox7"
+            android:id="@+id/mondayCheckBox"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:background="@drawable/custom_checkboxes"
@@ -92,7 +93,7 @@
             android:textSize="15dp" />
 
         <CheckBox
-            android:id="@+id/checkBox2"
+            android:id="@+id/sundayCheckBox"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:background="@drawable/custom_checkboxes"
@@ -106,28 +107,194 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/thursdayTV"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/checkboxes_checked_state"
+        android:gravity="center"
+        android:text="ה"
+        android:textAllCaps="false"
+        android:textColor="#53aade"
+        android:textSize="10dp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/saturdayTV"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/checkboxes_checked_state"
+        android:gravity="center"
+        android:text="ש"
+        android:textAllCaps="false"
+        android:textColor="#EA2424"
+        android:textSize="10dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/fridayTV"
+        app:layout_constraintTop_toBottomOf="@+id/fridayTV" />
+
+    <TextView
+        android:id="@+id/fridayTV"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/checkboxes_checked_state"
+        android:gravity="center"
+        android:text="ו"
+        android:textAllCaps="false"
+        android:textColor="#53aade"
+        android:textSize="10dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/thursdayTV"
+        app:layout_constraintTop_toBottomOf="@+id/thursdayTV" />
+
+    <TextView
+        android:id="@+id/mondayTV"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/checkboxes_checked_state"
+        android:gravity="center"
+        android:text="ב"
+        android:textAllCaps="false"
+        android:textColor="#53aade"
+        android:textSize="10dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/sundayTV"
+        app:layout_constraintTop_toBottomOf="@+id/sundayTV" />
+
+    <TextView
+        android:id="@+id/tuesdayTV"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/checkboxes_checked_state"
+        android:gravity="center"
+        android:text="ג"
+        android:textAllCaps="false"
+        android:textColor="#53aade"
+        android:textSize="10dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/mondayTV"
+        app:layout_constraintTop_toBottomOf="@+id/mondayTV" />
+
+    <TextView
+        android:id="@+id/wednesdayTV"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/checkboxes_checked_state"
+        android:gravity="center"
+        android:text="ד"
+        android:textAllCaps="false"
+        android:textColor="#53aade"
+        android:textSize="10dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/tuesdayTV"
+        app:layout_constraintTop_toBottomOf="@+id/tuesdayTV" />
+
+    <TextView
+        android:id="@+id/sundayTV"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/checkboxes_checked_state"
+        android:gravity="center"
+        android:text="א"
+        android:textAllCaps="false"
+        android:textColor="#53aade"
+        android:textSize="10dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/sundayTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTime2"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="0.18"
-        app:layout_constraintStart_toEndOf="@+id/editTextTime2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="1.0" />
+        android:layout_marginEnd="8dp"
+        android:text="Time: set here"
+        android:textSize="10sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/sundayTV"
+        app:layout_constraintEnd_toStartOf="@+id/sundayTV"
+        app:layout_constraintTop_toTopOf="@+id/sundayTV" />
 
-    <EditText
-        android:id="@+id/editTextTime2"
-        android:layout_width="80dp"
+    <TextView
+        android:id="@+id/mondayTime"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:ems="10"
-        android:inputType="time"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_marginEnd="8dp"
+        android:text="Time: set here"
+        android:textSize="10sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/mondayTV"
+        app:layout_constraintEnd_toStartOf="@+id/mondayTV"
+        app:layout_constraintTop_toTopOf="@+id/mondayTV" />
+
+    <TextView
+        android:id="@+id/tuesdayTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Time: set here"
+        android:textSize="10sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/tuesdayTV"
+        app:layout_constraintEnd_toStartOf="@+id/tuesdayTV"
+        app:layout_constraintTop_toBottomOf="@+id/mondayTV" />
+
+    <TextView
+        android:id="@+id/wednesdayTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Time: set here"
+        android:textSize="10sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/wednesdayTV"
+        app:layout_constraintEnd_toStartOf="@+id/wednesdayTV"
+        app:layout_constraintTop_toBottomOf="@+id/tuesdayTV" />
+
+    <TextView
+        android:id="@+id/saturdayTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Time: set here"
+        android:textSize="10sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/saturdayTV"
+        app:layout_constraintEnd_toStartOf="@+id/saturdayTV"
+        app:layout_constraintTop_toTopOf="@+id/saturdayTV" />
+
+    <TextView
+        android:id="@+id/thursdayTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Time: set here"
+        android:textSize="10sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/thursdayTV"
+        app:layout_constraintEnd_toStartOf="@+id/thursdayTV"
+        app:layout_constraintTop_toTopOf="@+id/thursdayTV"
+        app:layout_constraintVertical_bias="0.545" />
+
+    <TextView
+        android:id="@+id/fridayTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Time: set here"
+        android:textSize="10sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/saturdayTV"
+        app:layout_constraintEnd_toStartOf="@+id/fridayTV"
+        app:layout_constraintTop_toBottomOf="@+id/thursdayTV" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

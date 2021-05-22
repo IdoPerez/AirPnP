@@ -1,13 +1,18 @@
 package com.example.airpnp.RentPackage;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Size;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -18,6 +23,8 @@ import com.example.airpnp.AuthPackage.RegisterUser;
 import com.example.airpnp.ContactUser.SmsSender;
 import com.example.airpnp.MapPackage.MapActivity;
 import com.example.airpnp.R;
+import com.example.airpnp.Resources.CustomAdapterSizeMenu;
+import com.example.airpnp.Resources.SizeItem;
 import com.google.android.gms.common.api.Status;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.libraries.places.api.Places;
@@ -29,15 +36,24 @@ import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
 public class RentActivity extends AppCompatActivity {
     TextInputLayout priceLayout, sizeLayout;
     AutocompleteSupportFragment autocompleteSupportFragment;
+    AutoCompleteTextView sizeTextView;
     private RentControl rentControl;
     private static final String API_KEY = "AIzaSyANALN_AusNyUUV5oD_DE_U2hO__5GEm48";
     private String address, city, stPrice;
+    TextView sundayTV, mondayTV, tuesdayTV, wednesdayTV, thursdayTV, fridayTV, saturdayTV;
+    TextView sundayTime, mondayTime, tuesdayTime, wednesdayTime, thursdayTime, fridayTime, saturdayTime;
+    View dayCheckBoxView;
+
+    ArrayList<SizeItem> sizeItems = new ArrayList<>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +62,32 @@ public class RentActivity extends AppCompatActivity {
 
         priceLayout = findViewById(R.id.layoutPrice);
         sizeLayout = findViewById(R.id.layoutSize);
+        sizeTextView = findViewById(R.id.sizeTextView);
+
+        sizeItems.add(new SizeItem(R.drawable.car_icon_a));
+
+        CustomAdapterSizeMenu adapterSizeMenu = new CustomAdapterSizeMenu(this, sizeItems);
+        sizeTextView.setAdapter(adapterSizeMenu);
+
+        dayCheckBoxView = findViewById(R.id.days_check_box_group);
+
+        sundayTV = dayCheckBoxView.findViewById(R.id.sundayTV);
+        mondayTV = dayCheckBoxView.findViewById(R.id.mondayTV);
+        tuesdayTV = dayCheckBoxView.findViewById(R.id.tuesdayTV);
+        wednesdayTV = dayCheckBoxView.findViewById(R.id.wednesdayTV);
+        thursdayTV = dayCheckBoxView.findViewById(R.id.thursdayTV);
+        fridayTV = dayCheckBoxView.findViewById(R.id.fridayTV);
+        saturdayTV = dayCheckBoxView.findViewById(R.id.saturdayTV);
+
+        sundayTime = dayCheckBoxView.findViewById(R.id.sundayTime);
+        mondayTime = dayCheckBoxView.findViewById(R.id.mondayTime);
+        tuesdayTime = dayCheckBoxView.findViewById(R.id.tuesdayTime);
+        wednesdayTime = dayCheckBoxView.findViewById(R.id.wednesdayTime);
+        thursdayTime = dayCheckBoxView.findViewById(R.id.thursdayTime);
+        fridayTime = dayCheckBoxView.findViewById(R.id.fridayTime);
+        saturdayTime = dayCheckBoxView.findViewById(R.id.saturdayTime);
+
+
 
         rentControl = new RentControl(this);
         Places.initialize(getApplicationContext(), API_KEY);
@@ -104,7 +146,70 @@ public class RentActivity extends AppCompatActivity {
         rentControl.createParkingSpace(price, address);
     }
 
-    /*
+    public void onDayCheckBoxClicked(View view) {
+        switch (view.getId()){
+            case R.id.sundayCheckBox: {
+                onCheckBoxClicked(R.id.sundayCheckBox, sundayTV, sundayTime);
+                break;
+            }
+            case R.id.mondayCheckBox: {
+                onCheckBoxClicked(R.id.mondayCheckBox, mondayTV, mondayTime);
+                break;
+            }
+            case R.id.tuesdayCheckBox:{
+                onCheckBoxClicked(R.id.tuesdayCheckBox, tuesdayTV, tuesdayTime);
+                break;
+            }
+            case R.id.wednesdayCheckBox:{
+                onCheckBoxClicked(R.id.wednesdayCheckBox, wednesdayTV, wednesdayTime);
+                break;
+            }
+            case R.id.thursdayCheckBox:{
+                onCheckBoxClicked(R.id.thursdayCheckBox, thursdayTV, thursdayTime);
+                break;
+            }
+            case R.id.fridayCheckBox:{
+                onCheckBoxClicked(R.id.fridayCheckBox, fridayTV, fridayTime);
+                break;
+            }
+            case R.id.saturdayCheckBox:{
+                onCheckBoxClicked(R.id.saturdayCheckBox, saturdayTV, saturdayTime);
+                break;
+            }
+        }
+    }
+
+    //                checkBox = dayCheckBoxView.findViewById(R.id.mondayCheckBox);
+    //                if (checkBox.isChecked()){
+    //                    //getResources().getColor(R.color.checkBoxCheckedTextColor, null
+    //                    checkBox.setTextColor(getResources().getColor(R.color.checkBoxCheckedTextColor, null));
+    //                    sundayTV.setVisibility(View.VISIBLE);
+    //                    sundayTime.setVisibility(View.VISIBLE);
+    //                } else{
+    //                    checkBox.setTextColor(Color.BLACK);
+    //                    sundayTV.setVisibility(View.INVISIBLE);
+    //                    sundayTime.setVisibility(View.INVISIBLE);
+    //                }
+
+    public void cancelRent(View view) {
+
+    }
+
+    private void onCheckBoxClicked(int checkBoxId, TextView checkBoxTV, TextView timeTV){
+        CheckBox checkBox = dayCheckBoxView.findViewById(checkBoxId);
+        if (checkBox.isChecked()){
+            //getResources().getColor(R.color.checkBoxCheckedTextColor, null
+            checkBox.setTextColor(getResources().getColor(R.color.checkBoxCheckedTextColor, null));
+            checkBoxTV.setVisibility(View.VISIBLE);
+            timeTV.setVisibility(View.VISIBLE);
+        } else{
+            checkBox.setTextColor(Color.BLACK);
+            checkBoxTV.setVisibility(View.INVISIBLE);
+            timeTV.setVisibility(View.INVISIBLE);
+        }
+    }
+
+        /*
     LatLng addressLatlang = locationControl.getLocationFromAddress(address, this);
     ParkingSpace parkingSpace = new ParkingSpace(address, splitLocation(address),price, 20, firebaseHelper.getUserUid(), addressLatlang.latitude, addressLatlang.longitude);
         parkingSpace.setAvailable(true);
@@ -125,11 +230,6 @@ public class RentActivity extends AppCompatActivity {
     }
 
      */
-
-    public void cancelRent(View view) {
-
-    }
-
 
     /*
     public void previousStep(View view) { viewPager.setCurrentItem(getNextPossibleItemIndex(-1), true); }
@@ -199,8 +299,5 @@ public class RentActivity extends AppCompatActivity {
             }
         }
         return true;
-    }
-
-    public void onDayCheckBoxClicked(View view) {
     }
 }

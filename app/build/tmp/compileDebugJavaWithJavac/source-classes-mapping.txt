@@ -44,6 +44,8 @@ com/example/airpnp/BuildConfig.java
  com.example.airpnp.BuildConfig
 com/example/airpnp/MapPackage/MapControl.java
  com.example.airpnp.MapPackage.MapControl
+com/example/airpnp/Resources/SizeItem.java
+ com.example.airpnp.Resources.SizeItem
 com/example/airpnp/MapPackage/BottomSheetControl.java
  com.example.airpnp.MapPackage.BottomSheetControl
 com/example/airpnp/RentPackage/RentControl.java
@@ -61,6 +63,8 @@ com/example/airpnp/MapPackage/MarkerButton.java
  com.example.airpnp.MapPackage.MarkerButton
 com/example/airpnp/Helper/ActionDone.java
  com.example.airpnp.Helper.ActionDone
+com/example/airpnp/Resources/Place.java
+ com.example.airpnp.Resources.Place
 com/example/airpnp/UserPackage/ParkingSpaceControl.java
  com.example.airpnp.UserPackage.ParkingSpaceControl
 com/example/airpnp/MapPackage/NavigationDrawerActivity.java
@@ -78,9 +82,9 @@ com/example/airpnp/RentPackage/FragmentCollectionAdapter.java
  com.example.airpnp.RentPackage.FragmentCollectionAdapter
 com/example/airpnp/RentPackage/Steps/RentFirstStep.java
  com.example.airpnp.RentPackage.Steps.RentFirstStep
-com/example/airpnp/RentPackage/RentActivity.java
- com.example.airpnp.RentPackage.RentActivity
- com.example.airpnp.RentPackage.RentActivity$1
+com/example/airpnp/UserPackage/ProfileActivity.java
+ com.example.airpnp.UserPackage.ProfileActivity
+ com.example.airpnp.UserPackage.ProfileActivity$1
 com/example/airpnp/ContactUser/SmsSender.java
  com.example.airpnp.ContactUser.SmsSender
 com/example/airpnp/MapPackage/MapActivity.java
@@ -108,8 +112,8 @@ com/example/airpnp/MapPackage/ui/home/HomeViewModel.java
  com.example.airpnp.MapPackage.ui.home.HomeViewModel
 com/example/airpnp/RentPackage/Steps/RentSecStep.java
  com.example.airpnp.RentPackage.Steps.RentSecStep
-com/example/airpnp/Resources/Place.java
- com.example.airpnp.Resources.Place
-com/example/airpnp/UserPackage/ProfileActivity.java
- com.example.airpnp.UserPackage.ProfileActivity
- com.example.airpnp.UserPackage.ProfileActivity$1
+com/example/airpnp/RentPackage/RentActivity.java
+ com.example.airpnp.RentPackage.RentActivity
+ com.example.airpnp.RentPackage.RentActivity$1
+com/example/airpnp/Resources/CustomAdapterSizeMenu.java
+ com.example.airpnp.Resources.CustomAdapterSizeMenu

@@ -27,6 +27,11 @@
             android:textColor="#EA2424"
             android:textSize="15dp" />
 
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
         <CheckBox
             android:id="@+id/checkBox3"
             android:layout_width="35dp"
@@ -40,6 +45,11 @@
             android:textColor="#0C8EEF"
             android:textSize="18dp" />
 
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
         <CheckBox
             android:id="@+id/checkBox4"
             android:layout_width="35dp"
@@ -51,6 +61,11 @@
             android:onClick="onDayCheckBoxClicked"
             android:text="ה"
             android:textSize="15dp" />
+
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <CheckBox
             android:id="@+id/checkBox5"
@@ -64,6 +79,11 @@
             android:text="ד"
             android:textSize="15dp" />
 
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
         <CheckBox
             android:id="@+id/checkBox6"
             android:layout_width="35dp"
@@ -75,6 +95,11 @@
             android:onClick="onDayCheckBoxClicked"
             android:text="ג"
             android:textSize="15dp" />
+
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
 
         <CheckBox
             android:id="@+id/checkBox7"
@@ -88,13 +113,18 @@
             android:text="ב"
             android:textSize="15dp" />
 
+        <Space
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
         <CheckBox
             android:id="@+id/checkBox2"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:background="@drawable/custom_checkboxes"
             android:button="@drawable/custom_checkboxes"
-            android:checked="false"
+            android:checked="true"
             android:gravity="center"
             android:onClick="onDayCheckBoxClicked"
             android:text="א"
@@ -110,7 +140,7 @@
         <Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="45" />
+            android:layout_weight="35" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -208,51 +238,72 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="35"
-            android:orientation="vertical">
+            android:layout_weight="50"
+            android:orientation="vertical"
+            android:paddingTop="8dp">
 
-            <EditText
-                android:id="@+id/editTextTime8"
+            <TextView
+                android:id="@+id/textView13"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:inputType="time"
-                android:visibility="visible" />
+                android:layout_height="wrap_content"
+                android:text="start: set here"
+                android:textSize="10sp" />
 
-            <EditText
-                android:id="@+id/editTextTime9"
+            <TextView
+                android:id="@+id/textView14"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:ems="10"
-                android:inputType="time"
-                android:visibility="visible" />
+                android:layout_height="wrap_content"
+                android:text="end:set here"
+                android:textSize="10sp" />
 
-            <EditText
-                android:id="@+id/editTextTime10"
+            <TextView
+                android:id="@+id/textView11"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:ems="10"
-                android:inputType="time"
-                android:visibility="visible" />
+                android:layout_height="wrap_content"
+                android:text="start: set here"
+                android:textSize="10sp" />
 
-            <EditText
-                android:id="@+id/editTextTime11"
+            <TextView
+                android:id="@+id/textView12"
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:ems="10"
-                android:inputType="time"
-                android:visibility="visible" />
+                android:layout_height="wrap_content"
+                android:text="end:set here"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="start: set here"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="end:set here"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="end:set here"
+                android:paddingTop="5dp"
+                android:textSize="10sp"/>
+
         </LinearLayout>
 
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="10" />
+<!--        <Space-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="3" />-->
 
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="20"
-            android:gravity="right"
+            android:layout_weight="30"
+            android:gravity="center"
             android:orientation="vertical"
             android:paddingTop="8dp"
             android:paddingRight="3dp">
@@ -316,6 +367,13 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="40" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start: set here"
+            android:textSize="10sp" />
 
     </LinearLayout>
 

@@ -1158,6 +1158,7 @@ color cast_intro_overlay_button_background_color
 color cast_libraries_material_featurehighlight_outer_highlight_default_color
 color cast_libraries_material_featurehighlight_text_body_color
 color cast_libraries_material_featurehighlight_text_header_color
+color checkBoxCheckedTextColor
 color checkbox_themeable_attribute_color
 color colorAccent
 color colorPrimary
@@ -2172,7 +2173,6 @@ dimen tooltip_precise_anchor_threshold
 dimen tooltip_vertical_padding
 dimen tooltip_y_offset_non_touch
 dimen tooltip_y_offset_touch
-drawable a
 drawable abc_ab_share_pack_mtrl_alpha
 drawable abc_action_bar_item_background_material
 drawable abc_btn_borderless_material
@@ -2270,6 +2270,7 @@ drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable button
+drawable car_icon_a
 drawable cast_abc_scrubber_control_off_mtrl_alpha
 drawable cast_abc_scrubber_control_to_pressed_mtrl_000
 drawable cast_abc_scrubber_control_to_pressed_mtrl_005
@@ -2324,6 +2325,7 @@ drawable cast_ic_stop_circle_filled_white
 drawable cast_mini_controller_gradient_light
 drawable cast_mini_controller_progress_drawable
 drawable cast_skip_ad_label_border
+drawable checkboxes_checked_state
 drawable common_full_open_on_phone
 drawable common_google_signin_btn_icon_dark
 drawable common_google_signin_btn_icon_dark_focused
@@ -2343,7 +2345,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
-drawable custom_radio_button
+drawable custom_checkboxes
 drawable design_bottom_navigation_item_background
 drawable design_fab_background
 drawable design_ic_visibility
@@ -2893,6 +2895,9 @@ id edPassword
 id editButtonBottomSheet
 id editText
 id editText2
+id editTextTime
+id editTextTime13
+id editTextTime50
 id edit_query
 id elastic
 id email
@@ -2919,6 +2924,10 @@ id floating
 id forever
 id fragment_container
 id fragment_container_view_tag
+id friday
+id fridayCheckBox
+id fridayTV
+id fridayTime
 id ghost_view
 id ghost_view_holder
 id gone
@@ -2982,6 +2991,7 @@ id light
 id line1
 id line3
 id linear
+id linearLayout
 id listHeader
 id listMode
 id list_item
@@ -3019,6 +3029,10 @@ id message
 id middle
 id mini
 id mobile_navigation
+id monday
+id mondayCheckBox
+id mondayTV
+id mondayTime
 id monochrome
 id month_grid
 id month_navigation_bar
@@ -3185,6 +3199,10 @@ id rounded
 id row_index_key
 id sandbox
 id satellite
+id saturday
+id saturdayCheckBox
+id saturdayTV
+id saturdayTime
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -3217,6 +3235,8 @@ id showHome
 id showTitle
 id sin
 id size
+id sizeItemIcon
+id sizeTextView
 id skipCollapsed
 id slide
 id smallLabel
@@ -3249,6 +3269,10 @@ id strict_sandbox
 id submenuarrow
 id submit_area
 id subtitle_view
+id sunday
+id sundayCheckBox
+id sundayTV
+id sundayTime
 id tabMode
 id tab_host
 id tag_accessibility_actions
@@ -3274,10 +3298,19 @@ id textSpacerNoTitle
 id textStart
 id textTitle
 id textTop
+id textView
 id textView1
+id textView10
+id textView11
+id textView12
+id textView13
+id textView14
+id textView2
+id textView4
 id textView5
 id textView6
 id textView7
+id textView8
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3290,6 +3323,10 @@ id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
 id thing_proto
+id thursday
+id thursdayCheckBox
+id thursdayTV
+id thursdayTime
 id time
 id title
 id titleDividerNoCustom
@@ -3308,6 +3345,10 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tuesday
+id tuesdayCheckBox
+id tuesdayTV
+id tuesdayTime
 id tvAddress
 id tvPrice
 id unchecked
@@ -3322,6 +3363,10 @@ id view_offset_helper
 id visible
 id visible_removing_fragment_view_tag
 id volume_item_container
+id wednesday
+id wednesdayCheckBox
+id wednesdayTV
+id wednesdayTime
 id wide
 id withText
 id withinBounds
@@ -3410,7 +3455,6 @@ layout app_bar_main
 layout bottom_sheet_design
 layout bottom_sheet_layout
 layout bottom_sheet_layout_parkingspace_display
-layout button_test
 layout cast_expanded_controller_activity
 layout cast_help_text
 layout cast_intro_overlay
@@ -3419,7 +3463,10 @@ layout cast_tracks_chooser_dialog_layout
 layout cast_tracks_chooser_dialog_row_layout
 layout content_main
 layout custom_dialog
+layout custom_item_size_menu
 layout custom_window_layout
+layout days_checkboxes
+layout days_test
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
