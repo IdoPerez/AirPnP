@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.airpnp.ContactUser.SmsSender;
 import com.example.airpnp.Helper.ActionDone;
 import com.example.airpnp.Helper.FirebaseHelper;
+import com.example.airpnp.MapPackage.MainActivityBotNav;
 import com.example.airpnp.MapPackage.MapActivity;
 import com.example.airpnp.MapPackage.NavigationDrawerActivity;
 import com.example.airpnp.R;
@@ -80,7 +81,7 @@ public class Authentication extends AppCompatActivity {
                         @Override
                         public void onSuccess() {
                             startActivity(new Intent(Authentication.this,
-                                    NavigationDrawerActivity.class));
+                                    MainActivityBotNav.class));
                         }
 
                         @Override

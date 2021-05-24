@@ -11,10 +11,9 @@ public class MarkerButton {
     private Marker marker;
     private ParkingSpace parkingSpace;
     private GoogleMap googleMap;
-    private boolean userParkingSpace;
 
-    public MarkerButton(GoogleMap googleMap,ParkingSpace parkingSpace, boolean userParkingSpace){
-        this.parkingSpace = parkingSpace; this.googleMap = googleMap; this.userParkingSpace = userParkingSpace;
+    public MarkerButton(GoogleMap googleMap,ParkingSpace parkingSpace){
+        this.parkingSpace = parkingSpace; this.googleMap = googleMap;
         markerOptions = new MarkerOptions();
         markerOptions.position(new LatLng(parkingSpace.getLatitude(), parkingSpace.getLongitude())).title(parkingSpace.getAddress());
     }
@@ -35,13 +34,5 @@ public class MarkerButton {
 
     public ParkingSpace getParkingSpace(){
         return this.parkingSpace;
-    }
-
-    public boolean isUserParkingSpace() {
-        return userParkingSpace;
-    }
-
-    public void setUserParkingSpace(boolean userParkingSpace) {
-        this.userParkingSpace = userParkingSpace;
     }
 }

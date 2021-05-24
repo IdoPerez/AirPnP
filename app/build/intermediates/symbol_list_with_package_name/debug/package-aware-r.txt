@@ -2749,6 +2749,7 @@ id android_pay_light
 id android_pay_light_with_border
 id animateToEnd
 id animateToStart
+id around
 id asConfigured
 id async
 id audio_list_view
@@ -2766,13 +2767,16 @@ id beginning
 id blocking
 id blurred_background_image_view
 id book_now
+id botSheetUserParkingSpacesList
 id bottom
+id bottomNavigationView
 id bottomSheet
 id bottomSheet2
 id bottom_sheet_design
 id bottom_sheet_design_user_display
 id bottom_sheet_layout
 id bottom_sheet_layout_UPD
+id bottom_sheet_quick_sell
 id bounce
 id btnSendSMS
 id btn_done
@@ -2848,6 +2852,8 @@ id coordinator
 id cos
 id counterclockwise
 id crash_reporting_present
+id createNewPS
+id createParkingSpace
 id custom
 id customPanel
 id cut
@@ -2859,7 +2865,6 @@ id decelerate
 id decelerateAndComplete
 id decor_content_parent
 id default_activity_button
-id deleteButtonBottomSheet
 id deltaRelative
 id demote_common_words
 id demote_rfc822_hostnames
@@ -2892,7 +2897,6 @@ id easeInOut
 id easeOut
 id edEmail
 id edPassword
-id editButtonBottomSheet
 id editText
 id editText2
 id editTextTime
@@ -2913,6 +2917,7 @@ id expanded_controller_layout
 id expanded_menu
 id fab
 id fade
+id favorites
 id fill
 id fill_horizontal
 id fill_vertical
@@ -3111,6 +3116,7 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
+id myParkingSpaces
 id name
 id nav_controller_view_tag
 id nav_gallery
@@ -3184,6 +3190,7 @@ id profileImage
 id progressBar
 id progress_circular
 id progress_horizontal
+id quick_sell
 id radio
 id ratio
 id rectangles
@@ -3236,7 +3243,6 @@ id showTitle
 id sin
 id size
 id sizeItemIcon
-id sizeTextView
 id skipCollapsed
 id slide
 id smallLabel
@@ -3306,6 +3312,7 @@ id textView12
 id textView13
 id textView14
 id textView2
+id textView3
 id textView4
 id textView5
 id textView6
@@ -3445,6 +3452,7 @@ layout abc_tooltip
 layout activity_authentication
 layout activity_email_verification
 layout activity_main
+layout activity_main_bot_nav
 layout activity_map
 layout activity_navigation_drawer
 layout activity_profile
@@ -3594,6 +3602,7 @@ layout user_parking_spaces_profile
 layout user_ps_display_design
 layout wallet_test_layout
 menu activity_main_drawer
+menu bottom_nav_menu
 menu main
 menu navigation_drawer
 mipmap ic_launcher

@@ -1,6 +1,5 @@
 package com.example.airpnp.MapPackage;
 
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -8,22 +7,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
 import com.example.airpnp.Helper.ActionDone;
 import com.example.airpnp.Helper.FirebaseHelper;
 import com.example.airpnp.LocationPackage.LocationControl;
-import com.example.airpnp.MainActivity;
 import com.example.airpnp.R;
 import com.example.airpnp.UserPackage.Order;
 import com.example.airpnp.UserPackage.OrdersControl;
@@ -33,19 +32,17 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.Objects;
+import java.util.ArrayList;
 
 import static com.example.airpnp.LocationPackage.LocationControl.ACCESS_LOCATION_REQUEST_CODE;
 
@@ -53,7 +50,6 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 
     public static String TAG = "Map_Fragment";
 
-    MapView mapView;
     GoogleMap mMap;
     FloatingActionButton fab;
     MapControl mapControl;
@@ -67,8 +63,14 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 
     CoordinatorLayout bottomSheetLayout;
     BottomSheetBehavior bottomSheetBehavior;
+
     TextView tvSize, tvPrice, tvAddress,tvCity;
     Button rentButton;
+    Fragment mapFragment;
+    FrameLayout frameLayout;
+
+    ListView userParkingSpaceList;
+    ArrayList<String> userParkingSpacesNameList;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -87,8 +89,13 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 
         View root = inflater.inflate(R.layout.activity_map, container, false);
 
+
+
         bottomSheetLayout = root.findViewById(R.id.bottom_sheet_layout);
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
+//
+//        CoordinatorLayout coordinatorLayout = getActivity().findViewById(R.id.bottom_sheet_quick_sell);
+//        BottomSheetBehavior bottomSheetBehavior= BottomSheetBehavior.from(coordinatorLayout);
 
         //UI views inside the bottom sheet and initialize them
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
@@ -103,14 +110,38 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 
         bottomSheetCallBack(bottomSheetBehavior);
 
-        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
-                .findFragmentById(R.id.map);
+       SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
+              .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
         firebaseHelper = new FirebaseHelper();
         locationControl = new LocationControl(requireContext());
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext());
         return root;
+    }
+
+    public void setUserParkingSpacesListView(){
+        userParkingSpaceList = getActivity().findViewById(R.id.botSheetUserParkingSpacesList);
+        userParkingSpacesNameList = new ArrayList<>();
+        for (ParkingSpace parkingSpace:
+                parkingSpaceControl.userParkingSpacesList) {
+            userParkingSpacesNameList.add(parkingSpace.getAddress());
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(requireContext(),
+                R.layout.support_simple_spinner_dropdown_item,
+                userParkingSpacesNameList);
+        userParkingSpaceList.setAdapter(adapter);
+        userParkingSpaceList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                mapControl.setUserParkingSpaceToRent(userParkingSpacesNameList.get(position));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
     }
 
     public void bottomSheetCallBack(final BottomSheetBehavior bottomSheetBehavior){
@@ -121,6 +152,8 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
                 switch (newState) {
 
                     case BottomSheetBehavior.STATE_COLLAPSED:{
+                        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
+                        bottomNavigationView.setVisibility(View.VISIBLE);
                         break;
                     }
                     case BottomSheetBehavior.STATE_DRAGGING:
@@ -281,6 +314,11 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 
     @Override
     public boolean onMarkerClick(Marker marker) {
+        //FrameLayout frameLayout = getActivity().findViewById(R.id.fragment_container_bot_nav);
+        //frameLayout.getLayoutParams().height =
+        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setVisibility(View.GONE);
+
         marker.hideInfoWindow();
         Log.v("MarkerClicked", marker.toString());
         final MarkerButton markerButton = mapControl.getMarkerButtonClicked(marker);

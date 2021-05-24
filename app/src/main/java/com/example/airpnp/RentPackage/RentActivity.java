@@ -62,7 +62,7 @@ public class RentActivity extends AppCompatActivity {
 
         priceLayout = findViewById(R.id.layoutPrice);
         sizeLayout = findViewById(R.id.layoutSize);
-        sizeTextView = findViewById(R.id.sizeTextView);
+//        sizeTextView = findViewById(R.id.sizeTextView);
 
         sizeItems.add(new SizeItem(R.drawable.car_icon_a));
 

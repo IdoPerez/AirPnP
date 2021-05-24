@@ -120,13 +120,15 @@ public class MapControl {
             }
 
              */
-            MarkerButton markerButton = new MarkerButton(googleMap, parkingSpace, false);
-            markerButtonsList.add(markerButton);
-            markerButton.addMarkerOnMap();
+            createMarkerButton(parkingSpace);
         }
     }
 
-
+    public void createMarkerButton(ParkingSpace parkingSpace){
+        MarkerButton markerButton = new MarkerButton(googleMap, parkingSpace);
+        markerButtonsList.add(markerButton);
+        markerButton.addMarkerOnMap();
+    }
 
     /*
     public void addMarkersOnMap(){
@@ -186,4 +188,12 @@ public class MapControl {
         markerButtonsList.add(markerButton);
     }
 
+    public void setUserParkingSpaceToRent(String s) {
+        for (ParkingSpace parkingSpace:
+             parkingSpaceControl.userParkingSpacesList) {
+            if (parkingSpace.getAddress().equals(s)){
+                createMarkerButton(parkingSpace);
+            }
+        }
+    }
 }

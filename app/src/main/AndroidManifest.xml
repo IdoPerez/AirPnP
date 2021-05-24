@@ -8,7 +8,7 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.SEND_SMS" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -21,7 +21,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
         <!--
      The API key for Google Maps-based APIs is defined as a string resource.
      (See the file "res/values/google_maps_api.xml").
@@ -29,7 +28,11 @@
      You need a different API key for each encryption key, including the release key that is used to
      sign the APK for publishing.
      You can define the keys for the debug and release targets in src/debug/ and src/release/.
--->
+        -->
+        <activity
+            android:name=".MapPackage.MainActivityBotNav"
+            android:theme="@style/Theme.MaterialComponents.Light">
+        </activity>
 
         <activity
             android:name=".MapPackage.NavigationDrawerActivity"
@@ -40,13 +43,13 @@
         <activity
             android:name=".RentPackage.RentActivity"
             android:theme="@style/Theme.MaterialComponents.Light">
+
         </activity>
         <activity android:name=".AuthPackage.EmailVerification" />
         <activity android:name=".ContactUser.SmsSender" />
         <activity android:name=".UserPackage.ProfileActivity" />
         <activity android:name=".AuthPackage.RegisterUser" />
         <activity android:name=".AuthPackage.Authentication" />
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/around"
+        android:title="Around"/>
+    <item
+        android:id="@+id/quick_sell"
+        android:title="Quick sell"
+        />
+    <item
+        android:id="@+id/createParkingSpace"
+        android:title="create"/>
+    <item
+        android:id="@+id/favorites"
+        android:title="favorites"/>
+    <item
+        android:id="@+id/myParkingSpaces"
+        android:title="My PS"/>
+</menu>
