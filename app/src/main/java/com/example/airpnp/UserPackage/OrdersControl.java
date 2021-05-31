@@ -22,8 +22,8 @@ public class OrdersControl {
         return ordersControl_instance;
     }
 
-    public void placeNewOrder(String parkingSpaceID, String tenantUID, String renterUID){
-        Order order = new Order(parkingSpaceID, tenantUID, renterUID, null , null);
+    public void placeNewOrder(String parkingSpaceID, String tenantUID, String renterUID, boolean active){
+        Order order = new Order(parkingSpaceID, tenantUID, renterUID, null , null, active);
         String orderPath = ordersPath+firebaseHelper.getUserUid();
         order.setOrderID(firebaseHelper.getObjectKey(orderPath));
         firebaseHelper.uploadOrder(order, orderPath);

@@ -1,124 +1,225 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_sheet_design_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#ffffff"
-    android:paddingBottom="32dp">
+    android:layout_height="wrap_content"
+    android:paddingBottom="8dp"
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-         />
 
-    <TextView
-        android:id="@+id/address"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="Sophia Connors"
-        android:textColor="#292929"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
+        <ImageView
+            android:id="@+id/parkingSpaceImage"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:visibility="gone"
+            tools:srcCompat="@tools:sample/avatars" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/expandButton"
+                android:layout_width="34dp"
+                android:layout_height="24dp"
+                android:scaleY="1"
+                android:background="@android:color/transparent"
+                app:srcCompat="@drawable/ic_expand_less_black_18dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/detailLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/userImage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    tools:srcCompat="@tools:sample/avatars" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/titleName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="החניה של עידו"
+                    android:textColor="#0f0f10"
+                    android:textSize="18dp" />
+
+                <TextView
+                    android:id="@+id/addressBotSheet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:text="הר עצמון 1, באר שבע"
+                    android:textColor="#9ea1a3"
+                    android:textSize="14dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/pricePerHour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|right"
+                        android:paddingTop="8dp"
+                        android:text="25 p/h"
+                        android:textColor="#0f0f10"
+                        android:textSize="12dp" />
+
+                    <TextView
+                        android:id="@+id/sizeTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="start|right"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="Small"
+                        android:textColor="#0f0f10"
+                        android:textSize="12dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="6dp"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/rentButtonBottomSheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#0f0f10"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="Book spot"
+                android:textColor="#9ea1a3"
+                android:textSize="14dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bottomLayout_bottomSheet"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-         />
+        android:gravity="end|right"
+        android:orientation="vertical"
+        android:paddingRight="16dp"
+        android:visibility="visible">
 
-    <TextView
-        android:id="@+id/city"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:text="(650) 555-1122"
-        android:textColor="#292929"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintStart_toEndOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+        <LinearLayout
+            android:id="@+id/timeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:paddingTop="4dp">
 
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Mobile"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/city"
-        app:layout_constraintTop_toBottomOf="@+id/city" />
+            <TextView
+                android:id="@+id/timeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start|right"
+                android:text="שעות פעילות"
+                android:textColor="#9ea1a3"
+                android:textSize="12dp" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="wrap_content"
-        android:layout_height="1dp"
-        android:layout_marginTop="12dp"
-        android:background="#A3A3A3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/price"
-        app:layout_constraintTop_toBottomOf="@+id/price" />
+            <TextView
+                android:id="@+id/workingTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start|right"
+                android:paddingTop="5dp"
+                android:text="05:00 - 18:00"
+                android:textColor="#0f0f10"
+                android:textSize="16dp" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:srcCompat="@drawable/ic_menu_camera" />
+<!--            <TextView-->
+<!--                android:id="@+id/parkingSpaceStatus"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:gravity="start|right"-->
+<!--                android:paddingTop="4dp"-->
+<!--                android:text="פנוי"-->
+<!--                android:textColor="#009678" />-->
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/size"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:text="sophiacon@gmail.com"
-        android:textColor="#292929"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="1.0" />
+        <LinearLayout
+            android:id="@+id/contactLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Personal"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/size"
-        app:layout_constraintVertical_bias="0.033" />
+            <TextView
+                android:id="@+id/contactTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start|right"
+                android:paddingTop="14dp"
+                android:text="דרכי התקשרות"
+                android:textColor="#9ea1a3"
+                android:textSize="12dp" />
 
-    <Button
-        android:id="@+id/rentButtonBottomSheet"
-        android:layout_width="72dp"
-        android:layout_height="42dp"
-        android:text="Rent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintVertical_bias="0.135" />
+            <TextView
+                android:id="@+id/phoneNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start|right"
+                android:paddingTop="5dp"
+                android:text="0506658069" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/emailTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="start|right"
+                android:paddingTop="5dp"
+                android:text="258258ido@gmail.com" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

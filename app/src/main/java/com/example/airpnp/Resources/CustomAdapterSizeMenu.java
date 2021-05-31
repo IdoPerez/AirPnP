@@ -33,10 +33,10 @@ public class CustomAdapterSizeMenu extends ArrayAdapter<SizeItem> {
         if(listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(R.layout.custom_item_size_menu,parent,false);
 
-        SizeItem currentITem = sizeItemIcons.get(position);
+        SizeItem currentItem = sizeItemIcons.get(position);
 
         ImageView image = (ImageView)listItem.findViewById(R.id.sizeItemIcon);
-        image.setImageResource(currentITem.getImageDrawable());
+        image.setImageResource(currentItem.getImageDrawable());
         return listItem;
     }
 }

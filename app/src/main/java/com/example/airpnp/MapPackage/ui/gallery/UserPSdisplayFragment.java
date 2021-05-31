@@ -60,7 +60,7 @@ public class UserPSdisplayFragment extends Fragment implements AdapterView.OnIte
         tvAddress = root.findViewById(R.id.address);
         tvCity = root.findViewById(R.id.city);
         tvPrice = root.findViewById(R.id.price);
-        tvSize = root.findViewById(R.id.size);
+        //tvSize = root.findViewById(R.id.size);
 
 //        edit = root.findViewById(R.id.editButtonBottomSheet);
 //        delete = root.findViewById(R.id.deleteButtonBottomSheet);

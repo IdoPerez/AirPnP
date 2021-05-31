@@ -14,6 +14,8 @@ import com.example.airpnp.LocationPackage.LocationControl;
 import com.example.airpnp.UserPackage.Order;
 import com.example.airpnp.UserPackage.ParkingSpace;
 import com.example.airpnp.UserPackage.ParkingSpaceControl;
+import com.example.airpnp.UserPackage.User;
+import com.example.airpnp.UserPackage.UsersControl;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -180,7 +182,9 @@ public class FirebaseHelper {
         //orderByChild("parkingSpaceCity").equalTo(locationControl.getUserCityName());
         //Query query = mDataBase.orderByChild("parkingSpaceCity").equalTo(locationControl.getUserCityName());;
         Log.v("userCityName:", locationControl.getUserCityName());
-        mDataBase.child(path).addValueEventListener(new ValueEventListener() {
+        mDataBase = FirebaseDatabase.getInstance().getReference(path);
+        Query query = mDataBase.orderByChild("active").equalTo(true);
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 parkingSpaceControl.parkingSpacesList.clear();
@@ -231,5 +235,35 @@ public class FirebaseHelper {
 
     public String getObjectKey(String fileLocation){
         return mDataBase.child(fileLocation).push().getKey();
+    }
+
+    public void setParkingSpaceActive(ParkingSpace parkingSpace, boolean state){
+        mDataBase = FirebaseDatabase.getInstance().getReference();
+        mDataBase.child(ParkingSpaceControl.parkingSpacesPath)
+                .child(parkingSpace.getParkingSpaceID())
+                .child("active")
+                .setValue(state);
+        parkingSpace.setActive(state);
+    }
+
+    public void getCurrentUser(final ActionDone actionDone){
+        final UsersControl usersControl = UsersControl.getInstance();
+        mDataBase = FirebaseDatabase.getInstance().getReference("Users");
+        Query query = mDataBase.orderByChild("Users").equalTo(user.getUid());
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot data :
+                        snapshot.getChildren()) {
+                    usersControl.currentUser = data.getValue(User.class);
+                }
+                actionDone.onSuccess();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                actionDone.onFailed();
+            }
+        });
     }
 }

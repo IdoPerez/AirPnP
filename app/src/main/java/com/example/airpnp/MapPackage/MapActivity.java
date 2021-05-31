@@ -2,21 +2,25 @@ package com.example.airpnp.MapPackage;
 
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -24,10 +28,13 @@ import com.example.airpnp.Helper.ActionDone;
 import com.example.airpnp.Helper.FirebaseHelper;
 import com.example.airpnp.LocationPackage.LocationControl;
 import com.example.airpnp.R;
+import com.example.airpnp.Resources.CardItem;
+import com.example.airpnp.Resources.CustomAdapterCardList;
 import com.example.airpnp.UserPackage.Order;
 import com.example.airpnp.UserPackage.OrdersControl;
 import com.example.airpnp.UserPackage.ParkingSpace;
 import com.example.airpnp.UserPackage.ParkingSpaceControl;
+import com.example.airpnp.UserPackage.User;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -46,10 +53,10 @@ import java.util.ArrayList;
 
 import static com.example.airpnp.LocationPackage.LocationControl.ACCESS_LOCATION_REQUEST_CODE;
 
-public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickListener, OnMapReadyCallback {
+public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickListener, OnMapReadyCallback, AdapterView.OnItemClickListener {
 
     public static String TAG = "Map_Fragment";
-
+    private final int MAP_ZOOM_VALUE = 17;
     GoogleMap mMap;
     FloatingActionButton fab;
     MapControl mapControl;
@@ -61,16 +68,25 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
     Location lastKnownLocation;
     OrdersControl ordersControl;
 
-    CoordinatorLayout bottomSheetLayout;
+    LinearLayout bottomSheetLayout;
     BottomSheetBehavior bottomSheetBehavior;
 
-    TextView tvSize, tvPrice, tvAddress,tvCity;
+    TextView tvSize, tvPrice, tvAddress, tvParkingSpaceName, timeAvailable, tvStatus, tvPhoneNum, tvEmail;
     Button rentButton;
     Fragment mapFragment;
     FrameLayout frameLayout;
 
     ListView userParkingSpaceList;
     ArrayList<String> userParkingSpacesNameList;
+    ArrayList<CardItem> cardItemList;
+
+    LinearLayout bottomLayout, topLayout;
+
+    ImageButton imageButton;
+
+    float topLayoutHeight, bottomLayoutHeight, screenHeight,screenWidth, bottomSheetRatio;
+
+    User myUser;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -87,12 +103,17 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 
          */
 
-        View root = inflater.inflate(R.layout.activity_map, container, false);
+        final View root = inflater.inflate(R.layout.activity_map, container, false);
 
+        View layout = getActivity().findViewById(R.id.bottom_sheet_quick_sell);
+        userParkingSpaceList = layout.findViewById(R.id.botSheetUserParkingSpacesList);
 
 
         bottomSheetLayout = root.findViewById(R.id.bottom_sheet_layout);
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
+
+        bottomLayout = root.findViewById(R.id.bottomLayout_bottomSheet);
+        topLayout = root.findViewById(R.id.topLayout);
 //
 //        CoordinatorLayout coordinatorLayout = getActivity().findViewById(R.id.bottom_sheet_quick_sell);
 //        BottomSheetBehavior bottomSheetBehavior= BottomSheetBehavior.from(coordinatorLayout);
@@ -100,13 +121,33 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         //UI views inside the bottom sheet and initialize them
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
         bottomSheetBehavior.setFitToContents(false);
-        bottomSheetBehavior.setHalfExpandedRatio(0.4f);
 
-        tvAddress = root.findViewById(R.id.address);
-        tvCity = root.findViewById(R.id.city);
-        tvPrice = root.findViewById(R.id.price);
-        tvSize = root.findViewById(R.id.size);
+        setsLayoutParams();
+
+        tvAddress = root.findViewById(R.id.addressBotSheet);
+        tvParkingSpaceName = root.findViewById(R.id.titleName);
+        tvPrice = root.findViewById(R.id.pricePerHour);
+        tvSize = root.findViewById(R.id.sizeTextView);
         rentButton = root.findViewById(R.id.rentButtonBottomSheet);
+        tvPhoneNum = root.findViewById(R.id.phoneNum);
+        tvStatus = root.findViewById(R.id.parkingSpaceStatus);
+        tvEmail = root.findViewById(R.id.emailTv);
+        timeAvailable = root.findViewById(R.id.workingTime);
+
+        imageButton = root.findViewById(R.id.expandButton);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (imageButton.getScaleY() == 1){
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
+                    imageButton.setScaleY(-1);
+                }
+                else{
+                    bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                    imageButton.setScaleY(1);
+                }
+            }
+        });
 
         bottomSheetCallBack(bottomSheetBehavior);
 
@@ -114,68 +155,176 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
               .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        parkingSpaceControl = ParkingSpaceControl.getInstance();
+        ordersControl = OrdersControl.getInstance();
+
         firebaseHelper = new FirebaseHelper();
         locationControl = new LocationControl(requireContext());
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext());
         return root;
     }
 
-    public void setUserParkingSpacesListView(){
-        userParkingSpaceList = getActivity().findViewById(R.id.botSheetUserParkingSpacesList);
-        userParkingSpacesNameList = new ArrayList<>();
-        for (ParkingSpace parkingSpace:
-                parkingSpaceControl.userParkingSpacesList) {
-            userParkingSpacesNameList.add(parkingSpace.getAddress());
+    private void setsLayoutParams(){
+
+        //gets the screen height
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        screenHeight = displaymetrics.heightPixels;
+        screenWidth = displaymetrics.widthPixels;
+
+        //gets the action bar height
+        TypedValue tv = new TypedValue();
+        if (getActivity().getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
+        {
+            int actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data,getResources().getDisplayMetrics());
+            screenHeight -= actionBarHeight;
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(requireContext(),
-                R.layout.support_simple_spinner_dropdown_item,
-                userParkingSpacesNameList);
-        userParkingSpaceList.setAdapter(adapter);
-        userParkingSpaceList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                mapControl.setUserParkingSpaceToRent(userParkingSpacesNameList.get(position));
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+        //callback when the layout has been drawn
+        final ViewTreeObserver vto = topLayout.getViewTreeObserver();
+        if (vto.isAlive()) {
+            vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+                @Override
+                public void onGlobalLayout() {
+                    topLayoutHeight = topLayout.getMeasuredHeight();
+                    bottomLayoutHeight = bottomLayout.getMeasuredHeight();
+                    bottomSheetBehavior.setPeekHeight(topLayout.getMeasuredHeight());
+                    halfScreenRatio();
+                    // handle viewWidth here...
 
-            }
-        });
+                    if (Build.VERSION.SDK_INT < 16) {
+                        vto.removeGlobalOnLayoutListener(this);
+                    } else {
+                        topLayout.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                    }
+                }
+            });
+        }
+    }
+
+    private void halfScreenRatio(){
+        bottomSheetRatio = (topLayoutHeight+bottomLayoutHeight*100)/screenHeight;
+        bottomSheetBehavior.setHalfExpandedRatio(1-(bottomSheetRatio/100));
+        Log.v("Ratio", String.valueOf(bottomSheetRatio)+" "+topLayoutHeight+" "+bottomLayoutHeight+" "+screenHeight);
     }
 
     public void bottomSheetCallBack(final BottomSheetBehavior bottomSheetBehavior){
         bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
-            public void onStateChanged(@NonNull View bottomSheet, int newState) {
-
+            public void onStateChanged(@NonNull View bottomSheetView, int newState) {
                 switch (newState) {
 
-                    case BottomSheetBehavior.STATE_COLLAPSED:{
+                    case BottomSheetBehavior.STATE_COLLAPSED:
+                    case BottomSheetBehavior.STATE_HALF_EXPANDED: {
+//                        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
+//                        bottomNavigationView.setVisibility(View.VISIBLE);
+                        break;
+                    }
+                    case BottomSheetBehavior.STATE_DRAGGING:{
+                        if (imageButton.getScaleY() == 1)
+                            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                        else
+                            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
+                    }
+                        break;
+
+                    case BottomSheetBehavior.STATE_EXPANDED:
+                    case BottomSheetBehavior.STATE_SETTLING:
+                        break;
+
+                    case BottomSheetBehavior.STATE_HIDDEN:{
                         BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
                         bottomNavigationView.setVisibility(View.VISIBLE);
-                        break;
                     }
-                    case BottomSheetBehavior.STATE_DRAGGING:
-                        break;
-                    case BottomSheetBehavior.STATE_EXPANDED:
-                        break;
-                    case BottomSheetBehavior.STATE_HALF_EXPANDED:{
-                    }
-                    case BottomSheetBehavior.STATE_HIDDEN:
-                        break;
-                    case BottomSheetBehavior.STATE_SETTLING:
                         break;
                 }
             }
 
             @Override
-            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
-
+            public void onSlide(@NonNull View bottomSheetView, float slideOffset) {
+                //bottomLayout.setVisibility(View.VISIBLE);
+//                bottomSheetLayout.setLayoutParams(new ViewGroup.LayoutParams(
+//                        ViewGroup.LayoutParams.MATCH_PARENT,
+//                        ViewGroup.LayoutParams.WRAP_CONTENT));
             }
         });
     }
 
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setVisibility(View.GONE);
+
+        marker.hideInfoWindow();
+        Log.v("MarkerClicked", marker.toString());
+        final MarkerButton markerButton = mapControl.getMarkerButtonClicked(marker);
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+        ParkingSpace parkingSpace = markerButton.getParkingSpace();
+        displayParkingSpace(parkingSpace);
+//        tvAddress.setText("Address: "+parkingSpace.getAddress());
+//        tvCity.setText("City: "+parkingSpace.getParkingSpaceCity());
+//        tvPrice.setText("Price: "+parkingSpace.getPrice());
+//        tvSize.setText("Size: "+parkingSpace.getSize());
+//
+//        rentButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ordersControl.placeNewOrder(markerButton.getParkingSpace().getParkingSpaceID(), markerButton.getParkingSpace().getUserUID(), firebaseHelper.getUserUid(), true);
+//                Toast.makeText(requireContext(), "new order created", Toast.LENGTH_LONG).show();
+//            }
+//        });
+        //createNewOrder(markerButton.getParkingSpace());
+        //customInfoWindowAdapter.onMarkerClicked(markerButton);
+        //marker.showInfoWindow();
+        return false;
+    }
+
+    private void displayParkingSpace(ParkingSpace parkingSpace){
+        tvParkingSpaceName.setText(parkingSpace.getParkingSpaceName());
+        tvAddress.setText(parkingSpace.getAddress());
+        //tvSize.setText(parkingSpace.getSize());
+        tvPrice.setText(String.valueOf(parkingSpace.getPrice()));
+        timeAvailable.setText(parkingSpace.getParkingSpaceWorkingHours());
+    }
+
+    private void setActivityListView(){
+        Order order1 = new Order("-MXWhGX0aOLLg8j7yMvi", null, null, null, null, true);
+        order1.setTime(8);
+        order1.setPrice(25);
+        ordersControl.userOrdersList.add(order1);
+
+        View.OnClickListener onClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "button clicked heyyyy", Toast.LENGTH_LONG).show();
+            }
+        };
+
+        cardItemList = new ArrayList<>();
+        for (Order order:
+                ordersControl.userOrdersList) {
+            if (order.isActive()){
+                cardItemList.add(new CardItem(order, "null", onClickListener));
+            }
+        }
+        CustomAdapterCardList customAdapterCardList = new CustomAdapterCardList(requireContext(), cardItemList);
+        userParkingSpaceList.setAdapter(customAdapterCardList);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        ParkingSpace parkingSpace = parkingSpaceControl.getParkingSpaceByAddress(userParkingSpacesNameList.get(position));
+        if (parkingSpace != null){
+            firebaseHelper.setParkingSpaceActive(parkingSpace, true);
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
+                    new LatLng(parkingSpace.getLatitude(),
+                            parkingSpace.getLongitude()), MAP_ZOOM_VALUE));
+        }
+    }
+
+    private void getCurrentUser(){
+
+    }
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -203,17 +352,6 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         deviceLocationAction();
         mapControl.updateLocationUI(requireActivity());
         ordersControl = OrdersControl.getInstance();
-
-        //BottomSheet test with manual marker.
-        /*
-        ParkingSpace parkingSpace = new ParkingSpace("address", "parkingSpaceCity",25, 20, firebaseHelper.getUserUid(), -33.868820,151.209290);
-        parkingSpace.setParkingSpaceID("1234");
-          markerButton = new MarkerButton(mMap, parkingSpace);
-          mapControl.addMarkerButton(markerButton);
-        mMap.moveCamera(CameraUpdateFactory
-                .newLatLngZoom(new LatLng(-33.868820,151.209290), 18));
-        markerButton.addMarkerOnMap();
-         */
     }
 
     @Override
@@ -238,7 +376,9 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
                 firebaseHelper.getAllParkingSpacesInCity(locationControl, new ActionDone() {
                     @Override
                     public void onSuccess() {
+                         mMap.clear();
                         mapControl.createMarkers();
+                        setActivityListView();
                 /*
              Log.v("ButtonListArray", String.valueOf(mapControl.getLength()));
              Log.v("ParkingSpaceList", String.valueOf(parkingSpaceControl.parkingSpacesList.size()));
@@ -273,7 +413,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
                                 locationControl.setLastKnownLocation(lastKnownLocation);
                                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                                         new LatLng(lastKnownLocation.getLatitude(),
-                                                lastKnownLocation.getLongitude()), 19));
+                                                lastKnownLocation.getLongitude()), MAP_ZOOM_VALUE));
                                 //mMap.addMarker(new MarkerOptions().position(new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude())));
 
                                 locationControl.updateUserLocation();
@@ -281,12 +421,6 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
                             }
                         } else {
                             actionDone.onFailed();
-                            /*
-                            mMap.moveCamera(CameraUpdateFactory
-                                    .newLatLngZoom(new LatLng(-33.868820,151.209290), 18));
-                            mMap.getUiSettings().setMyLocationButtonEnabled(false);
-
-                             */
                         }
                     }
                 });
@@ -296,55 +430,55 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         }
     }
 
-    //    @Override
-//    public void onRequestPermissionsResult(int requestCode,
-//                                           @NonNull String[] permissions,
-//                                           @NonNull int[] grantResults) {
-//        LocationControl.locationPermissionGranted = false;
-//        if (requestCode == ACCESS_LOCATION_REQUEST_CODE) {// If request is cancelled, the result arrays are empty.
-//            if (grantResults.length > 0
-//                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-//                LocationControl.locationPermissionGranted = true;
-//                mapControl.updateLocationUI(requireActivity());
-//                deviceLocationAction();
-//            }
-//        }
-//    }
-
-
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        //FrameLayout frameLayout = getActivity().findViewById(R.id.fragment_container_bot_nav);
-        //frameLayout.getLayoutParams().height =
-        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setVisibility(View.GONE);
-
-        marker.hideInfoWindow();
-        Log.v("MarkerClicked", marker.toString());
-        final MarkerButton markerButton = mapControl.getMarkerButtonClicked(marker);
-        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
-        ParkingSpace parkingSpace = markerButton.getParkingSpace();
-        tvAddress.setText("Address: "+parkingSpace.getAddress());
-        tvCity.setText("City: "+parkingSpace.getParkingSpaceCity());
-        tvPrice.setText("Price: "+parkingSpace.getPrice());
-        tvSize.setText("Size: "+parkingSpace.getSize());
-
-        rentButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ordersControl.placeNewOrder(markerButton.getParkingSpace().getParkingSpaceID(), markerButton.getParkingSpace().getUserUID(), firebaseHelper.getUserUid());
-                Toast.makeText(requireContext(), "new order created", Toast.LENGTH_LONG).show();
-            }
-        });
-        //createNewOrder(markerButton.getParkingSpace());
-        //customInfoWindowAdapter.onMarkerClicked(markerButton);
-        //marker.showInfoWindow();
-        return false;
+    public void moveCameraMap(){
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
+                new LatLng(lastKnownLocation.getLatitude(),
+                        lastKnownLocation.getLongitude()), 17));
     }
 
     public void createNewOrder(ParkingSpace parkingSpace){
-        Order userOrder = new Order(parkingSpace.getParkingSpaceID(), parkingSpace.getUserUID(), firebaseHelper.getUserUid(), null, null);
-        ordersControl.userOrdersList.add(userOrder);
-        firebaseHelper.uploadOrder(userOrder, OrdersControl.ordersPath);
+//        //Order userOrder = new Order(parkingSpace.getParkingSpaceID(), parkingSpace.getUserUID(), firebaseHelper.getUserUid(), null, null, price, time);
+//        ordersControl.userOrdersList.add(userOrder);
+//        firebaseHelper.uploadOrder(userOrder, OrdersControl.ordersPath);
     }
 }
+
+//    public void setUserParkingSpacesListView(){
+//        userParkingSpaceList = getActivity().findViewById(R.id.botSheetUserParkingSpacesList);
+//        userParkingSpacesNameList = new ArrayList<>();
+//        for (ParkingSpace parkingSpace:
+//                parkingSpaceControl.userParkingSpacesList) {
+//            userParkingSpacesNameList.add(parkingSpace.getAddress());
+//        }
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(requireContext(),
+//                R.layout.support_simple_spinner_dropdown_item,
+//                userParkingSpacesNameList);
+//        userParkingSpaceList.setAdapter(adapter);
+//        userParkingSpaceList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//                ParkingSpace parkingSpace = mapControl.getSelectedUserParkingSpace(userParkingSpacesNameList.get(position));
+//                if (parkingSpace != null)
+//                    firebaseHelper.setParkingSpaceActive(parkingSpace, true);
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+//    }
+
+//    private void setUserParkingSpacesListView(){
+//        userParkingSpacesNameList = new ArrayList<>();
+//        for (ParkingSpace parkingSpace:
+//                parkingSpaceControl.userParkingSpacesList) {
+//            userParkingSpacesNameList.add(parkingSpace.getAddress());
+//        }
+//
+//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(requireContext(),
+//                R.layout.support_simple_spinner_dropdown_item,
+//                userParkingSpacesNameList);
+//        userParkingSpaceList.setAdapter(adapter);
+//        userParkingSpaceList.setOnItemClickListener(this);
+//    }

@@ -50,14 +50,14 @@ public class RentControl {
 
         //String cityPath = null;
         LatLng addressLatlng = locationControl.getLocationFromAddress(address);
-        ParkingSpace parkingSpace = new ParkingSpace(address,
+        ParkingSpace parkingSpace = new ParkingSpace("Ido parkingSpace", address,
                 parkingSpaceCity,
                 parkingSpaceCountry,
                 price,
                 20,
                 firebaseHelper.getUserUid(),
                 addressLatlng.latitude,
-                addressLatlng.longitude);
+                addressLatlng.longitude, "8:00 - 10:00");
         parkingSpaceControl.userParkingSpacesList.add(parkingSpace);
         Log.v("ParkingSpace", parkingSpace.toString());
         //firebaseHelper.uploadParkingSpace(parkingSpace,ParkingSpaceControl.parkingSpacesPath+parkingSpaceCountry);

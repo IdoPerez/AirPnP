@@ -12,15 +12,17 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.example.airpnp.Helper.FirebaseHelper;
 import com.example.airpnp.R;
 import com.example.airpnp.UserPackage.ParkingSpace;
 import com.example.airpnp.UserPackage.ParkingSpaceControl;
+import com.google.android.gms.maps.GoogleMap;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.ArrayList;
 
-public class MainActivityBotNav extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivityBotNav extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
     Fragment mapFragment, rentFragment, fragment;
@@ -29,22 +31,39 @@ public class MainActivityBotNav extends AppCompatActivity implements BottomNavig
 
     ArrayList<String> userParkingSpacesNameList;
     ParkingSpaceControl parkingSpaceControl;
-    ListView userPSlistView;
+    ListView userParkingSpaceList;
+
+    FirebaseHelper firebaseHelper = new FirebaseHelper();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_bot_nav);
 
-        userParkingSpacesNameList = new ArrayList<>();
-        parkingSpaceControl = ParkingSpaceControl.getInstance();
-        userPSlistView = findViewById(R.id.botSheetUserParkingSpacesList);
-        setUserParkingSpacesListView();
+//        userParkingSpacesNameList = new ArrayList<>();
+//        parkingSpaceControl = ParkingSpaceControl.getInstance();
+//        userParkingSpaceList = findViewById(R.id.botSheetUserParkingSpacesList);
+//        setUserParkingSpacesListView();
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setSelectedItemId(R.id.around);
+//        bottomNavigationView.setSelectedItemId(R.id.around);
         mapFragment = new MapActivity();
         transferFragment(mapFragment);
-        bottomNavigationView.setOnNavigationItemSelectedListener(this);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if (item.getItemId() == R.id.quick_sell){
+                    bottomSheetQuickSell.setState(BottomSheetBehavior.STATE_EXPANDED);
+                }
+                else{
+                    bottomSheetQuickSell.setState(BottomSheetBehavior.STATE_HIDDEN);
+                }
+                switch (item.getItemId()){
+                    case R.id.around: transferFragment(mapFragment); break;
+                }
+                return true;
+            }
+        });
 
         bottomSheetLayout = findViewById(R.id.bottom_sheet_quick_sell);
         bottomSheetQuickSell = BottomSheetBehavior.from(bottomSheetLayout);
@@ -63,18 +82,6 @@ public class MainActivityBotNav extends AppCompatActivity implements BottomNavig
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .commit();
-    }
-
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.around: transferFragment(mapFragment); break;
-
-            case R.id.quick_sell: {
-                bottomSheetQuickSell.setState(BottomSheetBehavior.STATE_EXPANDED);
-            }
-        }
-        return false;
     }
 
     public void bottomSheetCallBack(final BottomSheetBehavior bottomSheetBehavior){
@@ -108,29 +115,14 @@ public class MainActivityBotNav extends AppCompatActivity implements BottomNavig
         });
     }
 
-    public void quickSellBottomSheet(){
-
-    }
-
-    public void setUserParkingSpacesListView(){
+    private void setUserParkingSpacesListView(){
         for (ParkingSpace parkingSpace:
-             parkingSpaceControl.userParkingSpacesList) {
+                parkingSpaceControl.userParkingSpacesList) {
             userParkingSpacesNameList.add(parkingSpace.getAddress());
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 R.layout.support_simple_spinner_dropdown_item,
                 userParkingSpacesNameList);
-        userPSlistView.setAdapter(adapter);
-        userPSlistView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
+        userParkingSpaceList.setAdapter(adapter);
     }
 }

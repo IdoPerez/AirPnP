@@ -89,6 +89,10 @@ public class MapControl {
             Log.e("Exception: %s", e.getMessage());
         }
     }
+
+    public void MoveCameraMap(double latitude, double longitude){
+
+    }
 //    public void userLocation(){
 //            Log.v("Path", "ParkingSpaces/"+locationControl.getCity().getKeyID());
 //            String path = ("ParkingSpaces/"+locationControl.getCity().getKeyID());
@@ -156,6 +160,15 @@ public class MapControl {
 //                marker.setTitle(String.valueOf(markerButton.getParkingSpace().getPrice() + " " + markerButton.getParkingSpace().getAddress()));
                 return markerButton;
             }
+        }
+        return null;
+    }
+
+    public ParkingSpace getSelectedUserParkingSpace(String address){
+        for (ParkingSpace parkingSpace:
+             parkingSpaceControl.userParkingSpacesList) {
+            if (parkingSpace.getAddress().equals(address))
+                return parkingSpace;
         }
         return null;
     }

@@ -2259,6 +2259,7 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable activity_bottom_sheet
 drawable avd_hide_password
 drawable avd_show_password
 drawable btn_checkbox_checked_mtrl
@@ -2271,6 +2272,7 @@ drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
 drawable button
 drawable car_icon_a
+drawable card_design
 drawable cast_abc_scrubber_control_off_mtrl_alpha
 drawable cast_abc_scrubber_control_to_pressed_mtrl_000
 drawable cast_abc_scrubber_control_to_pressed_mtrl_005
@@ -2359,6 +2361,8 @@ drawable ic_audiotrack_light
 drawable ic_clock_black_24dp
 drawable ic_dialog_close_dark
 drawable ic_dialog_close_light
+drawable ic_expand_less_black_18dp
+drawable ic_expand_more_black_48dp
 drawable ic_group_collapse_00
 drawable ic_group_collapse_01
 drawable ic_group_collapse_02
@@ -2652,6 +2656,7 @@ drawable quantum_ic_volume_off_white_36
 drawable quantum_ic_volume_up_grey600_36
 drawable quantum_ic_volume_up_white_36
 drawable radio_button_regular_state
+drawable shadow_effect
 drawable side_nav_bar
 drawable test_custom_background
 drawable tooltip_frame_dark
@@ -2729,6 +2734,7 @@ id action_mode_close_button
 id action_settings
 id action_text
 id actions
+id activityLayout
 id activity_chooser_view_content
 id ad_container
 id ad_image_view
@@ -2736,6 +2742,7 @@ id ad_in_progress_label
 id ad_label
 id add
 id address
+id addressBotSheet
 id adjust_height
 id adjust_width
 id age
@@ -2769,22 +2776,23 @@ id blurred_background_image_view
 id book_now
 id botSheetUserParkingSpacesList
 id bottom
+id bottomLayout_bottomSheet
 id bottomNavigationView
-id bottomSheet
 id bottomSheet2
+id bottomSheetLayout
 id bottom_sheet_design
+id bottom_sheet_design_layout
 id bottom_sheet_design_user_display
 id bottom_sheet_layout
 id bottom_sheet_layout_UPD
 id bottom_sheet_quick_sell
 id bounce
 id btnSendSMS
-id btn_done
-id btn_edit
 id button
 id button2
 id button3
 id button4
+id buttonLayout
 id buttonPanel
 id button_0
 id button_1
@@ -2798,6 +2806,7 @@ id buy_with_google
 id cache_measures
 id cancel_action
 id cancel_button
+id card
 id cast_button_type_closed_caption
 id cast_button_type_custom
 id cast_button_type_empty
@@ -2841,10 +2850,13 @@ id clockwise
 id collapseActionView
 id confirm_button
 id contact
+id contactLayout
+id contactTitle
 id container
 id container_all
 id container_current
 id content
+id contentLayout
 id contentPanel
 id contiguous
 id controllers
@@ -2852,8 +2864,9 @@ id coordinator
 id cos
 id counterclockwise
 id crash_reporting_present
-id createNewPS
 id createParkingSpace
+id currentPrice
+id currentPrice2
 id custom
 id customPanel
 id cut
@@ -2874,6 +2887,7 @@ id design_menu_item_action_area
 id design_menu_item_action_area_stub
 id design_menu_item_text
 id design_navigation_view
+id detailLayout
 id dialog_button
 id dimensions
 id direct
@@ -2905,6 +2919,7 @@ id editTextTime50
 id edit_query
 id elastic
 id email
+id emailTv
 id end
 id endToStart
 id end_padder
@@ -2912,6 +2927,7 @@ id end_text
 id enterAlways
 id enterAlwaysCollapsed
 id exitUntilCollapsed
+id expandButton
 id expand_activities_button
 id expanded_controller_layout
 id expanded_menu
@@ -2966,8 +2982,8 @@ id ignore
 id ignoreRequest
 id image
 id imageView
-id imageView2
-id imageView3
+id imageView4
+id imageView6
 id index_entity_types
 id info
 id instant_message
@@ -3006,6 +3022,7 @@ id loading_indicator
 id logo_only
 id map
 id map_fragment
+id map_layout
 id masked
 id match_global_nicknames
 id match_parent
@@ -3138,6 +3155,7 @@ id off
 id omnibox_title_section
 id omnibox_url_section
 id on
+id orderTime
 id outline
 id outward
 id packed
@@ -3146,6 +3164,10 @@ id parent
 id parentPanel
 id parentRelative
 id parent_matrix
+id parkingSpaceImage
+id parkingSpacePrice
+id parkingSpacePrice2
+id parkingSpaceStatus
 id parkingSpacesList
 id parkingSpaces_profile
 id password
@@ -3153,7 +3175,9 @@ id password_toggle
 id path
 id pathRelative
 id peekHeight
+id perHour
 id percent
+id phoneNum
 id pin
 id place_autocomplete_clear_button
 id place_autocomplete_powered_by_google
@@ -3185,6 +3209,7 @@ id plain
 id position
 id postLayout
 id price
+id pricePerHour
 id production
 id profileImage
 id progressBar
@@ -3241,8 +3266,8 @@ id showCustom
 id showHome
 id showTitle
 id sin
-id size
 id sizeItemIcon
+id sizeTextView
 id skipCollapsed
 id slide
 id smallLabel
@@ -3311,6 +3336,10 @@ id textView11
 id textView12
 id textView13
 id textView14
+id textView15
+id textView16
+id textView17
+id textView18
 id textView2
 id textView3
 id textView4
@@ -3335,13 +3364,20 @@ id thursdayCheckBox
 id thursdayTV
 id thursdayTime
 id time
+id timeLayout
+id timeLeft
+id timeTitle
 id title
+id titleAddress
 id titleDividerNoCustom
+id titleLayout
+id titleName
 id title_template
 id title_view
 id toggle
 id toolbar
 id top
+id topLayout
 id topPanel
 id touch_outside
 id transitionToEnd
@@ -3364,8 +3400,8 @@ id unlabeled
 id up
 id url
 id useLogo
+id userImage
 id verifyBtn
-id view
 id view_offset_helper
 id visible
 id visible_removing_fragment_view_tag
@@ -3377,6 +3413,7 @@ id wednesdayTime
 id wide
 id withText
 id withinBounds
+id workingTime
 id wrap
 id wrap_content
 id zero_corner_chip
@@ -3463,6 +3500,8 @@ layout app_bar_main
 layout bottom_sheet_design
 layout bottom_sheet_layout
 layout bottom_sheet_layout_parkingspace_display
+layout card
+layout card_view_orders
 layout cast_expanded_controller_activity
 layout cast_help_text
 layout cast_intro_overlay
@@ -3475,6 +3514,7 @@ layout custom_item_size_menu
 layout custom_window_layout
 layout days_checkboxes
 layout days_test
+layout delete
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar
@@ -3638,7 +3678,10 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string aboard
 string action_settings
+string add_time_button
+string address
 string app_name
 string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
@@ -3687,6 +3730,8 @@ string cast_unmute
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
+string checkin
+string checkout
 string chip_text
 string clear_text_end_icon_content_description
 string common_google_play_services_enable_button
@@ -3707,6 +3752,7 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string current_price
 string default_web_client_id
 string error_icon_content_description
 string exposed_dropdown_menu_content_description
@@ -3840,6 +3886,7 @@ string tagmanager_preview_dialog_message
 string tagmanager_preview_dialog_title
 string title_activity_map
 string title_activity_navigation_drawer
+string user_parkingSpace
 string wallet_buy_button_place_holder
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

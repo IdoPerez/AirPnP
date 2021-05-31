@@ -15,4 +15,11 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="no_connection">No internet connection! Cannot be translated!</string>
+    <string name="checkout">יציאה מהחניה:</string>
+    <string name="checkin">כניסה לחניה:</string>
+    <string name="aboard">Aboard:</string>
+    <string name="add_time_button">Add time</string>
+    <string name="current_price">מחיר:</string>
+    <string name="user_parkingSpace">משתמש:</string>
+    <string name="address">כתובת:</string>
 </resources>

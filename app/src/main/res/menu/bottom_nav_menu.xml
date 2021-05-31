@@ -5,7 +5,7 @@
         android:title="Around"/>
     <item
         android:id="@+id/quick_sell"
-        android:title="Quick sell"
+        android:title="Activity"
         />
     <item
         android:id="@+id/createParkingSpace"

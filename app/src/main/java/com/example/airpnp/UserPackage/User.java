@@ -12,12 +12,14 @@ public class User {
     private String age;
     private String email;
     private Bitmap logImage;
+    private ArrayList<UserCar> userCars;
     private ArrayList<String> parkingSpaceID;
 
 
     public User(String UID, String fullName, String age, String email){
         this.userID = UID; this.fullName = fullName; this.age = age; this.email = email;
         parkingSpaceID = new ArrayList<String>();
+        userCars = new ArrayList<UserCar>();
     }
 
 
@@ -62,4 +64,12 @@ public class User {
     public ArrayList<String> getParkingSpaceID() {return parkingSpaceID;}
 
     public void addParkingSpace(String id){parkingSpaceID.add(id);}
+
+    public ArrayList<UserCar> getUserCars() {
+        return userCars;
+    }
+
+    public void setUserCars(ArrayList<UserCar> userCars) {
+        this.userCars = userCars;
+    }
 }

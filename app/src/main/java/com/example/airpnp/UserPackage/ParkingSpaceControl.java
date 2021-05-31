@@ -29,4 +29,22 @@ public class ParkingSpaceControl {
                 userParkingSpacesList.add(parkingSpace);
         }
     }
+
+    public ParkingSpace getParkingSpaceByAddress(String address){
+        for (ParkingSpace parkingSpace:
+                userParkingSpacesList) {
+            if (parkingSpace.getAddress().equals(address))
+                return parkingSpace;
+        }
+        return null;
+    }
+
+    public ParkingSpace getParkingSpaceById(String parkingSpaceID){
+        for (ParkingSpace parking:
+             parkingSpacesList) {
+            if (parking.getParkingSpaceID().equals(parkingSpaceID))
+                return parking;
+        }
+        return null;
+    }
 }

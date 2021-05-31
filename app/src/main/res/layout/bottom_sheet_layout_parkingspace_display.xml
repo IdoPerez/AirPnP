@@ -12,6 +12,12 @@
 
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@drawable/shadow_effect"
+        app:layout_anchor="@id/bottom_sheet_design_user_display" />
+
     <include
         android:id="@+id/bottom_sheet_design_user_display"
         layout="@layout/parkingspace_display_bottomsheet_design"/>
