@@ -7,13 +7,16 @@ public class Order {
     private String tenantUID;
     private String renterUID;
     private String checkInTime, checkOutTime;
+    private int parkingHours;
     private int time;
     private double price;
     private boolean active;
 
-    public Order(String parkingSpaceID, String tenantUID, String renterUID, String checkInTime, String checkOutTime, boolean b){
-        this.parkingSpaceID = parkingSpaceID; this.tenantUID = tenantUID; this.renterUID = renterUID; this.checkInTime = checkInTime; this.checkOutTime = checkOutTime;
-        active = b;
+    public Order(String parkingSpaceID, String tenantUID, String currentUserUid, int parkingHours, String checkInTime, String checkOutTime, boolean active){
+        this.parkingSpaceID = parkingSpaceID; this.tenantUID = tenantUID;
+        this.renterUID = renterUID; this.checkInTime = checkInTime; this.checkOutTime = checkOutTime;
+        this.parkingHours = parkingHours;
+        this.active = active;
     }
 
     public String getOrderID() {
@@ -86,5 +89,13 @@ public class Order {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    public int getParkingHours() {
+        return parkingHours;
+    }
+
+    public void setParkingHours(int parkingHours) {
+        this.parkingHours = parkingHours;
     }
 }

@@ -95,6 +95,8 @@ public class RegisterUser extends AppCompatActivity {
                                     //PROGRES BAR FALSE;
                                     if(task.isSuccessful()){
                                         Toast.makeText(RegisterUser.this, "Register succeed", Toast.LENGTH_LONG).show();
+                                        Intent intent = new Intent(RegisterUser.this, Authentication.class);
+                                        startActivity(intent);
                                     }
                                     else{
                                         Toast.makeText(RegisterUser.this, "Register failed! Try again.", Toast.LENGTH_LONG).show();

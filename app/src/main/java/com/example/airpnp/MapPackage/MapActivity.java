@@ -297,29 +297,29 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         timeAvailable.setText(parkingSpace.getParkingSpaceWorkingHours());
     }
 
-    private void setActivityListView(){
-        Order order1 = new Order("-MXWhGX0aOLLg8j7yMvi", null, null, null, null, true);
-        order1.setTime(8);
-        order1.setPrice(25);
-        ordersControl.userOrdersList.add(order1);
-
-        View.OnClickListener onClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "button clicked heyyyy", Toast.LENGTH_LONG).show();
-            }
-        };
-
-        cardItemList = new ArrayList<>();
-        for (Order order:
-                ordersControl.userOrdersList) {
-            if (order.isActive()){
-                cardItemList.add(new CardItem(order, "null", onClickListener));
-            }
-        }
-        CustomAdapterCardList customAdapterCardList = new CustomAdapterCardList(requireContext(), cardItemList);
-        userParkingSpaceList.setAdapter(customAdapterCardList);
-    }
+//    private void setActivityListView(){
+//        Order order1 = new Order("-MXWhGX0aOLLg8j7yMvi", null, null, null, null, true);
+//        order1.setTime(8);
+//        order1.setPrice(25);
+//        ordersControl.userOrdersList.add(order1);
+//
+//        View.OnClickListener onClickListener = new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(getContext(), "button clicked heyyyy", Toast.LENGTH_LONG).show();
+//            }
+//        };
+//
+//        cardItemList = new ArrayList<>();
+//        for (Order order:
+//                ordersControl.userOrdersList) {
+//            if (order.isActive()){
+//                cardItemList.add(new CardItem(order, "null", onClickListener));
+//            }
+//        }
+//        CustomAdapterCardList customAdapterCardList = new CustomAdapterCardList(requireContext(), cardItemList);
+//        userParkingSpaceList.setAdapter(customAdapterCardList);
+//    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -388,7 +388,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
                     public void onSuccess() {
                          mMap.clear();
                         mapControl.createMarkers();
-                        setActivityListView();
+                        //setActivityListView();
                 /*
              Log.v("ButtonListArray", String.valueOf(mapControl.getLength()));
              Log.v("ParkingSpaceList", String.valueOf(parkingSpaceControl.parkingSpacesList.size()));

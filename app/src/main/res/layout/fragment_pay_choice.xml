@@ -96,32 +96,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tv_total"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Total"
                 android:textColor="@color/quantum_black_100"
-                android:textSize="18dp"
-                android:text="Total" />
+                android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/tv_paymentPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="end"
+                android:text="6₪"
                 android:textColor="@color/quantum_black_100"
-                android:textSize="25dp"
-                android:text="6₪" />
+                android:textSize="25dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:padding="0dp">
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:paddingBottom="8dp"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/payButton"

@@ -94,8 +94,13 @@ public class MainActivityBotNav extends AppCompatActivity {
         }
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment)
+        fragmentManager.beginTransaction().replace(R.id.fragment_container, fragment).addToBackStack(null)
                 .commit();
+    }
+
+    public void popFromStack() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.popBackStack();
     }
 
     public void bottomSheetCallBack(final BottomSheetBehavior bottomSheetBehavior){

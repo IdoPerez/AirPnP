@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import com.google.android.material.card.MaterialCardView;
+
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.airpnp.R;
@@ -22,7 +24,8 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
     public class ExampleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView tv_titleName, tv_subText;
-        MaterialCardView cardView;
+        MaterialCardView cardView, lastCardView;
+        View lastItemClicked;
 
         public ExampleViewHolder(View itemView) {
             super(itemView);
@@ -32,6 +35,7 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
             cardView.setBackgroundResource(R.drawable.card_state_regular);
             cardView.setCheckedIconResource(R.drawable.card_state_checked);
             cardView.setCheckedIconTint(null);
+
             cardView.setOnClickListener(this);
             //itemView.setOnClickListener(this);
         }
@@ -52,6 +56,12 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
             if (itemClickListener != null) itemClickListener.onItemClick(v, getAdapterPosition());
         }
     }
+//    private void setCheckedCardView(View view){
+//        TextView title = null, subText = null;
+//
+//        title = title.findViewById(R.id.card_hours);
+//        subText = subText.findViewById(R.id.card_price);
+//    }
 
     public CardRecyclerViewAdapter(ArrayList<PaymentDetails> exampleList) {
         mExampleList = exampleList;
