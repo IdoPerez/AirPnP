@@ -87,6 +87,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
     float topLayoutHeight, bottomLayoutHeight, screenHeight,screenWidth, bottomSheetRatio;
 
     User myUser;
+    Button bookButton;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -259,8 +260,17 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         Log.v("MarkerClicked", marker.toString());
         final MarkerButton markerButton = mapControl.getMarkerButtonClicked(marker);
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-        ParkingSpace parkingSpace = markerButton.getParkingSpace();
+        final ParkingSpace parkingSpace = markerButton.getParkingSpace();
         displayParkingSpace(parkingSpace);
+
+        final Fragment fragment = new PaymentChoiceFragment();
+        rentButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                parkingSpaceControl.parkingSpaceOnBooking = parkingSpace;
+                ((MainActivityBotNav) getActivity()).replaceFragments(fragment.getClass());
+            }
+        });
 //        tvAddress.setText("Address: "+parkingSpace.getAddress());
 //        tvCity.setText("City: "+parkingSpace.getParkingSpaceCity());
 //        tvPrice.setText("Price: "+parkingSpace.getPrice());

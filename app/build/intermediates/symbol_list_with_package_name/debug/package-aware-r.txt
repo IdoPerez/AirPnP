@@ -2273,6 +2273,9 @@ drawable btn_radio_on_to_off_mtrl_animation
 drawable button
 drawable car_icon_a
 drawable card_design
+drawable card_state_checked
+drawable card_state_regular
+drawable card_view_theme
 drawable cast_abc_scrubber_control_off_mtrl_alpha
 drawable cast_abc_scrubber_control_to_pressed_mtrl_000
 drawable cast_abc_scrubber_control_to_pressed_mtrl_005
@@ -2670,6 +2673,7 @@ id FUNCTION
 id META
 id MapActiv
 id NO_DEBUG
+id PaymentType
 id RentActivity
 id SHIFT
 id SHOW_ALL
@@ -2807,6 +2811,8 @@ id cache_measures
 id cancel_action
 id cancel_button
 id card
+id card_hours
+id card_price
 id cast_button_type_closed_caption
 id cast_button_type_custom
 id cast_button_type_empty
@@ -2896,6 +2902,7 @@ id disablePostScroll
 id disableScroll
 id disjoint
 id display_ps_design
+id divider
 id donate_with
 id donate_with_google
 id dragDown
@@ -2981,7 +2988,9 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageButton
 id imageView
+id imageView2
 id imageView4
 id imageView6
 id index_entity_types
@@ -3170,10 +3179,16 @@ id parkingSpacePrice2
 id parkingSpaceStatus
 id parkingSpacesList
 id parkingSpaces_profile
+id parkingTime
+id parkingTimeRecyclerView
 id password
 id password_toggle
 id path
 id pathRelative
+id payAddress
+id payButton
+id paymentCard
+id payment_recyclerView
 id peekHeight
 id perHour
 id percent
@@ -3372,6 +3387,7 @@ id titleAddress
 id titleDividerNoCustom
 id titleLayout
 id titleName
+id titleParkingSpaceName
 id title_template
 id title_view
 id toggle
@@ -3394,6 +3410,8 @@ id tuesdayTV
 id tuesdayTime
 id tvAddress
 id tvPrice
+id tv_paymentPrice
+id tv_total
 id unchecked
 id uniform
 id unlabeled
@@ -3531,6 +3549,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_gallery
+layout fragment_pay_choice
 layout fragment_rent_first_step
 layout fragment_rent_sec_step
 layout fragment_slideshow
@@ -3608,6 +3627,7 @@ layout notification_template_media_custom
 layout notification_template_part_chronometer
 layout notification_template_part_time
 layout parkingspace_display_bottomsheet_design
+layout payment_card_view
 layout place_autocomplete_fragment
 layout place_autocomplete_item_powered_by_google
 layout place_autocomplete_item_prediction

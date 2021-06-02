@@ -9,6 +9,7 @@ public class ParkingSpaceControl {
     public ArrayList<ParkingSpace> parkingSpacesList;
     public ArrayList<ParkingSpace> userParkingSpacesList;
     public static final String parkingSpacesPath = "ParkingSpaces/"; // after creating start app class set the path!!!!!!!
+    public ParkingSpace parkingSpaceOnBooking;
 
     private ParkingSpaceControl(){
         parkingSpacesList = new ArrayList<>();
