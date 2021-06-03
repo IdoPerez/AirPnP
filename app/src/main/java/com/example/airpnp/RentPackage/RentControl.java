@@ -59,6 +59,7 @@ public class RentControl {
                 firebaseHelper.getUserUid(),
                 addressLatlng.latitude,
                 addressLatlng.longitude, workingHours);
+        parkingSpace.setActive(true);
 
         parkingSpaceControl.userParkingSpacesList.add(parkingSpace);
         Log.v("ParkingSpace", parkingSpace.toString());

@@ -101,7 +101,7 @@ public class PaymentChoiceFragment extends Fragment {
         payBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //ordersControl.createNewOrder(parkingSpace, parkingHours);
+                ordersControl.createNewOrder(parkingSpace, parkingHours);
                 ((MainActivityBotNav) requireActivity()).popFromStack();
             }
         });
