@@ -20,15 +20,24 @@ import java.util.ArrayList;
 public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerViewAdapter.ExampleViewHolder> {
     private ArrayList<PaymentDetails> mExampleList;
     private ItemClickListener itemClickListener;
+    public boolean firstCheck = true;
+    public MaterialCardView  lastCardView;
+
 
     public class ExampleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView tv_titleName, tv_subText;
-        MaterialCardView cardView, lastCardView;
+        MaterialCardView cardView;
+        int colorRegularState, colorCheckedState, drawableRegularState, drawableCheckedState;
         View lastItemClicked;
 
         public ExampleViewHolder(View itemView) {
             super(itemView);
+            colorRegularState = Color.BLACK;
+            colorCheckedState = Color.WHITE;
+            drawableCheckedState = R.drawable.card_state_checked;
+            drawableRegularState = R.drawable.card_state_regular;
+
             tv_titleName = itemView.findViewById(R.id.card_hours);
             tv_subText = itemView.findViewById(R.id.card_price);
             cardView = itemView.findViewById(R.id.paymentCard);
@@ -44,16 +53,38 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
         public void onClick(View v) {
             cardView.setChecked(!cardView.isChecked());
             if (cardView.isChecked()){
-                cardView.setBackgroundResource(R.drawable.card_state_checked);
-                tv_titleName.setTextColor(Color.WHITE);
-                tv_subText.setTextColor(Color.WHITE);
+                if (firstCheck){
+                    lastCardView = cardView;
+                    firstCheck = false;
+                } else{
+//                    lastCardView.setChecked(false);
+//                    cardStateTheme(lastCardView, Color.BLACK, R.drawable.card_state_regular);
+//                    lastCardView = cardView;
+                    cancelLastCheck();
+                }
+                cardStateTheme(cardView ,colorCheckedState, drawableCheckedState);
             }
             else{
-                cardView.setBackgroundResource(R.drawable.card_state_regular);
-                tv_titleName.setTextColor(Color.BLACK);
-                tv_subText.setTextColor(Color.BLACK);
+                cardStateTheme(cardView ,colorRegularState, drawableRegularState);
             }
             if (itemClickListener != null) itemClickListener.onItemClick(v, getAdapterPosition());
+        }
+
+        private void cardStateTheme(MaterialCardView cv,int color, int drawable){
+            cv.setBackgroundResource(drawable);
+            tv_titleName.setTextColor(color);
+            tv_subText.setTextColor(color);
+        }
+
+        private void cancelLastCheck(){
+            View root = lastCardView.getRootView();
+            TextView tvHours = root.findViewById(R.id.card_hours);
+            TextView tvSubText = root.findViewById(R.id.card_price);
+            lastCardView.setChecked(false);
+            lastCardView.setBackgroundResource(drawableRegularState);
+            tvHours.setTextColor(colorRegularState);
+            tvSubText.setTextColor(colorRegularState);
+            lastCardView = cardView;
         }
     }
 //    private void setCheckedCardView(View view){

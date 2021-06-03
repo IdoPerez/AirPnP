@@ -8,10 +8,13 @@ import android.util.Size;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,15 +44,16 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class RentActivity extends AppCompatActivity {
-    TextInputLayout priceLayout, sizeLayout;
+    EditText priceLayout, timeLayout, edName;
+    Spinner sizeSpinner;
     AutocompleteSupportFragment autocompleteSupportFragment;
-    AutoCompleteTextView sizeTextView;
     private RentControl rentControl;
     private static final String API_KEY = "AIzaSyANALN_AusNyUUV5oD_DE_U2hO__5GEm48";
     private String address, city, stPrice;
     TextView sundayTV, mondayTV, tuesdayTV, wednesdayTV, thursdayTV, fridayTV, saturdayTV;
     TextView sundayTime, mondayTime, tuesdayTime, wednesdayTime, thursdayTime, fridayTime, saturdayTime;
     View dayCheckBoxView;
+    int sizePosition = 0;
 
     ArrayList<SizeItem> sizeItems = new ArrayList<>();
 
@@ -61,16 +65,20 @@ public class RentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_rent);
 
         priceLayout = findViewById(R.id.layoutPrice);
-        sizeLayout = findViewById(R.id.layoutSize);
-//        sizeTextView = findViewById(R.id.sizeTextView);
+        ///sizeLayout = findViewById(R.id.layoutSize);
+        timeLayout = findViewById(R.id.layoutTime);
+        sizeSpinner = findViewById(R.id.layoutSize);
+        edName = findViewById(R.id.ed_parkingSpace_name);
 
+        sizeItems.add(new SizeItem(R.drawable.car_icon_a));
+        sizeItems.add(new SizeItem(R.drawable.car_icon_a));
         sizeItems.add(new SizeItem(R.drawable.car_icon_a));
 
         CustomAdapterSizeMenu adapterSizeMenu = new CustomAdapterSizeMenu(this, sizeItems);
-        sizeTextView.setAdapter(adapterSizeMenu);
+        //adapterSizeMenu.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        sizeSpinner.setAdapter(adapterSizeMenu);
 
         dayCheckBoxView = findViewById(R.id.days_check_box_group);
-
         sundayTV = dayCheckBoxView.findViewById(R.id.sundayTV);
         mondayTV = dayCheckBoxView.findViewById(R.id.mondayTV);
         tuesdayTV = dayCheckBoxView.findViewById(R.id.tuesdayTV);
@@ -125,7 +133,9 @@ public class RentActivity extends AppCompatActivity {
     }
 
     public void createParkingSpace(){
-        String stPrice = Objects.requireNonNull(priceLayout.getEditText()).getText().toString().trim();
+        String workingHours = timeLayout.getText().toString();
+        String stPrice = Objects.requireNonNull(priceLayout.getText().toString().trim());
+        String parkingSpaceName = edName.getText().toString();
         double price = 0;
 
         if (!stPrice.isEmpty()){
@@ -143,7 +153,12 @@ public class RentActivity extends AppCompatActivity {
             return;
         }
 
-        rentControl.createParkingSpace(price, address);
+        if(parkingSpaceName.isEmpty()){
+            Toast.makeText(this, "Please enter parking space name", Toast.LENGTH_LONG).show();
+            return;
+        }
+        sizePosition = sizeSpinner.getSelectedItemPosition();
+        rentControl.createParkingSpace(parkingSpaceName,price, address, sizePosition, workingHours);
     }
 
     public void onDayCheckBoxClicked(View view) {
@@ -208,58 +223,6 @@ public class RentActivity extends AppCompatActivity {
             timeTV.setVisibility(View.INVISIBLE);
         }
     }
-
-        /*
-    LatLng addressLatlang = locationControl.getLocationFromAddress(address, this);
-    ParkingSpace parkingSpace = new ParkingSpace(address, splitLocation(address),price, 20, firebaseHelper.getUserUid(), addressLatlang.latitude, addressLatlang.longitude);
-        parkingSpace.setAvailable(true);
-    City city = null;
-    String cityKey = null;
-    String key = null;
-        if (cityControl.isExists(parkingSpace.getCity())){
-        city = cityControl.getCurrentCity();
-    } else {
-        city = new City(parkingSpace.getCity());
-        cityKey = mDataBase.child("ParkingSpaces").push().getKey();
-        city.setKeyID(cityKey);
-    }
-        if (city != null && city.getKeyID() != null){
-        key = mDataBase.child("ParkingSpaces").child(city.getKeyID()).push().getKey();
-        parkingSpace.setParkingSpaceID(key);
-        mDataBase.child("ParkingSpaces").child(city.getKeyID()).child(key).setValue(parkingSpace);
-    }
-
-     */
-
-    /*
-    public void previousStep(View view) { viewPager.setCurrentItem(getNextPossibleItemIndex(-1), true); }
-
-       String[] input = new String[3];
-       input = rentFirstStepFragment.getInputText();
-
-    createParkingSpace();
-        viewPager.setCurrentItem(getNextPossibleItemIndex(1), true);
-
-        //onCreate:
-                viewPager = findViewById(R.id.viewPager);
-        adapter = new FragmentCollectionAdapter(getSupportFragmentManager());
-        viewPager.setAdapter(adapter);
-        rentFirstStepFragment = new RentFirstStep();
-        //Valuables:
-            private ViewPager viewPager;
-            private FragmentCollectionAdapter adapter;
-            private RentFirstStep rentFirstStepFragment;
-
-    private int getNextPossibleItemIndex(int change) {
-        int currentIndex = viewPager.getCurrentItem();
-        int total = viewPager.getAdapter().getCount();
-
-        if (currentIndex + change < 0) {
-            return 0;
-        }
-        return Math.abs((currentIndex + change) % total) ;
-    }
-     */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

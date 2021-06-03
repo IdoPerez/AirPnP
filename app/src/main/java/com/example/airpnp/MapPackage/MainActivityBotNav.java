@@ -60,7 +60,9 @@ public class MainActivityBotNav extends AppCompatActivity {
                     bottomSheetQuickSell.setState(BottomSheetBehavior.STATE_HIDDEN);
                 }
                 switch (item.getItemId()){
-                    case R.id.around: transferFragment(mapFragment); break;
+                    case R.id.around:{
+                        transferFragment(mapFragment);
+                    } break;
                 }
                 return true;
             }

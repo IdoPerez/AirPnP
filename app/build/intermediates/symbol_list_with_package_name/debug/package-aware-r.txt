@@ -2918,6 +2918,7 @@ id easeInOut
 id easeOut
 id edEmail
 id edPassword
+id ed_parkingSpace_name
 id editText
 id editText2
 id editTextTime
@@ -2991,8 +2992,6 @@ id image
 id imageButton
 id imageView
 id imageView2
-id imageView4
-id imageView6
 id index_entity_types
 id info
 id instant_message
@@ -3176,7 +3175,6 @@ id parent_matrix
 id parkingSpaceImage
 id parkingSpacePrice
 id parkingSpacePrice2
-id parkingSpaceStatus
 id parkingSpacesList
 id parkingSpaces_profile
 id parkingTime
@@ -3351,10 +3349,6 @@ id textView11
 id textView12
 id textView13
 id textView14
-id textView15
-id textView16
-id textView17
-id textView18
 id textView2
 id textView3
 id textView4
@@ -3532,7 +3526,6 @@ layout custom_item_size_menu
 layout custom_window_layout
 layout days_checkboxes
 layout days_test
-layout delete
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
 layout design_layout_snackbar

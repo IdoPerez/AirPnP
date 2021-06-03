@@ -38,7 +38,7 @@ public class RentControl {
         //translate = TranslateOptions.getDefaultInstance().getService();
     }
 
-    public void createParkingSpace(double price, String address){
+    public void createParkingSpace(String parkingSpaceName, double price, String address, int sizeNum, String workingHours){
 
         String[] splitAddress = address.split(",");
         String parkingSpaceCity = splitAddress[1];
@@ -50,14 +50,16 @@ public class RentControl {
 
         //String cityPath = null;
         LatLng addressLatlng = locationControl.getLocationFromAddress(address);
-        ParkingSpace parkingSpace = new ParkingSpace("Ido parkingSpace", address,
+        ParkingSpace parkingSpace = new ParkingSpace(parkingSpaceName,
+                address,
                 parkingSpaceCity,
                 parkingSpaceCountry,
                 price,
-                20,
+                sizeNum,
                 firebaseHelper.getUserUid(),
                 addressLatlng.latitude,
-                addressLatlng.longitude, "8:00 - 10:00");
+                addressLatlng.longitude, workingHours);
+
         parkingSpaceControl.userParkingSpacesList.add(parkingSpace);
         Log.v("ParkingSpace", parkingSpace.toString());
         //firebaseHelper.uploadParkingSpace(parkingSpace,ParkingSpaceControl.parkingSpacesPath+parkingSpaceCountry);

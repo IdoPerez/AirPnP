@@ -1,98 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="#fff"
+    android:orientation="vertical"
+    android:padding="16dp"
     tools:context=".RentPackage.RentActivity">
 
-  <TextView
-      android:id="@+id/title"
-      android:layout_width="wrap_content"
+  <LinearLayout
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:text="Rent"
-      android:textSize="50dp"
-      app:layout_constraintBottom_toTopOf="@+id/autocomplete_fragment"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      android:orientation="horizontal"
+      android:gravity="center">
 
-  <fragment
-      android:id="@+id/autocomplete_fragment"
-      android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-      android:layout_width="304dp"
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rent"
+        android:textSize="50dp" />
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.57"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.231" />
+      android:orientation="vertical">
 
-  <TextView
-      android:id="@+id/textView"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="19dp"
-      android:text="Address:"
-      android:textSize="15dp"
-      app:layout_constraintBottom_toTopOf="@+id/autocomplete_fragment"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.0"
-      app:layout_constraintStart_toStartOf="@+id/autocomplete_fragment"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="1.0" />
-
-  <com.google.android.material.textfield.TextInputLayout
-      android:id="@+id/layoutPrice"
-      android:layout_width="92dp"
-      android:layout_height="wrap_content"
-      app:layout_constraintBottom_toBottomOf="@+id/layoutSize"
-      app:layout_constraintEnd_toEndOf="@+id/autocomplete_fragment"
-      app:layout_constraintHorizontal_bias="0.09"
-      app:layout_constraintStart_toStartOf="@+id/autocomplete_fragment"
-      app:layout_constraintTop_toTopOf="@+id/layoutSize"
-      app:layout_constraintVertical_bias="0.109">
-
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
+        android:id="@+id/ed_parkingSpace_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Price" />
-  </com.google.android.material.textfield.TextInputLayout>
+        android:inputType="textPersonName"
+        android:hint="השם של החניה"/>
 
-  <Spinner
-      android:id="@+id/layoutSize"
-      android:layout_width="100dp"
-      android:layout_height="wrap_content"
-      android:hint="Size"
-      app:layout_constraintBottom_toTopOf="@+id/layoutTime"
-      app:layout_constraintEnd_toEndOf="@+id/autocomplete_fragment"
-      app:layout_constraintHorizontal_bias="0.88"
-      app:layout_constraintStart_toStartOf="@+id/autocomplete_fragment"
-      app:layout_constraintTop_toBottomOf="@+id/autocomplete_fragment"
-      app:layout_constraintVertical_bias="0.74">
-  </Spinner>
-
-
-
-  <com.google.android.material.textfield.TextInputLayout
-      android:id="@+id/layoutTime"
-      android:layout_width="265dp"
-      android:layout_height="wrap_content"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="@+id/autocomplete_fragment"
-      app:layout_constraintHorizontal_bias="0.27"
-      app:layout_constraintStart_toStartOf="@+id/autocomplete_fragment"
-      app:layout_constraintTop_toBottomOf="@+id/autocomplete_fragment"
-      app:layout_constraintVertical_bias="0.25">
-
-    <com.google.android.material.textfield.TextInputEditText
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Time: hh:mm" />
-  </com.google.android.material.textfield.TextInputLayout>
+        android:paddingTop="16dp"
+        android:orientation="horizontal">
+
+      <fragment
+          android:id="@+id/autocomplete_fragment"
+          android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content" />
+
+      <TextView
+          android:id="@+id/textView"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:gravity="right"
+          android:text="כתובת:"
+          android:textSize="15dp" />
+    </LinearLayout>
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:gravity="left"
+      android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:orientation="horizontal">
+      <EditText
+          android:id="@+id/layoutPrice"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:hint="Price" />
+
+      <Spinner
+          android:id="@+id/layoutSize"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="Size"
+          app:layout_constraintBottom_toTopOf="@+id/layoutTime"
+          app:layout_constraintEnd_toEndOf="@+id/autocomplete_fragment"
+          app:layout_constraintHorizontal_bias="0.88"
+          app:layout_constraintStart_toStartOf="@+id/autocomplete_fragment"
+          app:layout_constraintTop_toBottomOf="@+id/autocomplete_fragment"
+          app:layout_constraintVertical_bias="0.74"></Spinner>
+
+    </LinearLayout>
+
+    <EditText
+        android:gravity="center"
+        android:id="@+id/layoutTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Working hours"
+        android:inputType="time" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="horizontal"
+      android:gravity="bottom|center">
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:onClick="cancelRent"
+        android:text="cancel"
+        android:textAllCaps="false" />
+    <Space
+        android:layout_width="100dp"
+        android:layout_height="match_parent"/>
+    <Button
+        android:id="@+id/nextBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:onClick="nextStep"
+        android:text="next" />
+  </LinearLayout>
 
   <include
       android:id="@+id/days_check_box_group"
@@ -100,43 +131,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="15dp"
-      android:visibility="gone"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="@+id/layoutTime"
-      app:layout_constraintStart_toStartOf="@+id/layoutTime"
-      app:layout_constraintTop_toBottomOf="@+id/layoutTime"
-      app:layout_constraintVertical_bias="0.0" />
-
-  <Button
-      android:id="@+id/nextBtn"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginStart="16dp"
-      android:layout_marginBottom="32dp"
-      android:background="@drawable/button"
-      android:onClick="nextStep"
-      android:text="next"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="@+id/layoutTime"
-      app:layout_constraintHorizontal_bias="1.0"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/layoutTime"
-      app:layout_constraintVertical_bias="0.88" />
-
-  <Button
-      android:id="@+id/button4"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:background="@drawable/button"
-      android:onClick="cancelRent"
-      android:text="cancel"
-      android:textAllCaps="false"
-      app:layout_constraintBottom_toBottomOf="@+id/nextBtn"
-      app:layout_constraintEnd_toStartOf="@+id/nextBtn"
-      app:layout_constraintHorizontal_bias="0.25"
-      app:layout_constraintStart_toStartOf="@+id/layoutTime"
-      app:layout_constraintTop_toTopOf="@+id/nextBtn"
-      app:layout_constraintVertical_bias="0.0" />
+      android:visibility="gone" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

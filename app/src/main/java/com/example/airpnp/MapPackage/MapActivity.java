@@ -131,7 +131,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         tvSize = root.findViewById(R.id.sizeTextView);
         rentButton = root.findViewById(R.id.rentButtonBottomSheet);
         tvPhoneNum = root.findViewById(R.id.phoneNum);
-        tvStatus = root.findViewById(R.id.parkingSpaceStatus);
+        //tvStatus = root.findViewById(R.id.parkingSpaceStatus);
         tvEmail = root.findViewById(R.id.emailTv);
         timeAvailable = root.findViewById(R.id.workingTime);
 
@@ -339,7 +339,6 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
      * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * we just add a marker near Sydney, Australia.
      * If Google Play services is not installed on the device, the user will be prompted to install
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
@@ -359,9 +358,8 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
             requestPermissions(new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
                     ACCESS_LOCATION_REQUEST_CODE);
         }
-        deviceLocationAction();
+        getDeviceLocation();
         mapControl.updateLocationUI(requireActivity());
-        ordersControl = OrdersControl.getInstance();
     }
 
     @Override
@@ -373,42 +371,62 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 LocationControl.locationPermissionGranted = true;
                 mapControl.updateLocationUI(requireActivity());
-                deviceLocationAction();
+                getDeviceLocation();
             }
         }
     }
 
-    private void deviceLocationAction(){
-        getDeviceLocation(new ActionDone() {
+//    private void deviceLocationAction(){
+//        getDeviceLocation(new ActionDone() {
+//            @Override
+//            public void onSuccess() {
+//                Log.v("Path",ParkingSpaceControl.parkingSpacesPath+locationControl.getUserCityName());
+//                firebaseHelper.getAllParkingSpacesInCity(locationControl, new ActionDone() {
+//                    @Override
+//                    public void onSuccess() {
+//                         mMap.clear();
+//                        mapControl.createMarkers();
+//                        //setActivityListView();
+//                /*
+//             Log.v("ButtonListArray", String.valueOf(mapControl.getLength()));
+//             Log.v("ParkingSpaceList", String.valueOf(parkingSpaceControl.parkingSpacesList.size()));
+//              */
+//                    }
+//                    @Override
+//                    public void onFailed(){
+//
+//                    }
+//                });;
+//            }
+//
+//            @Override
+//            public void onFailed() {
+//
+//            }
+//        });
+//    }
+
+    private void downloadParkingSpaces(){
+        Log.v("Path",ParkingSpaceControl.parkingSpacesPath+locationControl.getUserCityName());
+        firebaseHelper.getAllParkingSpacesInCity(locationControl, new ActionDone() {
             @Override
             public void onSuccess() {
-                Log.v("Path",ParkingSpaceControl.parkingSpacesPath+locationControl.getUserCityName());
-                firebaseHelper.getAllParkingSpacesInCity(locationControl, new ActionDone() {
-                    @Override
-                    public void onSuccess() {
-                         mMap.clear();
-                        mapControl.createMarkers();
-                        //setActivityListView();
+                mMap.clear();
+                mapControl.createMarkers();
+                //setActivityListView();
                 /*
              Log.v("ButtonListArray", String.valueOf(mapControl.getLength()));
              Log.v("ParkingSpaceList", String.valueOf(parkingSpaceControl.parkingSpacesList.size()));
               */
-                    }
-                    @Override
-                    public void onFailed(){
-
-                    }
-                });;
             }
-
             @Override
-            public void onFailed() {
+            public void onFailed(){
 
             }
-        });
+        });;
     }
 
-    private void getDeviceLocation(final ActionDone actionDone) {
+    private void getDeviceLocation() {
         try {
             if (LocationControl.locationPermissionGranted) {
                 final Task<Location> locationResult = fusedLocationProviderClient.getLastLocation();
@@ -427,10 +445,11 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
                                 //mMap.addMarker(new MarkerOptions().position(new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude())));
 
                                 locationControl.updateUserLocation();
-                                actionDone.onSuccess();
+                                downloadParkingSpaces();
+                                //actionDone.onSuccess();
                             }
                         } else {
-                            actionDone.onFailed();
+                            //actionDone.onFailed();
                         }
                     }
                 });

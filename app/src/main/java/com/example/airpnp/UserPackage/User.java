@@ -1,7 +1,5 @@
 package com.example.airpnp.UserPackage;
 
-import android.graphics.Bitmap;
-
 import java.util.ArrayList;
 
 //fullName, age, email;
@@ -11,7 +9,7 @@ public class User {
     private String fullName;
     private String age;
     private String email;
-    private Bitmap logImage;
+    private String logImage;
     private ArrayList<UserCar> userCars;
     private ArrayList<String> parkingSpaceID;
 
@@ -25,7 +23,7 @@ public class User {
 
     public String getUserID(){return userID;}
 
-    public void setImage(Bitmap bitmap){
+    public void setImage(String bitmap){
         this.logImage = bitmap;
     }
 
@@ -57,7 +55,7 @@ public class User {
         this.email = email;
     }
 
-    public Bitmap getLogImage() {
+    public String getLogImage() {
         return logImage;
     }
 

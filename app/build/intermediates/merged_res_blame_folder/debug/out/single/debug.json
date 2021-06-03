@@ -252,10 +252,6 @@
         "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\layout\\card.xml"
     },
     {
-        "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_delete.xml.flat",
-        "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\layout\\delete.xml"
-    },
-    {
         "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_menu_camera.xml.flat",
         "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\drawable\\ic_menu_camera.xml"
     },
