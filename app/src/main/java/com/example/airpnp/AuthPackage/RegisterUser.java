@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.example.airpnp.MapPackage.MapActivity;
@@ -23,6 +24,7 @@ public class RegisterUser extends AppCompatActivity {
 
     private EditText edName, edEmail, edPhoneNum,edPassword;
     LinearLayout infoLayout;
+    ImageButton backBtn;
     User user;
 
     @Override
@@ -35,6 +37,14 @@ public class RegisterUser extends AppCompatActivity {
         edPhoneNum = findViewById(R.id.ed_phoneNum);
         edPassword = findViewById(R.id.ed_password);
         infoLayout = findViewById(R.id.infoLayout);
+        backBtn = findViewById(R.id.btn_backFromReg);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
 //        final ArrayList<String> arrayList = new ArrayList<>();

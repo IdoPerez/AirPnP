@@ -29,6 +29,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Authentication extends AppCompatActivity {
     public EditText edEmail, edPassword;
     private FirebaseAuth mAuth;
+
     //progress bar
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +82,8 @@ public class Authentication extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     startActivity(new Intent(Authentication.this, MainActivityBotNav.class));
+                    edEmail.setHint("Email");
+                    edPassword.setHint("Password");
                     //redirect profile
 //                    FirebaseHelper firebaseHelper = new FirebaseHelper();
 //                    firebaseHelper.getCurrentUser(new ActionDone() {

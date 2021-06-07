@@ -155,11 +155,17 @@ public class RentActivity extends Fragment {
         }
 
         if(parkingSpaceName.isEmpty()){
-            Toast.makeText(requireContext(), "Please enter parking space name", Toast.LENGTH_LONG).show();
+            edName.setError("Please enter parking space name");
+            edName.requestFocus();
             return;
         }
         sizePosition = sizeSpinner.getSelectedItemPosition();
         createParkingSpace(parkingSpaceName,price, address, sizePosition, workingHours);
+        edName.setHint("השם של החניה");
+        priceLayout.setHint("Price p/h");
+        sizeSpinner.setSelection(0);
+        timeLayout.setHint("Working hours");
+        Toast.makeText(requireContext(), "Parking Space has been created", Toast.LENGTH_LONG).show();
     }
 
     private void createParkingSpace(String parkingSpaceName, double price, String address, int sizeNum, String workingHours){

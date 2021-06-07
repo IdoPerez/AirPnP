@@ -81,7 +81,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 
     LinearLayout bottomLayout, topLayout;
 
-    ImageButton imageButton;
+    ImageButton expendBtn, closeBtn;
 
     float topLayoutHeight, bottomLayoutHeight, screenHeight,screenWidth, bottomSheetRatio;
 
@@ -134,18 +134,26 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         tvEmail = root.findViewById(R.id.emailTv);
         timeAvailable = root.findViewById(R.id.workingTime);
 
-        imageButton = root.findViewById(R.id.expandButton);
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        expendBtn = root.findViewById(R.id.expandButton);
+        closeBtn = root.findViewById(R.id.btn_close_botSheet);
+        expendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (imageButton.getScaleY() == 1){
+                if (expendBtn.getScaleY() == 1){
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
-                    imageButton.setScaleY(-1);
+                    bottomLayout.setVisibility(View.VISIBLE);
+                    expendBtn.setScaleY(-1);
                 }
                 else{
                     bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                    imageButton.setScaleY(1);
+                    expendBtn.setScaleY(1);
                 }
+            }
+        });
+        closeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
             }
         });
 
@@ -239,8 +247,9 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
             public void onStateChanged(@NonNull View bottomSheetView, int newState) {
+//                if (newState != BottomSheetBehavior.STATE_COLLAPSED)
+//                    bottomLayout.setVisibility(View.VISIBLE);
                 switch (newState) {
-
                     case BottomSheetBehavior.STATE_COLLAPSED:
                     case BottomSheetBehavior.STATE_HALF_EXPANDED: {
 //                        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
@@ -248,7 +257,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
                         break;
                     }
                     case BottomSheetBehavior.STATE_DRAGGING:{
-                        if (imageButton.getScaleY() == 1)
+                        if (expendBtn.getScaleY() == 1)
                             bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
                         else
                             bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HALF_EXPANDED);
@@ -276,6 +285,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
     public boolean onMarkerClick(Marker marker) {
         BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setVisibility(View.GONE);
+        bottomLayout.setVisibility(View.GONE);
 
         marker.hideInfoWindow();
         Log.v("MarkerClicked", marker.toString());
