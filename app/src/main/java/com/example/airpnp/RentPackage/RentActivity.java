@@ -161,10 +161,16 @@ public class RentActivity extends Fragment {
         }
         sizePosition = sizeSpinner.getSelectedItemPosition();
         createParkingSpace(parkingSpaceName,price, address, sizePosition, workingHours);
+        edName.getText().clear();
         edName.setHint("השם של החניה");
+
+        priceLayout.getText().clear();
         priceLayout.setHint("Price p/h");
         sizeSpinner.setSelection(0);
+        timeLayout.getText().clear();
         timeLayout.setHint("Working hours");
+        autocompleteSupportFragment.setText("");
+        autocompleteSupportFragment.setHint("חיפוש");
         Toast.makeText(requireContext(), "Parking Space has been created", Toast.LENGTH_LONG).show();
     }
 

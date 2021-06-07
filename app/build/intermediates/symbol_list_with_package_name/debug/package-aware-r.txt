@@ -2794,10 +2794,12 @@ id bottom_sheet_layout_UPD
 id bottom_sheet_quick_sell
 id bounce
 id btnSendSMS
+id btn_backFromReg
+id btn_cancel
+id btn_close_botSheet
 id button
 id button2
 id button3
-id button4
 id button5
 id buttonLayout
 id buttonPanel
