@@ -2,7 +2,6 @@ package com.example.airpnp.MapPackage;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,19 +25,15 @@ import androidx.navigation.ui.AppBarConfiguration;
 import com.example.airpnp.Helper.ActionDone;
 import com.example.airpnp.Helper.FirebaseHelper;
 import com.example.airpnp.LocationPackage.LocationControl;
-import com.example.airpnp.MapPackage.ui.gallery.UserPSdisplayFragment;
 import com.example.airpnp.R;
 import com.example.airpnp.UserPackage.OrdersControl;
-import com.example.airpnp.UserPackage.ParkingSpace;
 import com.example.airpnp.UserPackage.ParkingSpaceControl;
 import com.example.airpnp.UserPackage.ProfileControl;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -46,8 +41,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-
-import static com.example.airpnp.LocationPackage.LocationControl.ACCESS_LOCATION_REQUEST_CODE;
 
 public class NavigationDrawerActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener  {
 

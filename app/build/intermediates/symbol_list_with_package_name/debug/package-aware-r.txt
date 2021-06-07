@@ -2664,6 +2664,8 @@ drawable side_nav_bar
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable truck_icon
+drawable van_icon
 id ALT
 id Auth
 id BOTTOM_END
@@ -2745,11 +2747,11 @@ id ad_image_view
 id ad_in_progress_label
 id ad_label
 id add
+id addCar_btn
 id address
 id addressBotSheet
 id adjust_height
 id adjust_width
-id age
 id alertTitle
 id aligned
 id all
@@ -2796,6 +2798,7 @@ id button
 id button2
 id button3
 id button4
+id button5
 id buttonLayout
 id buttonPanel
 id button_0
@@ -2918,7 +2921,13 @@ id easeInOut
 id easeOut
 id edEmail
 id edPassword
+id ed_carName
+id ed_carNumber
+id ed_email
+id ed_name
 id ed_parkingSpace_name
+id ed_password
+id ed_phoneNum
 id editText
 id editText2
 id editTextTime
@@ -2983,6 +2992,7 @@ id hybrid
 id icon
 id icon_group
 id icon_only
+id icon_size
 id icon_uri
 id icon_view
 id ifRoom
@@ -2990,10 +3000,12 @@ id ignore
 id ignoreRequest
 id image
 id imageButton
+id imageButton2
 id imageView
 id imageView2
 id index_entity_types
 id info
+id infoLayout
 id instant_message
 id intent_action
 id intent_activity
@@ -3029,7 +3041,6 @@ id live_stream_seek_bar
 id loading_indicator
 id logo_only
 id map
-id map_fragment
 id map_layout
 id masked
 id match_global_nicknames
@@ -3142,7 +3153,6 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id myParkingSpaces
-id name
 id nav_controller_view_tag
 id nav_gallery
 id nav_home
@@ -3179,7 +3189,6 @@ id parkingSpacesList
 id parkingSpaces_profile
 id parkingTime
 id parkingTimeRecyclerView
-id password
 id password_toggle
 id path
 id pathRelative
@@ -3280,7 +3289,7 @@ id showHome
 id showTitle
 id sin
 id sizeItemIcon
-id sizeTextView
+id size_icon
 id skipCollapsed
 id slide
 id smallLabel
@@ -3289,6 +3298,7 @@ id snackbar_text
 id snap
 id snapMargins
 id spacer
+id spinnerSize
 id spline
 id split_action_bar
 id spread
@@ -3356,11 +3366,11 @@ id textView5
 id textView6
 id textView7
 id textView8
+id textView9
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
 id text_list_view
-id text_slideshow
 id textinput_counter
 id textinput_error
 id textinput_helper_text
@@ -3404,6 +3414,9 @@ id tuesdayTV
 id tuesdayTime
 id tvAddress
 id tvPrice
+id tv_carName
+id tv_carNumber
+id tv_cars
 id tv_paymentPrice
 id tv_total
 id unchecked
@@ -3412,6 +3425,7 @@ id unlabeled
 id up
 id url
 id useLogo
+id userCar_list
 id userImage
 id verifyBtn
 id view_offset_helper
@@ -3505,6 +3519,7 @@ layout activity_main_bot_nav
 layout activity_map
 layout activity_navigation_drawer
 layout activity_profile
+layout activity_register_sec_step
 layout activity_register_user
 layout activity_rent
 layout activity_sms_sender
@@ -3512,6 +3527,7 @@ layout app_bar_main
 layout bottom_sheet_design
 layout bottom_sheet_layout
 layout bottom_sheet_layout_parkingspace_display
+layout car_item_design
 layout card
 layout card_view_orders
 layout cast_expanded_controller_activity
@@ -3545,8 +3561,6 @@ layout fragment_gallery
 layout fragment_pay_choice
 layout fragment_rent_first_step
 layout fragment_rent_sec_step
-layout fragment_slideshow
-layout map_fragment
 layout material_chip_input_combo
 layout material_clock_display
 layout material_clock_display_divider
@@ -3651,7 +3665,6 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
-layout user_parking_spaces_profile
 layout user_ps_display_design
 layout wallet_test_layout
 menu activity_main_drawer

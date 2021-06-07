@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -44,6 +45,10 @@ public class Authentication extends AppCompatActivity {
         userLogin();
     }
 
+    public void userRegister(View view) {
+        startActivity(new Intent(this, RegisterUser.class));
+    }
+
     private void userLogin() {
         String email = edEmail.getText().toString().trim();
         String password = edPassword.getText().toString().trim();
@@ -75,20 +80,20 @@ public class Authentication extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
+                    startActivity(new Intent(Authentication.this, MainActivityBotNav.class));
                     //redirect profile
-                    FirebaseHelper firebaseHelper = new FirebaseHelper();
-                    firebaseHelper.getUserParkingSpaces(new ActionDone() {
-                        @Override
-                        public void onSuccess() {
-                            startActivity(new Intent(Authentication.this,
-                                    MainActivityBotNav.class));
-                        }
-
-                        @Override
-                        public void onFailed() {
-
-                        }
-                    });
+//                    FirebaseHelper firebaseHelper = new FirebaseHelper();
+//                    firebaseHelper.getCurrentUser(new ActionDone() {
+//                        @Override
+//                        public void onSuccess() {
+//                            startActivity(new Intent(Authentication.this, MainActivityBotNav.class));
+//                        }
+//
+//                        @Override
+//                        public void onFailed() {
+//
+//                        }
+//                    });
                 }
                 else{
                     Toast.makeText(Authentication.this, "login failed! Try again", Toast.LENGTH_LONG).show();
@@ -136,4 +141,5 @@ public class Authentication extends AppCompatActivity {
         }
         return true;
     }
+
 }

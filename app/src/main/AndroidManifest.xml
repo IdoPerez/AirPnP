@@ -18,6 +18,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
+        <activity android:name=".AuthPackage.RegisterSecStep"></activity>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -31,20 +33,14 @@
         -->
         <activity
             android:name=".MapPackage.MainActivityBotNav"
-            android:theme="@style/Theme.MaterialComponents.Light">
-        </activity>
-
+            android:theme="@style/Theme.MaterialComponents.Light"></activity>
         <activity
             android:name=".MapPackage.NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".RentPackage.RentActivity"
-            android:theme="@style/Theme.MaterialComponents.Light">
-
-        </activity>
+            android:theme="@style/Theme.MaterialComponents.Light"></activity>
         <activity android:name=".AuthPackage.EmailVerification" />
         <activity android:name=".ContactUser.SmsSender" />
         <activity android:name=".UserPackage.ProfileActivity" />

@@ -78,14 +78,10 @@
       <Spinner
           android:id="@+id/layoutSize"
           android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:hint="Size"
-          app:layout_constraintBottom_toTopOf="@+id/layoutTime"
-          app:layout_constraintEnd_toEndOf="@+id/autocomplete_fragment"
-          app:layout_constraintHorizontal_bias="0.88"
-          app:layout_constraintStart_toStartOf="@+id/autocomplete_fragment"
-          app:layout_constraintTop_toBottomOf="@+id/autocomplete_fragment"
-          app:layout_constraintVertical_bias="0.74"></Spinner>
+          android:layout_height="match_parent"
+          android:hint="Size">
+
+      </Spinner>
 
     </LinearLayout>
 
@@ -110,7 +106,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button"
-        android:onClick="cancelRent"
         android:text="cancel"
         android:textAllCaps="false" />
     <Space
@@ -121,7 +116,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button"
-        android:onClick="nextStep"
         android:text="next" />
   </LinearLayout>
 

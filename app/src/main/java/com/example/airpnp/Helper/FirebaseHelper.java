@@ -15,7 +15,7 @@ import com.example.airpnp.UserPackage.Order;
 import com.example.airpnp.UserPackage.ParkingSpace;
 import com.example.airpnp.UserPackage.ParkingSpaceControl;
 import com.example.airpnp.UserPackage.User;
-import com.example.airpnp.UserPackage.UsersControl;
+import com.example.airpnp.UserPackage.UserInstance;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -35,6 +35,7 @@ import com.google.firebase.storage.UploadTask;
 
 public class FirebaseHelper {
 
+    public static final String USERS_PATH = "Users/";
     private String fileUrl;
     private FirebaseAuth auth;
     private FirebaseUser user;
@@ -247,7 +248,6 @@ public class FirebaseHelper {
     }
 
     public void getCurrentUser(final ActionDone actionDone){
-        final UsersControl usersControl = UsersControl.getInstance();
         mDataBase = FirebaseDatabase.getInstance().getReference("Users");
         Query query = mDataBase.orderByChild("Users").equalTo(user.getUid());
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -255,7 +255,7 @@ public class FirebaseHelper {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot data :
                         snapshot.getChildren()) {
-                    usersControl.currentUser = data.getValue(User.class);
+                    UserInstance.currentUser = data.getValue(User.class);
                 }
                 actionDone.onSuccess();
             }

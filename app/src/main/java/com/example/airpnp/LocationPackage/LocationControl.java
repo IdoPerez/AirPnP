@@ -24,7 +24,9 @@ public class LocationControl {
     public static boolean locationPermissionGranted = false;
     public Location lastKnownLocation;
     private List<Address> addresses;
-    private String address, userCityName, country, userCityPostalCode;
+    private String address;
+    private String userCityName;
+    private String country;
     private final Context context;
     private Geocoder geoCoder;
 
@@ -32,7 +34,7 @@ public class LocationControl {
         this.context = context;
     }
 
-    public static void getLocationPermission(Context activityContext,Activity activity) {
+    public static void getLocationPermission(Context activityContext ,Activity activity) {
         if (ContextCompat.checkSelfPermission(activityContext.getApplicationContext(),
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
@@ -43,44 +45,6 @@ public class LocationControl {
                     ACCESS_LOCATION_REQUEST_CODE);
         }
     }
-
-//    public void getDeviceLocation(Activity activity, final ActionDone actionDone) {
-//        try {
-//            if (locationPermissionGranted) {
-//                Task<Location> locationResult = fusedLocationProviderClient.getLastLocation();
-//                locationResult.addOnCompleteListener(activity, new OnCompleteListener<Location>() {
-//                    @Override
-//                    public void onComplete(@NonNull Task<Location> task) {
-//                        if (task.isSuccessful()) {
-//                            // Set the map's camera position to the current location of the device.
-//                            lastKnownLocation = task.getResult();
-//                            if (lastKnownLocation != null) {
-//                                /*
-//                                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-//                                        new LatLng(lastKnownLocation.getLatitude(),
-//                                                lastKnownLocation.getLongitude()), 19));
-//                                userLocation();
-//                                 */
-//                                updateUserLocation();
-//                                //actionDone.onSuccess();
-//                            }
-//                        } else {
-//                            /*
-//                            mMap.moveCamera(CameraUpdateFactory
-//                                    .newLatLngZoom(new LatLng(-33.868820,151.209290), 18));
-//                            mMap.getUiSettings().setMyLocationButtonEnabled(false);
-//
-//                             */
-//                            actionDone.onFailed();
-//                        }
-//                    }
-//                });
-//            }
-//        } catch (SecurityException e)  {
-//            Log.e("Exception: %s", e.getMessage(), e);
-//        }
-//    }
-
 
     public LatLng getLocationFromAddress(String strAddress) {
         locale = new Locale.Builder().setLanguage("en").setScript("Latn").setRegion("IL").build();
@@ -103,50 +67,11 @@ public class LocationControl {
         return p1;
     }
 
-    /*
-    if (city == null || city.getCounter() >= city.maxParkingSpacesModel){
-                locale = new Locale.Builder().setLanguage("en").build();
-                geoCoder = new Geocoder(context, locale);
-                address = geoCoder.getFromLocation(p1.latitude, p1.longitude, 1);
-                String englishCityName = address.get(0).getLocality();
-                City city = new City(splitAddressLocation(strAddress), englishCityName);
-                this.city = new UserCityModel(city);
-            } else{
-
-            }
-            Log.v("City", city.toString());
-     */
-    private void setUserCity(List<Address> address,LatLng latLng, String strAddress){
-        locale = new Locale.Builder().setLanguage("en").build();
-        geoCoder = new Geocoder(context, locale);
-        try {
-            address = geoCoder.getFromLocation(latLng.latitude, latLng.longitude, 1);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     private String splitAddressLocation(String address){
         String[] split = address.split(",", 2);
         //Log.v("CityFromRent", split[1]);
         return split[1].replaceAll("\\s","");
     }
-    /*
-    public void createCityModel(Location location, String parkingSpaceCityName){
-        locale = new Locale.Builder().setLanguage("en").build();
-        Geocoder geoCoder = new Geocoder(context, locale);
-        try {
-            addresses = geoCoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-            String englishCityName = addresses.get(0).getLocality();
-            userCityModel = new City(parkingSpaceCityName, englishCityName);
-            Log.v("cityName", userCityName);
-            //Log.v("City"+" "+ "Address", city+" "+ address);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-     */
 
     public void getAddressFromLocation(Location location) {
         locale = new Locale.Builder().setLanguage("en").build();
@@ -174,13 +99,10 @@ public class LocationControl {
                 addresses = geoCoder.getFromLocation(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude(), 1);
                 address = addresses.get(0).getAddressLine(0);
                 userCityName = addresses.get(0).getLocality();
-//            state = addresses.get(0).getAdminArea();
                 country = addresses.get(0).getCountryName();
-                //userCityPostalCode = addresses.get(0).getPostalCode();
                 userCityName = clearString(userCityName);
                 country = clearString(country);
-                Log.v("UserLocationDetails", "address:"+" "+address+" "+"city:"+" "+userCityName+"country:"+" "+country+" "+"cityPostalCode:"+" "+ userCityPostalCode);
-                //Log.v("City"+" "+ "Address", city+" "+ address);
+                Log.v("UserLocationDetails", "address:"+" "+address+" "+"city:"+" "+userCityName+"country:"+" "+country);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -202,10 +124,6 @@ public class LocationControl {
     public Location getLastKnownLocation() {
         return lastKnownLocation;
     }
-
-    public String getUserCityPostalCode(){return userCityPostalCode;}
-
-    public void setUserCityPostalCode(String userCityPostalCode){this.userCityPostalCode = userCityPostalCode;}
 
     public void setLastKnownLocation(Location lastKnownLocation) {
         this.lastKnownLocation = lastKnownLocation;

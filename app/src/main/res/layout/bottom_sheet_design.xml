@@ -92,24 +92,23 @@
                     <TextView
                         android:id="@+id/pricePerHour"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="start|right"
+                        android:layout_height="match_parent"
+                        android:gravity="start|right|bottom"
+                        android:paddingLeft="16dp"
                         android:paddingTop="8dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="8dp"
                         android:text="25 p/h"
                         android:textColor="#0f0f10"
                         android:textSize="12dp" />
 
-                    <TextView
-                        android:id="@+id/sizeTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:id="@+id/size_icon"
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
                         android:gravity="start|right"
-                        android:paddingLeft="16dp"
-                        android:paddingTop="8dp"
-                        android:paddingRight="8dp"
-                        android:paddingBottom="8dp"
-                        android:text="Small"
                         android:textColor="#0f0f10"
+                        android:scaleType="centerCrop"
                         android:textSize="12dp" />
                 </LinearLayout>
 

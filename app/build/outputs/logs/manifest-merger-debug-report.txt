@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-62:12
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-58:12
 MERGED from [androidx.navigation:navigation-ui:2.3.3] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\4f0c5d33d4afca8e28877f3b7435dca4\navigation-ui-2.3.3\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.3.0-beta01] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\283d2cbe7bc500d3b3e13f0bfcb6d187\material-1.3.0-beta01\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\006b46906b2f770011761845d9282045\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
@@ -157,20 +157,20 @@ MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] 
 MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\99ee85ec2ab799b0fd9619254144b6d8\jetified-play-services-vision-license-12.0.1\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-wallet-license:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\480e27e6076647cd58eac7c352b01adc\jetified-play-services-wallet-license-12.0.1\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-wearable-license:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\a2042da080dc90bb2ef4954051f6e786\jetified-play-services-wearable-license-12.0.1\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-62:12
+INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-58:12
+INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-58:12
 	package
 		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:3:5-33
 		INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml
 		INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-62:12
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-58:12
 		INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-62:12
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-58:12
 		INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:11-69
@@ -227,7 +227,7 @@ ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManif
 	android:name
 		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:12:22-77
 application
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:14:5-60:19
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:14:5-56:19
 MERGED from [com.google.android.material:material:1.3.0-beta01] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\283d2cbe7bc500d3b3e13f0bfcb6d187\material-1.3.0-beta01\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.3.0-beta01] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\283d2cbe7bc500d3b3e13f0bfcb6d187\material-1.3.0-beta01\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\006b46906b2f770011761845d9282045\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -430,20 +430,24 @@ MERGED from [com.google.android.gms:play-services-wearable-license:12.0.1] C:\Us
 		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:15:9-35
 	android:theme
 		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:20:9-40
+activity#com.example.airpnp.AuthPackage.RegisterSecStep
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:21:9-74
+	android:name
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:21:19-62
 meta-data#com.google.android.geo.API_KEY
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:21:9-23:55
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:23:9-25:55
 	android:value
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:23:13-52
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:25:13-52
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:22:13-58
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:24:13-58
 activity#com.example.airpnp.MapPackage.MainActivityBotNav
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:32:9-35:20
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:34:9-36:78
 	android:theme
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:34:13-66
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:36:13-66
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:33:13-58
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:35:13-58
 activity#com.example.airpnp.MapPackage.NavigationDrawerActivity
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:37:9-41:20
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:37:9-40:68
 	android:label
 		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:39:13-69
 	android:theme
@@ -451,45 +455,45 @@ ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManif
 	android:name
 		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:38:13-64
 activity#com.example.airpnp.RentPackage.RentActivity
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:43:9-47:20
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:41:9-43:78
 	android:theme
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:45:13-66
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:43:13-66
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:44:13-53
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:42:13-53
 activity#com.example.airpnp.AuthPackage.EmailVerification
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:48:9-67
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:44:9-67
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:48:19-64
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:44:19-64
 activity#com.example.airpnp.ContactUser.SmsSender
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:49:9-59
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:45:9-59
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:49:19-56
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:45:19-56
 activity#com.example.airpnp.UserPackage.ProfileActivity
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:50:9-65
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:46:9-65
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:50:19-62
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:46:19-62
 activity#com.example.airpnp.AuthPackage.RegisterUser
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:51:9-62
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:47:9-62
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:51:19-59
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:47:19-59
 activity#com.example.airpnp.AuthPackage.Authentication
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:52:9-64
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:48:9-64
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:52:19-61
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:48:19-61
 activity#com.example.airpnp.MainActivity
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:53:9-59:20
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:49:9-55:20
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:53:19-47
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:49:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:54:13-58:29
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:50:13-54:29
 action#android.intent.action.MAIN
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:55:17-69
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:51:17-69
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:55:25-66
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:51:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:57:17-77
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:53:17-77
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:57:27-74
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:53:27-74
 uses-sdk
 INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml

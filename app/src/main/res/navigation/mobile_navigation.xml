@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.airpnp.MapPackage.ui.home.MapFragment"
+        android:name="com.example.airpnp.MapPackage.ui.MapFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/user_parking_spaces_profile" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.airpnp.MapPackage.ui.gallery.UserPSdisplayFragment"
+        android:name="com.example.airpnp.MapPackage.UserPSdisplayFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 

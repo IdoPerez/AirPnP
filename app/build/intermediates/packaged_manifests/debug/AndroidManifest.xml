@@ -42,6 +42,8 @@
         android:supportsRtl="false"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.airpnp.AuthPackage.RegisterSecStep" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -55,17 +57,14 @@
         -->
         <activity
             android:name="com.example.airpnp.MapPackage.MainActivityBotNav"
-            android:theme="@style/Theme.MaterialComponents.Light" >
-        </activity>
+            android:theme="@style/Theme.MaterialComponents.Light" />
         <activity
             android:name="com.example.airpnp.MapPackage.NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.example.airpnp.RentPackage.RentActivity"
-            android:theme="@style/Theme.MaterialComponents.Light" >
-        </activity>
+            android:theme="@style/Theme.MaterialComponents.Light" />
         <activity android:name="com.example.airpnp.AuthPackage.EmailVerification" />
         <activity android:name="com.example.airpnp.ContactUser.SmsSender" />
         <activity android:name="com.example.airpnp.UserPackage.ProfileActivity" />

@@ -105,7 +105,6 @@ public class PaymentChoiceFragment extends Fragment {
                 ((MainActivityBotNav) requireActivity()).popFromStack();
             }
         });
-
         return root;
     }
 }

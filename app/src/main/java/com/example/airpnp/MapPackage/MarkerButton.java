@@ -24,10 +24,6 @@ public class MarkerButton {
         marker = googleMap.addMarker(markerOptions);
     }
 
-    public void updateMarker(ParkingSpace parkingSpace){
-
-    }
-
     public Marker getMarker(){
         return marker;
     }

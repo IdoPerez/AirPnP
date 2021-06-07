@@ -15,6 +15,7 @@ import android.widget.ListView;
 
 import com.example.airpnp.Helper.FirebaseHelper;
 import com.example.airpnp.R;
+import com.example.airpnp.RentPackage.RentActivity;
 import com.example.airpnp.UserPackage.ParkingSpace;
 import com.example.airpnp.UserPackage.ParkingSpaceControl;
 import com.google.android.gms.maps.GoogleMap;
@@ -34,7 +35,6 @@ public class MainActivityBotNav extends AppCompatActivity {
     ParkingSpaceControl parkingSpaceControl;
     ListView userParkingSpaceList;
 
-    FirebaseHelper firebaseHelper = new FirebaseHelper();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +49,7 @@ public class MainActivityBotNav extends AppCompatActivity {
 //        bottomNavigationView.setSelectedItemId(R.id.around);
         mapFragment = new MapActivity();
         transferFragment(mapFragment);
+        rentFragment = new RentActivity();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -63,6 +64,7 @@ public class MainActivityBotNav extends AppCompatActivity {
                     case R.id.around:{
                         transferFragment(mapFragment);
                     } break;
+                    case R.id.createParkingSpace: transferFragment(rentFragment); break;
                 }
                 return true;
             }

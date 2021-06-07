@@ -28,12 +28,12 @@
         "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\drawable\\radio_button_regular_state.xml"
     },
     {
-        "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_button.xml.flat",
-        "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\drawable\\button.xml"
-    },
-    {
         "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_map.xml.flat",
         "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\layout\\activity_map.xml"
+    },
+    {
+        "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_button.xml.flat",
+        "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\drawable\\button.xml"
     },
     {
         "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_bottom_sheet_layout_parkingspace_display.xml.flat",
@@ -54,6 +54,10 @@
     {
         "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_van_icon.png.flat",
+        "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\drawable\\van_icon.png"
     },
     {
         "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
@@ -92,12 +96,24 @@
         "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\layout\\user_ps_display_design.xml"
     },
     {
+        "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_register_sec_step.xml.flat",
+        "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\layout\\activity_register_sec_step.xml"
+    },
+    {
         "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_custom_window_layout.xml.flat",
         "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\layout\\custom_window_layout.xml"
     },
     {
+        "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_car_item_design.xml.flat",
+        "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\layout\\car_item_design.xml"
+    },
+    {
         "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main_bot_nav.xml.flat",
         "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\layout\\activity_main_bot_nav.xml"
+    },
+    {
+        "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_truck_icon.png.flat",
+        "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\drawable\\truck_icon.png"
     },
     {
         "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_gallery.xml.flat",
@@ -128,10 +144,6 @@
         "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\drawable\\ic_menu_slideshow.xml"
     },
     {
-        "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_slideshow.xml.flat",
-        "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\layout\\fragment_slideshow.xml"
-    },
-    {
         "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_rent.xml.flat",
         "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\layout\\activity_rent.xml"
     },
@@ -146,14 +158,6 @@
     {
         "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_card_view_orders.xml.flat",
         "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\layout\\card_view_orders.xml"
-    },
-    {
-        "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_map_fragment.xml.flat",
-        "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\layout\\map_fragment.xml"
-    },
-    {
-        "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\layout_user_parking_spaces_profile.xml.flat",
-        "source": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\src\\main\\res\\layout\\user_parking_spaces_profile.xml"
     },
     {
         "merged": "D:\\IDO\\Documents\\AndroidStudioGithub\\AirPnP\\app\\build\\intermediates\\res\\merged\\debug\\drawable_card_view_theme.xml.flat",

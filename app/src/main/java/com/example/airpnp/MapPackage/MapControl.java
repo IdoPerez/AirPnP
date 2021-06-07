@@ -43,21 +43,9 @@ public class MapControl {
         }
     }
 
-    public void MoveCameraMap(double latitude, double longitude){
-
-    }
-
     public void createMarkers(){
         markerButtonsList.clear();
         for (ParkingSpace parkingSpace: parkingSpaceControl.parkingSpacesList) {
-            /*
-            if (!markerDisplayed(parkingSpace)){
-                MarkerButton markerButton = new MarkerButton(googleMap, parkingSpace);
-                markerButtonsList.add(markerButton);
-                markerButton.addMarkerOnMap();
-            }
-
-             */
             createMarkerButton(parkingSpace);
         }
     }

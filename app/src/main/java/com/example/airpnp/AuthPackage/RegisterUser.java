@@ -10,46 +10,48 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.LinearLayout;
 
 import com.example.airpnp.MapPackage.MapActivity;
 import com.example.airpnp.R;
 import com.example.airpnp.ContactUser.SmsSender;
 import com.example.airpnp.RentPackage.RentActivity;
 import com.example.airpnp.UserPackage.User;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
-
 
 
 public class RegisterUser extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
-    private EditText edName, edEmail, edAge,edPassword;
+    private EditText edName, edEmail, edPhoneNum,edPassword;
+    LinearLayout infoLayout;
+    User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
-        mAuth = FirebaseAuth.getInstance();
 
-        edName = findViewById(R.id.name);
-        edEmail = findViewById(R.id.email);
-        edAge = findViewById(R.id.age);
-        edPassword = findViewById(R.id.password);
+        edName = findViewById(R.id.ed_name);
+        edEmail = findViewById(R.id.ed_email);
+        edPhoneNum = findViewById(R.id.ed_phoneNum);
+        edPassword = findViewById(R.id.ed_password);
+        infoLayout = findViewById(R.id.infoLayout);
+
+
+//        final ArrayList<String> arrayList = new ArrayList<>();
+//        arrayList.add("g");
+//        final ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, arrayList);
+
     }
 
     public void createUser(View view) {
-        registerUser();
+        createUserDetails();
     }
 
-    private void registerUser() {
+    private void createUserDetails() {
         final String name = edName.getText().toString().trim();
         final String email = edEmail.getText().toString().trim();
         final String password = edPassword.getText().toString().trim();
-        final String age = edAge.getText().toString().trim();
+        final String phoneNum = edPhoneNum.getText().toString().trim();
 
         if(name.isEmpty()){
             edName.setError("Full name is empty");
@@ -65,9 +67,9 @@ public class RegisterUser extends AppCompatActivity {
             edEmail.setError("Email not valid");
             edEmail.requestFocus();
         }
-        if(age.isEmpty()){
-            edAge.setError("Full name is empty");
-            edAge.requestFocus();
+        if(phoneNum.isEmpty()){
+            edPhoneNum.setError("Full name is empty");
+            edPhoneNum.requestFocus();
             return;
         }
         if(password.isEmpty()){
@@ -80,35 +82,10 @@ public class RegisterUser extends AppCompatActivity {
             edPassword.requestFocus();
             return;
         }
-
-        //progresBar = true
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            final User user = new User(FirebaseAuth.getInstance().getCurrentUser().getUid(), name, age,email);
-                            FirebaseDatabase.getInstance().getReference("Users")
-                                    .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    //PROGRES BAR FALSE;
-                                    if(task.isSuccessful()){
-                                        Toast.makeText(RegisterUser.this, "Register succeed", Toast.LENGTH_LONG).show();
-                                        Intent intent = new Intent(RegisterUser.this, Authentication.class);
-                                        startActivity(intent);
-                                    }
-                                    else{
-                                        Toast.makeText(RegisterUser.this, "Register failed! Try again.", Toast.LENGTH_LONG).show();
-                                    }
-                                }
-                            });
-                        } else{
-                            Toast.makeText(RegisterUser.this, "Register failed! Try again.", Toast.LENGTH_LONG).show();
-                            //progress bar false;
-                        }
-                    }
-                });
+        String[] userDetails = {name, email, phoneNum, password};
+        Intent intent = new Intent(this, RegisterSecStep.class);
+        intent.putExtra("userDetails", userDetails);
+        startActivity(intent);
     }
 
     @Override

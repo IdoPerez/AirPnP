@@ -2,22 +2,23 @@ package com.example.airpnp.UserPackage;
 
 import java.util.ArrayList;
 
-//fullName, age, email;
+//fullName, tv_phoneNum, email;
 public class User {
 
     private String userID;
     private String fullName;
-    private String age;
     private String email;
+    private String phoneNumber;
     private String logImage;
     private ArrayList<UserCar> userCars;
     private ArrayList<String> parkingSpaceID;
 
 
-    public User(String UID, String fullName, String age, String email){
-        this.userID = UID; this.fullName = fullName; this.age = age; this.email = email;
+    public User(String UID, String fullName, String email, String phoneNumber, ArrayList<UserCar> userCars){
+        this.userID = UID; this.fullName = fullName; this.email = email;
+        this.phoneNumber = phoneNumber;
         parkingSpaceID = new ArrayList<String>();
-        userCars = new ArrayList<UserCar>();
+        this.userCars = userCars;
     }
 
 
@@ -37,14 +38,6 @@ public class User {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
-    }
-
-    public String getAge() {
-        return age;
-    }
-
-    public void setAge(String age) {
-        this.age = age;
     }
 
     public String getEmail() {
@@ -69,5 +62,13 @@ public class User {
 
     public void setUserCars(ArrayList<UserCar> userCars) {
         this.userCars = userCars;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

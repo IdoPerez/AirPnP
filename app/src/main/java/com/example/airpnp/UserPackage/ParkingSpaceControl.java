@@ -23,14 +23,6 @@ public class ParkingSpaceControl {
         return parkingSpaceControl_instance;
     }
 
-    public void getUserParkingSpaces(){
-        for (ParkingSpace parkingSpace:
-             parkingSpacesList) {
-            if (parkingSpace.getUserUID().equals(FirebaseHelper.CURRENT_USER_UID))
-                userParkingSpacesList.add(parkingSpace);
-        }
-    }
-
     public ParkingSpace getParkingSpaceByAddress(String address){
         for (ParkingSpace parkingSpace:
                 userParkingSpacesList) {

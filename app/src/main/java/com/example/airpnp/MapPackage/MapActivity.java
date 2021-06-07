@@ -15,10 +15,10 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -29,8 +29,6 @@ import com.example.airpnp.Helper.FirebaseHelper;
 import com.example.airpnp.LocationPackage.LocationControl;
 import com.example.airpnp.R;
 import com.example.airpnp.Resources.CardItem;
-import com.example.airpnp.Resources.CustomAdapterCardList;
-import com.example.airpnp.UserPackage.Order;
 import com.example.airpnp.UserPackage.OrdersControl;
 import com.example.airpnp.UserPackage.ParkingSpace;
 import com.example.airpnp.UserPackage.ParkingSpaceControl;
@@ -71,7 +69,8 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
     LinearLayout bottomSheetLayout;
     BottomSheetBehavior bottomSheetBehavior;
 
-    TextView tvSize, tvPrice, tvAddress, tvParkingSpaceName, timeAvailable, tvStatus, tvPhoneNum, tvEmail;
+    TextView tvPrice, tvAddress, tvParkingSpaceName, timeAvailable, tvStatus, tvPhoneNum, tvEmail;
+    ImageView sizeImage;
     Button rentButton;
     Fragment mapFragment;
     FrameLayout frameLayout;
@@ -128,7 +127,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         tvAddress = root.findViewById(R.id.addressBotSheet);
         tvParkingSpaceName = root.findViewById(R.id.titleName);
         tvPrice = root.findViewById(R.id.pricePerHour);
-        tvSize = root.findViewById(R.id.sizeTextView);
+        sizeImage = root.findViewById(R.id.size_icon);
         rentButton = root.findViewById(R.id.rentButtonBottomSheet);
         tvPhoneNum = root.findViewById(R.id.phoneNum);
         //tvStatus = root.findViewById(R.id.parkingSpaceStatus);
@@ -163,6 +162,33 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         locationControl = new LocationControl(requireContext());
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext());
         return root;
+    }
+
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mapControl = new MapControl(getContext(), mMap);
+        mMap.setOnMarkerClickListener(MapActivity.this);
+        if (ContextCompat.checkSelfPermission(requireContext(),
+                android.Manifest.permission.ACCESS_FINE_LOCATION)
+                == PackageManager.PERMISSION_GRANTED) {
+            LocationControl.locationPermissionGranted = true;
+        } else {
+            requestPermissions(new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                    ACCESS_LOCATION_REQUEST_CODE);
+        }
+        getDeviceLocation();
+        mapControl.updateLocationUI(requireActivity());
     }
 
     private void setsLayoutParams(){
@@ -204,8 +230,8 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
     }
 
     private void halfScreenRatio(){
-        bottomSheetRatio = (topLayoutHeight+bottomLayoutHeight*100)/screenHeight;
-        bottomSheetBehavior.setHalfExpandedRatio(1-(bottomSheetRatio/100));
+        bottomSheetRatio = ((topLayoutHeight+bottomLayoutHeight)*100)/screenHeight;
+        bottomSheetBehavior.setHalfExpandedRatio(bottomSheetRatio/100);
         Log.v("Ratio", String.valueOf(bottomSheetRatio)+" "+topLayoutHeight+" "+bottomLayoutHeight+" "+screenHeight);
     }
 
@@ -242,12 +268,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
             }
 
             @Override
-            public void onSlide(@NonNull View bottomSheetView, float slideOffset) {
-                //bottomLayout.setVisibility(View.VISIBLE);
-//                bottomSheetLayout.setLayoutParams(new ViewGroup.LayoutParams(
-//                        ViewGroup.LayoutParams.MATCH_PARENT,
-//                        ViewGroup.LayoutParams.WRAP_CONTENT));
-            }
+            public void onSlide(@NonNull View bottomSheetView, float slideOffset) {}
         });
     }
 
@@ -271,29 +292,22 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
                 ((MainActivityBotNav) getActivity()).replaceFragments(fragment.getClass());
             }
         });
-//        tvAddress.setText("Address: "+parkingSpace.getAddress());
-//        tvCity.setText("City: "+parkingSpace.getParkingSpaceCity());
-//        tvPrice.setText("Price: "+parkingSpace.getPrice());
-//        tvSize.setText("Size: "+parkingSpace.getSize());
-//
-//        rentButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                ordersControl.placeNewOrder(markerButton.getParkingSpace().getParkingSpaceID(), markerButton.getParkingSpace().getUserUID(), firebaseHelper.getUserUid(), true);
-//                Toast.makeText(requireContext(), "new order created", Toast.LENGTH_LONG).show();
-//            }
-//        });
-        //createNewOrder(markerButton.getParkingSpace());
-        //customInfoWindowAdapter.onMarkerClicked(markerButton);
-        //marker.showInfoWindow();
         return false;
     }
 
     private void displayParkingSpace(ParkingSpace parkingSpace){
         tvParkingSpaceName.setText(parkingSpace.getParkingSpaceName());
+        int iconId = -1;
         tvAddress.setText(parkingSpace.getAddress());
-        //tvSize.setText(parkingSpace.getSize());
-        tvPrice.setText(String.valueOf(parkingSpace.getPrice()));
+        switch (parkingSpace.getSize()){
+            case 0: iconId = R.drawable.car_icon_a; break;
+            case 1: iconId = R.drawable.van_icon; break;
+            case 2: iconId = R.drawable.truck_icon; break;
+        }
+        if (iconId != -1) {
+            sizeImage.setImageResource(iconId);
+        }
+        tvPrice.setText(String.valueOf(parkingSpace.getPrice()) + " "+"p/h");
         timeAvailable.setText(parkingSpace.getParkingSpaceWorkingHours());
     }
 
@@ -330,36 +344,6 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
                     new LatLng(parkingSpace.getLatitude(),
                             parkingSpace.getLongitude()), MAP_ZOOM_VALUE));
         }
-    }
-
-    private void getCurrentUser(){
-
-    }
-    /**
-     * Manipulates the map once available.
-     * This callback is triggered when the map is ready to be used.
-     * This is where we can add markers or lines, add listeners or move the camera. In this case,
-     * If Google Play services is not installed on the device, the user will be prompted to install
-     * it inside the SupportMapFragment. This method will only be triggered once the user has
-     * installed Google Play services and returned to the app.
-     */
-
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        mapControl = new MapControl(getContext(), mMap);
-        mMap.setOnMarkerClickListener(MapActivity.this);
-        if (ContextCompat.checkSelfPermission(requireContext(),
-                android.Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED) {
-            LocationControl.locationPermissionGranted = true;
-        } else {
-            requestPermissions(new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-                    ACCESS_LOCATION_REQUEST_CODE);
-        }
-        getDeviceLocation();
-        mapControl.updateLocationUI(requireActivity());
     }
 
     @Override
@@ -463,12 +447,6 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
                 new LatLng(lastKnownLocation.getLatitude(),
                         lastKnownLocation.getLongitude()), 17));
-    }
-
-    public void createNewOrder(ParkingSpace parkingSpace){
-//        //Order userOrder = new Order(parkingSpace.getParkingSpaceID(), parkingSpace.getUserUID(), firebaseHelper.getUserUid(), null, null, price, time);
-//        ordersControl.userOrdersList.add(userOrder);
-//        firebaseHelper.uploadOrder(userOrder, OrdersControl.ordersPath);
     }
 }
 
