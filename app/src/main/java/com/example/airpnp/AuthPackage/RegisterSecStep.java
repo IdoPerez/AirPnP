@@ -92,8 +92,9 @@ public class RegisterSecStep extends AppCompatActivity {
         String number = edCarNumber.getText().toString();
 
         if (!name.isEmpty() && !number.isEmpty()){
-            userCars.add(new UserCar(name, number, sizeSpinner.getSelectedItemPosition()));
-            return true;
+            Toast.makeText(this, "Press add to create new car", Toast.LENGTH_LONG).show();
+            addCarBtn.requestFocus();
+            return false;
         }
         else if (userCars.isEmpty()){
             if (name.isEmpty()){
@@ -105,16 +106,24 @@ public class RegisterSecStep extends AppCompatActivity {
             }
         }
         else{
-            if (name.isEmpty()){
+            if (name.isEmpty() && !carNumber.isEmpty()){
                 edCarName.requestFocus();
                 edCarName.setError("You must enter car name");
+                return false;
             }
-            else{
+            else if(carNumber.isEmpty() && !name.isEmpty()){
                 edCarNumber.requestFocus();
                 edCarNumber.setError("You must enter car number");
             }
+            else{
+                edCarName.getText().clear();
+                edCarName.setHint("Car name");
+                edCarNumber.getText().clear();
+                edCarNumber.setHint("Car number");
+                return true;
+            }
         }
-        return false;
+    return false;
     }
 
     private void createUserFireBase(){

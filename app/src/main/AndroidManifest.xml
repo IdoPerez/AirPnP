@@ -33,14 +33,15 @@
         -->
         <activity
             android:name=".MapPackage.MainActivityBotNav"
-            android:theme="@style/Theme.MaterialComponents.Light"></activity>
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
+        </activity>
+
         <activity
             android:name=".MapPackage.NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".RentPackage.RentActivity"
-            android:theme="@style/Theme.MaterialComponents.Light"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
         <activity android:name=".AuthPackage.EmailVerification" />
         <activity android:name=".ContactUser.SmsSender" />
         <activity android:name=".UserPackage.ProfileActivity" />

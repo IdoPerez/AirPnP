@@ -50,6 +50,7 @@ public class MainActivityBotNav extends AppCompatActivity {
         mapFragment = new MapActivity();
         transferFragment(mapFragment);
         rentFragment = new RentActivity();
+        final Fragment myZoneFragment = new MyProfileFragment();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -65,6 +66,8 @@ public class MainActivityBotNav extends AppCompatActivity {
                         transferFragment(mapFragment);
                     } break;
                     case R.id.createParkingSpace: transferFragment(rentFragment); break;
+
+                    case R.id.item_myZone: transferFragment(myZoneFragment); break;
                 }
                 return true;
             }

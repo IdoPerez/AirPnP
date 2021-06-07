@@ -57,14 +57,13 @@
         -->
         <activity
             android:name="com.example.airpnp.MapPackage.MainActivityBotNav"
-            android:theme="@style/Theme.MaterialComponents.Light" />
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" >
+        </activity>
         <activity
             android:name="com.example.airpnp.MapPackage.NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name="com.example.airpnp.RentPackage.RentActivity"
-            android:theme="@style/Theme.MaterialComponents.Light" />
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
         <activity android:name="com.example.airpnp.AuthPackage.EmailVerification" />
         <activity android:name="com.example.airpnp.ContactUser.SmsSender" />
         <activity android:name="com.example.airpnp.UserPackage.ProfileActivity" />

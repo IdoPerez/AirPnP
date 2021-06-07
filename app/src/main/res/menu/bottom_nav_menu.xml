@@ -14,6 +14,6 @@
         android:id="@+id/favorites"
         android:title="favorites"/>
     <item
-        android:id="@+id/myParkingSpaces"
-        android:title="My PS"/>
+        android:id="@+id/item_myZone"
+        android:title="My zone"/>
 </menu>

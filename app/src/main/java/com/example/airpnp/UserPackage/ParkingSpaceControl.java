@@ -32,6 +32,10 @@ public class ParkingSpaceControl {
         return null;
     }
 
+    public boolean isFitParkingSpace(ParkingSpace parkingSpace, UserCar userCar){
+        return parkingSpace.getSize() >= userCar.getCarSize();
+    }
+
     public ParkingSpace getParkingSpaceById(String parkingSpaceID){
         for (ParkingSpace parking:
              parkingSpacesList) {

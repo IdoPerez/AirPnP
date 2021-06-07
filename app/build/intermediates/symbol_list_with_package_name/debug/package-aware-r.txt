@@ -3017,6 +3017,7 @@ id intent_extra_data
 id invisible
 id inward
 id italic
+id item_myZone
 id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
@@ -3154,7 +3155,6 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
-id myParkingSpaces
 id nav_controller_view_tag
 id nav_gallery
 id nav_home
@@ -3329,8 +3329,12 @@ id sunday
 id sundayCheckBox
 id sundayTV
 id sundayTime
+id tabLayout
 id tabMode
 id tab_host
+id tab_myActivity
+id tab_myOrders
+id tab_myParkingSpace
 id tag_accessibility_actions
 id tag_accessibility_clickable_spans
 id tag_accessibility_heading
@@ -3560,6 +3564,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_gallery
+layout fragment_my_profile
 layout fragment_pay_choice
 layout fragment_rent_first_step
 layout fragment_rent_sec_step
