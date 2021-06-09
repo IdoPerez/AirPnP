@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
@@ -17,11 +18,10 @@ import com.google.android.material.tabs.TabLayout;
 
 public class MyProfileFragment extends Fragment {
     private Toolbar toolbar;
-    private ViewPager viewPager;
     private TabLayout tabLayout;
-    private final int FRAGMENT_ACTIVITY_POS = 0;
-    private final int FRAGMENT_MyParkingSpace_POS = 1;
-    private final int FRAGMENT_Orders_POS = 2;
+
+    private final int FRAGMENT_MyParkingSpace_POS = 0;
+    private final int FRAGMENT_Orders_POS = 1;
 
     Fragment userActivityFragment, ordersFragment, parkingSpacesFragment;
     public MyProfileFragment() {
@@ -43,21 +43,21 @@ public class MyProfileFragment extends Fragment {
         ((AppCompatActivity) requireActivity()).setSupportActionBar(toolbar);
         tabLayout = view.findViewById(R.id.tabLayout);
 
-        userActivityFragment = new UserActivityFragment();
         ordersFragment = new OrdersFragment();
         parkingSpacesFragment = new ParkingSpacesFragment();
+        tabLayout.selectTab(tabLayout.getTabAt(FRAGMENT_MyParkingSpace_POS));
+        replaceFragments(parkingSpacesFragment);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 switch (tab.getPosition()){
-                    case FRAGMENT_ACTIVITY_POS:{
-                        Toast.makeText(requireContext(), "Fragment activity", Toast.LENGTH_SHORT).show();
-                    } break;
                     case FRAGMENT_MyParkingSpace_POS:{
+                        getChildFragmentManager().beginTransaction().replace(R.id.fragFrame_myProfile, parkingSpacesFragment).commit();
                         Toast.makeText(requireContext(), "Fragment MyParkingSpace", Toast.LENGTH_SHORT).show();
                     } break;
                     case FRAGMENT_Orders_POS: {
+                        getChildFragmentManager().beginTransaction().replace(R.id.fragFrame_myProfile, ordersFragment).commit();
                         Toast.makeText(requireContext(), "Fragment MyOrders", Toast.LENGTH_SHORT).show();
                     } break;
                 }
@@ -74,5 +74,14 @@ public class MyProfileFragment extends Fragment {
             }
         });
         return view;
+    }
+
+    public void replaceFragments(Fragment fragment){
+        getChildFragmentManager().beginTransaction().replace(R.id.fragFrame_myProfile, fragment).addToBackStack(null).commit();
+        Toast.makeText(requireContext(), "Fragment MyParkingSpace", Toast.LENGTH_SHORT).show();
+    }
+
+    public void popBackStack(){
+        getChildFragmentManager().popBackStack();
     }
 }

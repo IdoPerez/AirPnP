@@ -26,11 +26,6 @@
             android:background="@android:color/white"
             app:tabMode="fixed">
 
-            <com.google.android.material.tabs.TabItem
-                android:id="@+id/tab_myActivity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="tab 1" />
             <!--            android:icon="@drawable/ic_favorite_24dp"-->
 
 
@@ -38,7 +33,7 @@
                 android:id="@+id/tab_myParkingSpace"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="tab 2" />
+                android:text="parkingspaces" />
             <!--            android:text="@string/tab_2"-->
             <!--            android:icon="@drawable/ic_music_24dp"-->
 
@@ -46,7 +41,7 @@
                 android:id="@+id/tab_myOrders"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="tab 3" />
+                android:text="Orders" />
             <!--            android:text="@string/tab_3"-->
             <!--            android:icon="@drawable/ic_search_24dp"-->
         </com.google.android.material.tabs.TabLayout>

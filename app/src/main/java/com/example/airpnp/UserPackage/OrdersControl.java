@@ -27,5 +27,6 @@ public class OrdersControl {
         String orderPath = ordersPath+firebaseHelper.getUserUid();
         order.setOrderID(firebaseHelper.getObjectKey(orderPath));
         firebaseHelper.uploadOrder(order, orderPath);
+        userOrdersList.add(order);
     }
 }

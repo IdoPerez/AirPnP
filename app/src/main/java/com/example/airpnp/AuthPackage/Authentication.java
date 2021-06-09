@@ -18,7 +18,6 @@ import com.example.airpnp.Helper.ActionDone;
 import com.example.airpnp.Helper.FirebaseHelper;
 import com.example.airpnp.MapPackage.MainActivityBotNav;
 import com.example.airpnp.MapPackage.MapActivity;
-import com.example.airpnp.MapPackage.NavigationDrawerActivity;
 import com.example.airpnp.R;
 import com.example.airpnp.RentPackage.RentActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -81,9 +80,20 @@ public class Authentication extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    startActivity(new Intent(Authentication.this, MainActivityBotNav.class));
                     edEmail.setHint("Email");
                     edPassword.setHint("Password");
+                    FirebaseHelper firebaseHelper = new FirebaseHelper();
+                    firebaseHelper.getUserParkingSpaces(new ActionDone() {
+                        @Override
+                        public void onSuccess() {
+                            startActivity(new Intent(Authentication.this, MainActivityBotNav.class));
+                        }
+
+                        @Override
+                        public void onFailed() {
+
+                        }
+                    });
                     //redirect profile
 //                    FirebaseHelper firebaseHelper = new FirebaseHelper();
 //                    firebaseHelper.getCurrentUser(new ActionDone() {

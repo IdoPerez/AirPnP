@@ -55,12 +55,12 @@ public class MainActivityBotNav extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if (item.getItemId() == R.id.quick_sell){
-                    bottomSheetQuickSell.setState(BottomSheetBehavior.STATE_EXPANDED);
-                }
-                else{
-                    bottomSheetQuickSell.setState(BottomSheetBehavior.STATE_HIDDEN);
-                }
+//                if (item.getItemId() == R.id.quick_sell){
+//                    bottomSheetQuickSell.setState(BottomSheetBehavior.STATE_EXPANDED);
+//                }
+//                else{
+//                    bottomSheetQuickSell.setState(BottomSheetBehavior.STATE_HIDDEN);
+//                }
                 switch (item.getItemId()){
                     case R.id.around:{
                         transferFragment(mapFragment);

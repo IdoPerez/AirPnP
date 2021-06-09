@@ -1,0 +1,207 @@
+@startuml
+
+title __MAPPACKAGE's Class Diagram__\n
+
+  namespace com.example.airpnp {
+    namespace MapPackage {
+      class com.example.airpnp.MapPackage.MainActivityBotNav {
+          ~ bottomNavigationView : BottomNavigationView
+          ~ bottomSheetLayout : CoordinatorLayout
+          ~ bottomSheetQuickSell : BottomSheetBehavior
+          ~ fragment : Fragment
+          ~ mapFragment : Fragment
+          ~ rentFragment : Fragment
+          ~ userParkingSpaceList : ListView
+          ~ userParkingSpacesNameList : ArrayList<String>
+          + bottomSheetCallBack()
+          + popFromStack()
+          + replaceFragments()
+          # onCreate()
+          - setUserParkingSpacesListView()
+          - transferFragment()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace MapPackage {
+      class com.example.airpnp.MapPackage.MapActivity {
+          {static} + TAG : String
+          ~ bookButton : Button
+          ~ bottomLayout : LinearLayout
+          ~ bottomLayoutHeight : float
+          ~ bottomSheetBehavior : BottomSheetBehavior
+          ~ bottomSheetLayout : LinearLayout
+          ~ bottomSheetRatio : float
+          ~ cardItemList : ArrayList<CardItem>
+          ~ closeBtn : ImageButton
+          ~ expendBtn : ImageButton
+          ~ fab : FloatingActionButton
+          ~ frameLayout : FrameLayout
+          ~ fusedLocationProviderClient : FusedLocationProviderClient
+          ~ lastKnownLocation : Location
+          ~ mMap : GoogleMap
+          ~ mapControl : MapControl
+          ~ mapFragment : Fragment
+          ~ rentButton : Button
+          ~ screenHeight : float
+          ~ screenWidth : float
+          ~ sizeImage : ImageView
+          ~ timeAvailable : TextView
+          ~ topLayout : LinearLayout
+          ~ topLayoutHeight : float
+          ~ tvAddress : TextView
+          ~ tvEmail : TextView
+          ~ tvParkingSpaceName : TextView
+          ~ tvPhoneNum : TextView
+          ~ tvPrice : TextView
+          ~ tvStatus : TextView
+          ~ userParkingSpaceList : ListView
+          ~ userParkingSpacesNameList : ArrayList<String>
+          - MAP_ZOOM_VALUE : int
+          + bottomSheetCallBack()
+          + moveCameraMap()
+          + onCreateView()
+          + onItemClick()
+          + onMapReady()
+          + onMarkerClick()
+          + onRequestPermissionsResult()
+          - displayParkingSpace()
+          - downloadParkingSpaces()
+          - getDeviceLocation()
+          - halfScreenRatio()
+          - setsLayoutParams()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace MapPackage {
+      class com.example.airpnp.MapPackage.MapControl {
+          + markerButtonsList : ArrayList<MarkerButton>
+          - context : Context
+          - googleMap : GoogleMap
+          + MapControl()
+          + addMarkerButton()
+          + createMarkerButton()
+          + createMarkers()
+          + getLength()
+          + getMarkerButton()
+          + getMarkerButtonClicked()
+          + getSelectedUserParkingSpace()
+          + updateLocationUI()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace MapPackage {
+      class com.example.airpnp.MapPackage.MarkerButton {
+          - googleMap : GoogleMap
+          - marker : Marker
+          - markerOptions : MarkerOptions
+          + MarkerButton()
+          + addMarkerOnMap()
+          + getMarker()
+          + getParkingSpace()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace MapPackage {
+      class com.example.airpnp.MapPackage.MyProfileFragment {
+          ~ ordersFragment : Fragment
+          ~ parkingSpacesFragment : Fragment
+          ~ userActivityFragment : Fragment
+          - FRAGMENT_MyParkingSpace_POS : int
+          - FRAGMENT_Orders_POS : int
+          - tabLayout : TabLayout
+          - toolbar : Toolbar
+          + MyProfileFragment()
+          + onCreate()
+          + onCreateView()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace MapPackage {
+      class com.example.airpnp.MapPackage.OrdersFragment {
+          {static} - ARG_PARAM1 : String
+          {static} - ARG_PARAM2 : String
+          - mParam1 : String
+          - mParam2 : String
+          + OrdersFragment()
+          + onCreate()
+          + onCreateView()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace MapPackage {
+      class com.example.airpnp.MapPackage.ParkingSpacesFragment {
+          {static} - ARG_PARAM1 : String
+          {static} - ARG_PARAM2 : String
+          - mParam1 : String
+          - mParam2 : String
+          + ParkingSpacesFragment()
+          {static} + newInstance()
+          + onCreate()
+          + onCreateView()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace MapPackage {
+      class com.example.airpnp.MapPackage.PaymentChoiceFragment {
+          ~ checkedCardView : MaterialCardView
+          ~ parkingHours : int
+          ~ parkingSpaceTotalPrice : double
+          ~ parkingTimeRecycler : RecyclerView
+          ~ payBtn : Button
+          ~ paymentPayTypeDetails : ArrayList<PaymentDetails>
+          ~ paymentPriceDetails : ArrayList<PaymentDetails>
+          ~ paymentTypeRecycler : RecyclerView
+          ~ tvAddress : TextView
+          ~ tvTitleName : TextView
+          ~ tvTotalPrice : TextView
+          + PaymentChoiceFragment()
+          + onCreateView()
+      }
+    }
+  }
+  
+
+  com.example.airpnp.MapPackage.MainActivityBotNav o-- com.example.airpnp.UserPackage.ParkingSpaceControl : parkingSpaceControl
+  com.example.airpnp.MapPackage.MapActivity .up.|> AdapterView.OnItemClickListener
+  com.example.airpnp.MapPackage.MapActivity .up.|> GoogleMap.OnMarkerClickListener
+  com.example.airpnp.MapPackage.MapActivity .up.|> OnMapReadyCallback
+  com.example.airpnp.MapPackage.MapActivity o-- com.example.airpnp.Helper.FirebaseHelper : firebaseHelper
+  com.example.airpnp.MapPackage.MapActivity o-- com.example.airpnp.LocationPackage.LocationControl : locationControl
+  com.example.airpnp.MapPackage.MapActivity o-- com.example.airpnp.UserPackage.User : myUser
+  com.example.airpnp.MapPackage.MapActivity o-- com.example.airpnp.UserPackage.OrdersControl : ordersControl
+  com.example.airpnp.MapPackage.MapActivity o-- com.example.airpnp.UserPackage.ParkingSpaceControl : parkingSpaceControl
+  com.example.airpnp.MapPackage.MapControl o-- com.example.airpnp.UserPackage.ParkingSpaceControl : parkingSpaceControl
+  com.example.airpnp.MapPackage.MarkerButton o-- com.example.airpnp.UserPackage.ParkingSpace : parkingSpace
+  com.example.airpnp.MapPackage.PaymentChoiceFragment o-- com.example.airpnp.UserPackage.OrdersControl : ordersControl
+  com.example.airpnp.MapPackage.PaymentChoiceFragment o-- com.example.airpnp.UserPackage.ParkingSpaceControl : parkingSpaceControl
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

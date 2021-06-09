@@ -2,141 +2,56 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:padding="8dp">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="3dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
-        android:paddingBottom="5dp"
-        app:cardElevation="4dp">
+        app:cardElevation="8dp"
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/titleLayout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:paddingBottom="2sp">
-
-            <TextView
-                android:id="@+id/titleAddress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/orderTime"
-                android:layout_alignBottom="@+id/orderTime"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:gravity="left"
-                android:text="TextView"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.7"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/orderTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:layout_marginBottom="4dp"
-                android:text="TextView"
-                android:textSize="8sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
-
-            <TextView
-                android:id="@+id/parkingSpacePrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="TextView"
-                android:textSize="12sp"
-                app:layout_constraintEnd_toEndOf="@+id/titleAddress"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toStartOf="@+id/titleAddress"
-                app:layout_constraintTop_toBottomOf="@+id/titleAddress" />
-
-            <TextView
-                android:id="@+id/perHour"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:text="p/h"
-                android:textSize="8sp"
-                app:layout_constraintBottom_toBottomOf="@+id/parkingSpacePrice"
-                app:layout_constraintEnd_toStartOf="@+id/parkingSpacePrice" />
-
-            <TextView
-                android:id="@+id/currentPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="0dp"
-                android:text="TextView"
-                android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/parkingSpacePrice"
-                app:layout_constraintEnd_toStartOf="@+id/parkingSpacePrice"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/orderTime"
-                app:layout_constraintTop_toTopOf="@+id/parkingSpacePrice"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/timeLeft"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="bottom"
-                android:padding="2dp"
-                android:text="time"
-                android:textSize="18dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/parkingSpacePrice"
-                app:layout_constraintStart_toStartOf="@+id/currentPrice"
-                app:layout_constraintTop_toBottomOf="@+id/parkingSpacePrice" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
+            <!-- Buttons -->
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:gravity="center">
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Time"
+                    android:textColor="#000"
+                    android:textSize="14sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="2dp">
+                    android:gravity="right"
+                    android:textColor="#000"
+                    android:textSize="18sp"
+                    android:text="Name" />
 
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/contentLayout"
+                <TextView
+                    android:id="@+id/tv_address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:padding="2dp">
-
-                </LinearLayout>
-
+                    android:textColor="#000"
+                    android:gravity="right"
+                    android:textSize="14sp"
+                    android:text="Address" />
             </LinearLayout>
 
         </LinearLayout>

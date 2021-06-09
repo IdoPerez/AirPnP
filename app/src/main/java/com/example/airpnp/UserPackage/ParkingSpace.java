@@ -36,6 +36,13 @@ public class ParkingSpace {
         return "Address:"+address+", "+"City:"+", "+parkingSpaceCity+", "+"Price:"+price+", "+"UserUID:"+", "+userUID+", "+"Location:"+latitude+", "+longitude;
     }
 
+    public String[] toStringArray(){
+        String[] array = {parkingSpaceID, userUID, parkingSpaceName, address, parkingSpaceCity, country,
+                String.valueOf(latitude), String.valueOf(longitude), String.valueOf(price), String.valueOf(size),
+                String.valueOf(isActive), String.valueOf(isAvailable), parkingSpaceWorkingHours};
+        return array;
+    }
+
     public ParkingSpace(){}
 
     public String getParkingSpaceID() {

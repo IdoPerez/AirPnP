@@ -23,7 +23,7 @@
         android:textSize="18sp" />
 
     <ListView
-        android:id="@+id/botSheetUserParkingSpacesList"
+        android:id="@+id/listView_parkingSpaces"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </ListView>

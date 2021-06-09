@@ -5,14 +5,14 @@
         android:title="Around"/>
     <item
         android:id="@+id/quick_sell"
-        android:title="Activity"
+        android:title="FutureBtn"
         />
     <item
         android:id="@+id/createParkingSpace"
         android:title="create"/>
     <item
         android:id="@+id/favorites"
-        android:title="favorites"/>
+        android:title="FutureBtn"/>
     <item
         android:id="@+id/item_myZone"
         android:title="My zone"/>

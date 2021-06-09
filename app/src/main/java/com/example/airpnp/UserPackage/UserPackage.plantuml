@@ -1,0 +1,232 @@
+@startuml
+
+title __USERPACKAGE's Class Diagram__\n
+
+  namespace com.example.airpnp {
+    namespace UserPackage {
+      class com.example.airpnp.UserPackage.Order {
+          - active : boolean
+          - checkInTime : String
+          - checkOutTime : String
+          - currentUserUid : String
+          - orderID : String
+          - parkingHours : int
+          - parkingSpaceID : String
+          - price : double
+          - tenantUID : String
+          + Order()
+          + getCheckInTime()
+          + getCheckOutTime()
+          + getCurrentUserUid()
+          + getOrderID()
+          + getParkingHours()
+          + getParkingSpaceID()
+          + getPrice()
+          + getTenantUID()
+          + isActive()
+          + setActive()
+          + setCheckInTime()
+          + setCheckOutTime()
+          + setCurrentUserUid()
+          + setOrderID()
+          + setParkingHours()
+          + setParkingSpaceID()
+          + setPrice()
+          + setTenantUID()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace UserPackage {
+      class com.example.airpnp.UserPackage.OrdersControl {
+          {static} + ordersPath : String
+          + userOrdersList : ArrayList<Order>
+          {static} - ordersControl_instance : OrdersControl
+          + createNewOrder()
+          {static} + getInstance()
+          - OrdersControl()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace UserPackage {
+      class com.example.airpnp.UserPackage.ParkingSpace {
+          - address : String
+          - country : String
+          - isActive : boolean
+          - isAvailable : boolean
+          - latitude : double
+          - longitude : double
+          - parkingSpaceCity : String
+          - parkingSpaceID : String
+          - parkingSpaceImages : ArrayList<String>
+          - parkingSpaceName : String
+          - parkingSpaceWorkingHours : String
+          - price : double
+          - size : int
+          - userUID : String
+          + ParkingSpace()
+          + ParkingSpace()
+          + getAddress()
+          + getCountry()
+          + getLatitude()
+          + getLongitude()
+          + getParkingSpaceCity()
+          + getParkingSpaceID()
+          + getParkingSpaceImages()
+          + getParkingSpaceName()
+          + getParkingSpaceWorkingHours()
+          + getPrice()
+          + getSize()
+          + getUserUID()
+          + isActive()
+          + isAvailable()
+          + setActive()
+          + setAddress()
+          + setAvailable()
+          + setCity()
+          + setCountry()
+          + setLatitude()
+          + setLongitude()
+          + setParkingSpaceID()
+          + setParkingSpaceImages()
+          + setParkingSpaceName()
+          + setParkingSpaceWorkingHours()
+          + setPrice()
+          + setSize()
+          + setUserUID()
+          + toString()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace UserPackage {
+      class com.example.airpnp.UserPackage.ParkingSpaceControl {
+          + parkingSpaceOnBooking : ParkingSpace
+          + parkingSpacesList : ArrayList<ParkingSpace>
+          {static} + parkingSpacesPath : String
+          + userParkingSpacesList : ArrayList<ParkingSpace>
+          {static} - parkingSpaceControl_instance : ParkingSpaceControl
+          {static} + getInstance()
+          + getParkingSpaceByAddress()
+          + getParkingSpaceById()
+          + isFitParkingSpace()
+          - ParkingSpaceControl()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace UserPackage {
+      class com.example.airpnp.UserPackage.ProfileActivity {
+          {static} - IMAGE_REQUEST : int
+          - imageUri : Uri
+          - imageView : ImageView
+          - user : User
+          + onCreateOptionsMenu()
+          + onOptionsItemSelected()
+          + pickImage()
+          # onActivityResult()
+          # onCreate()
+          - downloadProfileImage()
+          - getUserUid()
+          - uploadImage()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace UserPackage {
+      class com.example.airpnp.UserPackage.ProfileControl {
+          {static} + IMAGE_REQUEST_CODE : int
+          - imageUri : String
+          - profileContext : Context
+          - profileImage : ImageView
+          - user : User
+          + ProfileControl()
+          + downloadProfileImage()
+          + isProfileImageEmpty()
+          + uploadImage()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace UserPackage {
+      class com.example.airpnp.UserPackage.User {
+          - email : String
+          - fullName : String
+          - logImage : String
+          - parkingSpaceID : ArrayList<String>
+          - phoneNumber : String
+          - userCars : ArrayList<UserCar>
+          - userID : String
+          + User()
+          + addParkingSpace()
+          + getEmail()
+          + getFullName()
+          + getLogImage()
+          + getParkingSpaceID()
+          + getPhoneNumber()
+          + getUserCars()
+          + getUserID()
+          + setEmail()
+          + setFullName()
+          + setImage()
+          + setPhoneNumber()
+          + setUserCars()
+          + setUserID()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace UserPackage {
+      class com.example.airpnp.UserPackage.UserCar {
+          - carName : String
+          - carNumber : String
+          - carSize : int
+          + UserCar()
+          + getCarName()
+          + getCarNumber()
+          + getCarSize()
+          + setCarName()
+          + setCarNumber()
+          + setCarSize()
+      }
+    }
+  }
+  
+
+  namespace com.example.airpnp {
+    namespace UserPackage {
+      class com.example.airpnp.UserPackage.UserInstance {
+          {static} + currentUser : User
+      }
+    }
+  }
+  
+
+  com.example.airpnp.UserPackage.OrdersControl o-- com.example.airpnp.Helper.FirebaseHelper : firebaseHelper
+  com.example.airpnp.UserPackage.ProfileActivity o-- com.example.airpnp.Helper.FirebaseHelper : firebaseHelper
+  com.example.airpnp.UserPackage.ProfileControl o-- com.example.airpnp.Helper.FirebaseHelper : firebaseHelper
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml

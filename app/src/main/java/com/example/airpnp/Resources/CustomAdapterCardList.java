@@ -1,11 +1,11 @@
 package com.example.airpnp.Resources;
 
 import android.content.Context;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,14 +19,16 @@ import com.example.airpnp.UserPackage.ParkingSpaceControl;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomAdapterCardList extends ArrayAdapter<CardItem> {
+public class CustomAdapterCardList extends ArrayAdapter<ParkingSpace> {
     private Context mContext;
-    private List<CardItem> cardItems;
+    private List<ParkingSpace> items;
+    //Declare timer
+    CountDownTimer cTimer = null;
 
-    public CustomAdapterCardList(@NonNull Context context, ArrayList<CardItem> list) {
+    public CustomAdapterCardList(@NonNull Context context, ArrayList<ParkingSpace> list) {
         super(context, 0, list);
         mContext = context;
-        cardItems = list;
+        items = list;
     }
 
     @NonNull
@@ -37,37 +39,54 @@ public class CustomAdapterCardList extends ArrayAdapter<CardItem> {
             listItem = LayoutInflater.from(mContext).inflate(R.layout.card_view_orders,
                     parent,
                     false);
-        CardItem cardItem = cardItems.get(position);
-
-        TextView address, user, price, time, checkIn, checkOut, timeLeft;
+        TextView tvName, tvAddress, tvTime;
 
         //initialing button
         //Button aboard = (Button) listItem.findViewById(R.id.aboardBtn);
         //aboard.setOnClickListener(cardItem.getAboardOnClick());
 
         //initialing textviews
-        address = (TextView) listItem.findViewById(R.id.titleAddress);
-        //user = (TextView) listItem.findViewById(R.id.userTextView);
-        price = (TextView) listItem.findViewById(R.id.currentPrice);
-        time = (TextView) listItem.findViewById(R.id.orderTime);
-        timeLeft = (TextView) listItem.findViewById(R.id.timeLeft);
-//        checkIn = (TextView) listItem.findViewById(R.id.checkinTextView);
-//        checkOut = (TextView) listItem.findViewById(R.id.checkoutTextView);
+        tvAddress = (TextView) listItem.findViewById(R.id.tv_address);
+        tvName = listItem.findViewById(R.id.tv_name);
+        tvTime = listItem.findViewById(R.id.tv_time);
+//        //user = (TextView) listItem.findViewById(R.id.userTextView);
+//        //price = (TextView) listItem.findViewById(R.id.currentPrice);
+//        time = (TextView) listItem.findViewById(R.id.orderTime);
+//        timeLeft = (TextView) listItem.findViewById(R.id.timeLeft);
+////        checkIn = (TextView) listItem.findViewById(R.id.checkinTextView);
+////        checkOut = (TextView) listItem.findViewById(R.id.checkoutTextView);
 
-        Order itemOrder = cardItem.getOrder();
-        ParkingSpaceControl parkingSpaceControl = ParkingSpaceControl.getInstance();
-        ParkingSpace parkingSpace = parkingSpaceControl.getParkingSpaceById(itemOrder.getParkingSpaceID());
+        ParkingSpace parkingSpace = items.get(position);
 
-        address.setText(parkingSpace.getAddress());
-        String st = mContext.getResources().getString(R.string.user_parkingSpace);
-        //user.setText(st+"שם משתמש");
-        price.setText(String.valueOf(itemOrder.getPrice()));
-        //time.setText(itemOrder.getTime());
-//        checkIn.setText(itemOrder.getCheckInTime());
-//        checkOut.setText(itemOrder.getCheckOutTime());
-//        checkIn.setText("random time");
-//        checkOut.setText("random time1");
-
+        tvAddress.setText(parkingSpace.getAddress());
+        tvName.setText(parkingSpace.getParkingSpaceName());
+        //startTimer(tvTime);
         return listItem;
     }
+
+    @Override
+    public int getPosition(@Nullable ParkingSpace item) {
+        return super.getPosition(item);
+    }
+
+    //start timer function
+//    public void startTimer(final TextView textView) {
+//        cTimer = new CountDownTimer(30000, 1000) {
+//            public void onTick(long millisUntilFinished) {
+//                textView.setText(String.valueOf(millisUntilFinished));
+//            }
+//            public void onFinish() {
+//                textView.setText("Done");
+//                cancelTimer();
+//            }
+//        };
+//        cTimer.start();
+//    }
+
+
+    //cancel timer
+//    public void cancelTimer() {
+//        if(cTimer!=null)
+//            cTimer.cancel();
+//    }
 }

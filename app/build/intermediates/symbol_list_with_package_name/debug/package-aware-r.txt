@@ -2359,6 +2359,8 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable ic_arrow_black
+drawable ic_arrow_forward_black
 drawable ic_audiotrack_dark
 drawable ic_audiotrack_light
 drawable ic_clock_black_24dp
@@ -2762,6 +2764,7 @@ id android_pay_light
 id android_pay_light_with_border
 id animateToEnd
 id animateToStart
+id app_bar_profile
 id around
 id asConfigured
 id async
@@ -2780,7 +2783,6 @@ id beginning
 id blocking
 id blurred_background_image_view
 id book_now
-id botSheetUserParkingSpacesList
 id bottom
 id bottomLayout_bottomSheet
 id bottomNavigationView
@@ -2800,6 +2802,7 @@ id btn_close_botSheet
 id button
 id button2
 id button3
+id button4
 id button5
 id buttonLayout
 id buttonPanel
@@ -2867,7 +2870,6 @@ id container
 id container_all
 id container_current
 id content
-id contentLayout
 id contentPanel
 id contiguous
 id controllers
@@ -2876,7 +2878,6 @@ id cos
 id counterclockwise
 id crash_reporting_present
 id createParkingSpace
-id currentPrice
 id currentPrice2
 id custom
 id customPanel
@@ -2962,6 +2963,7 @@ id fixed
 id flip
 id floating
 id forever
+id fragFrame_myProfile
 id fragment_container
 id fragment_container_view_tag
 id friday
@@ -3003,8 +3005,10 @@ id ignoreRequest
 id image
 id imageButton
 id imageButton2
+id imageButton3
 id imageView
 id imageView2
+id image_size_icon
 id index_entity_types
 id info
 id infoLayout
@@ -3038,6 +3042,8 @@ id linear
 id linearLayout
 id listHeader
 id listMode
+id listView_orders
+id listView_parkingSpaces
 id list_item
 id live_stream_indicator
 id live_stream_seek_bar
@@ -3175,7 +3181,7 @@ id off
 id omnibox_title_section
 id omnibox_url_section
 id on
-id orderTime
+id orderInfo
 id outline
 id outward
 id packed
@@ -3184,8 +3190,8 @@ id parent
 id parentPanel
 id parentRelative
 id parent_matrix
+id parkingInfo
 id parkingSpaceImage
-id parkingSpacePrice
 id parkingSpacePrice2
 id parkingSpacesList
 id parkingSpaces_profile
@@ -3199,7 +3205,6 @@ id payButton
 id paymentCard
 id payment_recyclerView
 id peekHeight
-id perHour
 id percent
 id phoneNum
 id pin
@@ -3332,7 +3337,6 @@ id sundayTime
 id tabLayout
 id tabMode
 id tab_host
-id tab_myActivity
 id tab_myOrders
 id tab_myParkingSpace
 id tag_accessibility_actions
@@ -3365,7 +3369,9 @@ id textView11
 id textView12
 id textView13
 id textView14
+id textView16
 id textView2
+id textView22
 id textView3
 id textView4
 id textView5
@@ -3390,10 +3396,8 @@ id thursdayTV
 id thursdayTime
 id time
 id timeLayout
-id timeLeft
 id timeTitle
 id title
-id titleAddress
 id titleDividerNoCustom
 id titleLayout
 id titleName
@@ -3420,11 +3424,23 @@ id tuesdayTV
 id tuesdayTime
 id tvAddress
 id tvPrice
+id tv_address
 id tv_carName
 id tv_carNumber
 id tv_cars
+id tv_checkIn
+id tv_checkOut
+id tv_name
+id tv_orderStatus
+id tv_orderTitle
+id tv_parkingAddress
+id tv_parkingName
 id tv_paymentPrice
+id tv_price
+id tv_status
+id tv_time
 id tv_total
+id tv_totalPrice
 id unchecked
 id uniform
 id unlabeled
@@ -3565,6 +3581,9 @@ layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_gallery
 layout fragment_my_profile
+layout fragment_order_details
+layout fragment_orders
+layout fragment_parking_spaces
 layout fragment_pay_choice
 layout fragment_rent_first_step
 layout fragment_rent_sec_step

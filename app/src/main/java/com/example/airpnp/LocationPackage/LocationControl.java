@@ -11,7 +11,6 @@ import android.util.Log;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.example.airpnp.RentPackage.City;
 import com.google.android.gms.maps.model.LatLng;
 
 import java.io.IOException;

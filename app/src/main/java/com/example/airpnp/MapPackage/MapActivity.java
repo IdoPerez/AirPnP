@@ -106,7 +106,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         final View root = inflater.inflate(R.layout.activity_map, container, false);
 
         View layout = getActivity().findViewById(R.id.bottom_sheet_quick_sell);
-        userParkingSpaceList = layout.findViewById(R.id.botSheetUserParkingSpacesList);
+        userParkingSpaceList = layout.findViewById(R.id.listView_parkingSpaces);
 
 
         bottomSheetLayout = root.findViewById(R.id.bottom_sheet_layout);
