@@ -23,7 +23,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.util.ArrayList;
-
+/**
+ * @author Ido Perez
+ * @version 0.1
+ * @since 1.6.2021
+ */
 public class MainActivityBotNav extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
@@ -86,12 +90,20 @@ public class MainActivityBotNav extends AppCompatActivity {
         bottomSheetCallBack(bottomSheetQuickSell);
     }
 
+    /**
+     * transfer fragmens in activity.
+     * @param fragment
+     */
     private void transferFragment(Fragment fragment){
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .commit();
     }
 
+    /**
+     * transfer fragments not from the activity.
+     * @param fragmentClass
+     */
     public void replaceFragments(Class fragmentClass) {
         Fragment fragment = null;
         try {
@@ -105,11 +117,18 @@ public class MainActivityBotNav extends AppCompatActivity {
                 .commit();
     }
 
+    /**
+     * pop back to the previous fragment in the stack.
+     */
     public void popFromStack() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         fragmentManager.popBackStack();
     }
 
+    /**
+     * bottom sheet state control.
+     * @param bottomSheetBehavior
+     */
     public void bottomSheetCallBack(final BottomSheetBehavior bottomSheetBehavior){
         bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override

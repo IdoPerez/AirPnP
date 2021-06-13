@@ -20,10 +20,15 @@ import com.example.airpnp.MapPackage.MainActivityBotNav;
 import com.example.airpnp.MapPackage.MapActivity;
 import com.example.airpnp.R;
 import com.example.airpnp.RentPackage.RentActivity;
+import com.example.airpnp.UserPackage.Order;
+import com.example.airpnp.UserPackage.OrdersControl;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 public class Authentication extends AppCompatActivity {
     public EditText edEmail, edPassword;
@@ -49,6 +54,10 @@ public class Authentication extends AppCompatActivity {
         startActivity(new Intent(this, RegisterUser.class));
     }
 
+
+    /**
+     * checks input log in user to firebase realtime and download the user instance.
+     */
     private void userLogin() {
         String email = edEmail.getText().toString().trim();
         String password = edPassword.getText().toString().trim();
@@ -82,35 +91,47 @@ public class Authentication extends AppCompatActivity {
                 if(task.isSuccessful()){
                     edEmail.setHint("Email");
                     edPassword.setHint("Password");
-                    FirebaseHelper firebaseHelper = new FirebaseHelper();
-                    firebaseHelper.getUserParkingSpaces(new ActionDone() {
-                        @Override
-                        public void onSuccess() {
-                            startActivity(new Intent(Authentication.this, MainActivityBotNav.class));
-                        }
-
-                        @Override
-                        public void onFailed() {
-
-                        }
-                    });
-                    //redirect profile
-//                    FirebaseHelper firebaseHelper = new FirebaseHelper();
-//                    firebaseHelper.getCurrentUser(new ActionDone() {
-//                        @Override
-//                        public void onSuccess() {
-//                            startActivity(new Intent(Authentication.this, MainActivityBotNav.class));
-//                        }
-//
-//                        @Override
-//                        public void onFailed() {
-//
-//                        }
-//                    });
+                    getAllUserData();
                 }
                 else{
                     Toast.makeText(Authentication.this, "login failed! Try again", Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+    }
+
+    public void getAllUserData(){
+        final OrdersControl ordersControl = OrdersControl.getInstance();
+        final FirebaseHelper firebaseHelper = new FirebaseHelper();
+        firebaseHelper.getUserOrders(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot data:
+                     snapshot.getChildren()) {
+                    Order order = data.getValue(Order.class);
+                    ordersControl.userOrdersList.add(order);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        getUserData(firebaseHelper);
+    }
+
+    public void getUserData(FirebaseHelper firebaseHelper){
+        firebaseHelper.getCurrentUser(new ActionDone() {
+            @Override
+            public void onSuccess() {
+                startActivity(new Intent(Authentication.this, MainActivityBotNav.class));
+            }
+
+            @Override
+            public void onFailed() {
+
             }
         });
     }

@@ -26,7 +26,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
-
+/**
+ * @author Ido Perez
+ * @version 0.1
+ * @since 20.5.2021
+ */
 public class RegisterSecStep extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -82,11 +86,19 @@ public class RegisterSecStep extends AppCompatActivity {
         });
     }
 
+    /**
+     * calls the method createUserFireBase on click if the input check ok.
+     * @param view
+     */
     public void createUser(View view) {
         if (carEditTextCheck())
             createUserFireBase();
     }
 
+    /**
+     * checks if the car arrays are empty or if the user filled only half of the fields.
+     * @return true if the input check ok. else false.
+     */
     private boolean carEditTextCheck(){
         String name = edCarName.getText().toString();
         String number = edCarNumber.getText().toString();
@@ -126,6 +138,9 @@ public class RegisterSecStep extends AppCompatActivity {
     return false;
     }
 
+    /**
+     * creates new user in fire base auth and new instance of user in fire base real time.
+     */
     private void createUserFireBase(){
                 //progresBar = true
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -134,7 +149,7 @@ public class RegisterSecStep extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             final User user = new User(FirebaseAuth.getInstance().getCurrentUser().getUid(), username, email, phoneNum, userCars);
-                            FirebaseDatabase.getInstance().getReference(FirebaseHelper.USERS_PATH)
+                            FirebaseDatabase.getInstance().getReference(FirebaseHelper.USER_UID)
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {

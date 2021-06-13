@@ -21,10 +21,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-import com.example.airpnp.Helper.ActionDone;
 import com.example.airpnp.Helper.FirebaseHelper;
 import com.example.airpnp.LocationPackage.LocationControl;
 import com.example.airpnp.R;
@@ -46,11 +46,18 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 
 import java.util.ArrayList;
 
 import static com.example.airpnp.LocationPackage.LocationControl.ACCESS_LOCATION_REQUEST_CODE;
-
+/**
+ * @author Ido Perez
+ * @version 1.2
+ * @since 25.12.2020
+ */
 public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickListener, OnMapReadyCallback, AdapterView.OnItemClickListener {
 
     public static String TAG = "Map_Fragment";
@@ -173,6 +180,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
     }
 
     /**
+     * @param googleMap
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
      * This is where we can add markers or lines, add listeners or move the camera. In this case,
@@ -180,7 +188,6 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -199,6 +206,10 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         mapControl.updateLocationUI(requireActivity());
     }
 
+    /**
+     * gets all the screen and layouts Measurements for measure the topLayout pixels and the layouts ratio for the bottom sheet
+     * @see BottomSheetBehavior
+     */
     private void setsLayoutParams(){
 
         //gets the screen height
@@ -237,12 +248,20 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         }
     }
 
+    /**
+     * found the ratio of the topLayout bottom sheet and the bottomLayout bottom sheet combined.
+     * by percents equation
+     */
     private void halfScreenRatio(){
         bottomSheetRatio = ((topLayoutHeight+bottomLayoutHeight)*100)/screenHeight;
         bottomSheetBehavior.setHalfExpandedRatio(bottomSheetRatio/100);
         Log.v("Ratio", String.valueOf(bottomSheetRatio)+" "+topLayoutHeight+" "+bottomLayoutHeight+" "+screenHeight);
     }
 
+    /**
+     * controls all the bottom sheet state changes.
+     * @param bottomSheetBehavior
+     */
     public void bottomSheetCallBack(final BottomSheetBehavior bottomSheetBehavior){
         bottomSheetBehavior.addBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
             @Override
@@ -281,6 +300,15 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         });
     }
 
+    /**
+     * called when marker click.
+     * @see ParkingSpaceControl
+     * @see ParkingSpace
+     * @see MarkerButton
+     * @see BottomSheetBehavior
+     * @param marker
+     * @return
+     */
     @Override
     public boolean onMarkerClick(Marker marker) {
         BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
@@ -305,6 +333,10 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         return false;
     }
 
+    /**
+     * seting the parking space details in the bottom sheet vies.
+     * @param parkingSpace
+     */
     private void displayParkingSpace(ParkingSpace parkingSpace){
         tvParkingSpaceName.setText(parkingSpace.getParkingSpaceName());
         int iconId = -1;
@@ -375,16 +407,16 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 //            @Override
 //            public void onSuccess() {
 //                Log.v("Path",ParkingSpaceControl.parkingSpacesPath+locationControl.getUserCityName());
-//                firebaseHelper.getAllParkingSpacesInCity(locationControl, new ActionDone() {
+//                firebaseHelper.getAllParkingSpaces(locationControl, new ActionDone() {
 //                    @Override
 //                    public void onSuccess() {
 //                         mMap.clear();
 //                        mapControl.createMarkers();
 //                        //setActivityListView();
-//                /*
+//
 //             Log.v("ButtonListArray", String.valueOf(mapControl.getLength()));
 //             Log.v("ParkingSpaceList", String.valueOf(parkingSpaceControl.parkingSpacesList.size()));
-//              */
+//
 //                    }
 //                    @Override
 //                    public void onFailed(){
@@ -402,22 +434,60 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 
     private void downloadParkingSpaces(){
         Log.v("Path",ParkingSpaceControl.parkingSpacesPath+locationControl.getUserCityName());
-        firebaseHelper.getAllParkingSpacesInCity(locationControl, new ActionDone() {
-            @Override
-            public void onSuccess() {
-                mMap.clear();
-                mapControl.createMarkers();
-                //setActivityListView();
-                /*
-             Log.v("ButtonListArray", String.valueOf(mapControl.getLength()));
-             Log.v("ParkingSpaceList", String.valueOf(parkingSpaceControl.parkingSpacesList.size()));
-              */
-            }
-            @Override
-            public void onFailed(){
 
-            }
-        });;
+        mMap.clear();
+        //if (!FirebaseHelper.isParkingSpacesListenerOn){
+            firebaseHelper.getAllParkingSpaces(new ChildEventListener() {
+                @Override
+                public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                    ParkingSpace parkingSpace = snapshot.getValue(ParkingSpace.class);
+                    //if (parkingSpace.isActive()){
+                    if (parkingSpace.getUserUID().equals(firebaseHelper.getUserUid())){
+                        parkingSpaceControl.userParkingSpacesList.add(parkingSpace);
+                    }
+                    parkingSpaceControl.parkingSpacesList.add(parkingSpace);
+                    mapControl.createMarkerButton(parkingSpace);
+                    //}
+                }
+
+                @Override
+                public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                }
+
+                @Override
+                public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        //}
+
+//        firebaseHelper.getAllParkingSpaces(locationControl, new ActionDone() {
+//            @Override
+//            public void onSuccess() {
+//                mMap.clear();
+//                mapControl.createMarkers();
+//                //setActivityListView();
+//
+//             Log.v("ButtonListArray", String.valueOf(mapControl.getLength()));
+//             Log.v("ParkingSpaceList", String.valueOf(parkingSpaceControl.parkingSpacesList.size()));
+//
+//            }
+//            @Override
+//            public void onFailed(){
+//
+//            }
+//        });;
     }
 
     private void getDeviceLocation() {

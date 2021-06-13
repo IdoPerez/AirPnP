@@ -4,6 +4,8 @@ import com.example.airpnp.UserPackage.Order;
 import com.example.airpnp.UserPackage.ParkingSpace;
 
 import java.util.ArrayList;
+import java.util.Dictionary;
+import java.util.Hashtable;
 
 public class DataTransferHelper {
     public static DataTransferHelper dataTransferHelper_instance = null;
@@ -11,10 +13,13 @@ public class DataTransferHelper {
     private ArrayList<ParkingSpace> parkingSpaces;
     private ParkingSpace parkingSpace;
     private Order order;
+    private String parentTAG;
+    public Dictionary<String, Object> data;
 
     public DataTransferHelper(){
         orders = new ArrayList<>();
         parkingSpaces = new ArrayList<>();
+        data = new Hashtable<>();
     }
 
     public static DataTransferHelper newInstance(){
@@ -28,18 +33,26 @@ public class DataTransferHelper {
         return  newInstance();
     }
 
-    public void putParkingSpace(ParkingSpace parkingSpaceForTransfer){
-        parkingSpace = parkingSpaceForTransfer;
-    }
-    public void putOrder(Order orderForTransfer){
-        order = orderForTransfer;
+    public void setParentTAG(String TAG){
+        parentTAG = TAG;
     }
 
-    public Order getOrder(){
-        return order;
+    public void putParkingSpace(String key ,ParkingSpace parkingSpaceForTransfer){
+        data.put(key, parkingSpaceForTransfer);
+    }
+    public void putOrder(String key ,Order orderForTransfer){
+        data.put(key, orderForTransfer);
     }
 
-    public ParkingSpace getParkingSpace(){
-        return parkingSpace;
+    public Order getOrderByKey(String key){
+        return (Order) data.get(key);
+    }
+
+    public ParkingSpace getParkingSpaceByKey(String key){
+        return (ParkingSpace) data.get(key);
+    }
+
+    public String getParentTAG() {
+        return parentTAG;
     }
 }

@@ -16,6 +16,11 @@ import android.widget.Toast;
 import com.example.airpnp.R;
 import com.google.android.material.tabs.TabLayout;
 
+/**
+ * @author Ido Perez
+ * @version 0.1
+ * @since 3.6.2021
+ */
 public class MyProfileFragment extends Fragment {
     private Toolbar toolbar;
     private TabLayout tabLayout;

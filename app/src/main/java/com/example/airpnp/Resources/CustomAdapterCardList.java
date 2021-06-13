@@ -55,8 +55,9 @@ public class CustomAdapterCardList extends ArrayAdapter<ParkingSpace> {
 //        timeLeft = (TextView) listItem.findViewById(R.id.timeLeft);
 ////        checkIn = (TextView) listItem.findViewById(R.id.checkinTextView);
 ////        checkOut = (TextView) listItem.findViewById(R.id.checkoutTextView);
-
         ParkingSpace parkingSpace = items.get(position);
+        if (parkingSpace == null)
+            return listItem;
 
         tvAddress.setText(parkingSpace.getAddress());
         tvName.setText(parkingSpace.getParkingSpaceName());

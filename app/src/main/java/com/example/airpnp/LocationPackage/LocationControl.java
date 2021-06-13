@@ -16,8 +16,13 @@ import com.google.android.gms.maps.model.LatLng;
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
-
+/**
+ * @author Ido Perez
+ * @version 0.1
+ * @since 12.2.2021
+ */
 public class LocationControl {
+    private static final String LOCAL_LANGUAGE = "he";
     private Locale locale;
     public static final int ACCESS_LOCATION_REQUEST_CODE = 10001;
     public static boolean locationPermissionGranted = false;
@@ -33,6 +38,11 @@ public class LocationControl {
         this.context = context;
     }
 
+    /**
+     * gets location permission.
+     * @param activityContext
+     * @param activity
+     */
     public static void getLocationPermission(Context activityContext ,Activity activity) {
         if (ContextCompat.checkSelfPermission(activityContext.getApplicationContext(),
                 android.Manifest.permission.ACCESS_FINE_LOCATION)
@@ -45,8 +55,12 @@ public class LocationControl {
         }
     }
 
+    /**
+     * @param strAddress
+     * @return return the location of the address in latLang instance.
+     */
     public LatLng getLocationFromAddress(String strAddress) {
-        locale = new Locale.Builder().setLanguage("en").setScript("Latn").setRegion("IL").build();
+        locale = new Locale.Builder().setLanguage(LOCAL_LANGUAGE).setScript("Latn").setRegion("IL").build();
         geoCoder = new Geocoder(context, locale);
         List<Address> address;
         LatLng p1 = null;
@@ -73,7 +87,7 @@ public class LocationControl {
     }
 
     public void getAddressFromLocation(Location location) {
-        locale = new Locale.Builder().setLanguage("en").build();
+        locale = new Locale.Builder().setLanguage(LOCAL_LANGUAGE).build();
         Geocoder geoCoder = new Geocoder(context, locale);
         try {
             addresses = geoCoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
@@ -87,10 +101,12 @@ public class LocationControl {
         }
     }
 
-
+    /**
+     * update the user location for all the methods needs location.
+     */
     public void updateUserLocation() {
         //locale = new Locale.Builder().setLanguage("en").build();
-        locale = new Locale.Builder().setLanguage("en").setScript("Latn").setRegion("IL").build();
+        locale = new Locale.Builder().setLanguage(LOCAL_LANGUAGE).setScript("Latn").setRegion("IL").build();
         Geocoder geoCoder = new Geocoder(context, locale);
 
         if (lastKnownLocation != null){

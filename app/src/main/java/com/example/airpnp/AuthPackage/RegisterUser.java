@@ -19,7 +19,11 @@ import com.example.airpnp.ContactUser.SmsSender;
 import com.example.airpnp.RentPackage.RentActivity;
 import com.example.airpnp.UserPackage.User;
 
-
+/**
+ * @author Ido Perez
+ * @version 0.1
+ * @since 20.5.2021
+ */
 public class RegisterUser extends AppCompatActivity {
 
     private EditText edName, edEmail, edPhoneNum,edPassword;
@@ -57,6 +61,9 @@ public class RegisterUser extends AppCompatActivity {
         createUserDetails();
     }
 
+    /**
+     * input user details and put them into an array for transfer them to RentSecStep Activity.
+     */
     private void createUserDetails() {
         final String name = edName.getText().toString().trim();
         final String email = edEmail.getText().toString().trim();

@@ -21,6 +21,10 @@ public class Order {
         this.active = active;
     }
 
+    public Order(){
+
+    }
+
     public String getOrderID() {
         return orderID;
     }

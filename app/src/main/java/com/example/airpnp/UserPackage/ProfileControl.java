@@ -24,32 +24,32 @@ public class ProfileControl {
     }
     //
 
-    //upload image to firebase, sets the image url. ,, !!! hard coded change the file locations.
-    public void uploadImage(Uri uri){
-        final ProgressDialog pd = new ProgressDialog(profileContext);
-        pd.setMessage("uploading");
-        pd.show();
-
-        String fileLocation = "userLogo/"+firebaseHelper.getUserUid();
-        firebaseHelper.uploadFile(fileLocation, uri, profileContext, new ActionDone() {
-            @Override
-            public void onSuccess() {
-                downloadProfileImage();
-            }
-
-            @Override
-            public void onFailed() {
-
-            }
-        });
-        pd.dismiss();
-    }
-    // downloading image from fire base to image view, hard codded file location!!;
-    public void downloadProfileImage(){
-        String fileLocation = "userLogo/"+firebaseHelper.getUserUid();
-        imageUri = firebaseHelper.getDownloadImageUrl(fileLocation);
-        Picasso.with(profileContext).load(imageUri).into(profileImage);
-    }
+//    //upload image to firebase, sets the image url. ,, !!! hard coded change the file locations.
+//    public void uploadImage(Uri uri){
+//        final ProgressDialog pd = new ProgressDialog(profileContext);
+//        pd.setMessage("uploading");
+//        pd.show();
+//
+//        String fileLocation = "userLogo/"+firebaseHelper.getUserUid();
+//        firebaseHelper.uploadFile(fileLocation, uri, profileContext, new ActionDone() {
+//            @Override
+//            public void onSuccess() {
+//                downloadProfileImage();
+//            }
+//
+//            @Override
+//            public void onFailed() {
+//
+//            }
+//        });
+//        pd.dismiss();
+//    }
+//    // downloading image from fire base to image view, hard codded file location!!;
+//    public void downloadProfileImage(){
+//        String fileLocation = "userLogo/"+firebaseHelper.getUserUid();
+//        imageUri = firebaseHelper.getDownloadImageUrl(fileLocation);
+//        Picasso.with(profileContext).load(imageUri).into(profileImage);
+//    }
 
     public boolean isProfileImageEmpty(){
         return profileImage.getDrawable() == null;

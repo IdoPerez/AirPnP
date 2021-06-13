@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-59:12
-INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-59:12
-INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-59:12
-INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-59:12
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-61:12
 MERGED from [androidx.navigation:navigation-ui:2.3.3] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\4f0c5d33d4afca8e28877f3b7435dca4\navigation-ui-2.3.3\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.3.0-beta01] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\283d2cbe7bc500d3b3e13f0bfcb6d187\material-1.3.0-beta01\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\006b46906b2f770011761845d9282045\constraintlayout-2.0.4\AndroidManifest.xml:2:1-11:12
@@ -157,77 +157,77 @@ MERGED from [com.google.android.gms:play-services-vision-common-license:12.0.1] 
 MERGED from [com.google.android.gms:play-services-vision-license:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\99ee85ec2ab799b0fd9619254144b6d8\jetified-play-services-vision-license-12.0.1\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-wallet-license:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\480e27e6076647cd58eac7c352b01adc\jetified-play-services-wallet-license-12.0.1\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-wearable-license:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\a2042da080dc90bb2ef4954051f6e786\jetified-play-services-wearable-license-12.0.1\AndroidManifest.xml:17:1-24:12
-INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-59:12
-INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-59:12
-INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-59:12
+INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-61:12
+INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-61:12
 	package
 		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:3:5-33
 		INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml
 		INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-59:12
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-61:12
 		INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-59:12
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:1-61:12
 		INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:9:5-79
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:10:5-79
 MERGED from [com.google.android.libraries.places:places:2.4.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\41d6faf0d8d2151cf59fd7226633dd3a\jetified-places-2.4.0\AndroidManifest.xml:9:5-79
 MERGED from [com.google.android.libraries.places:places:2.4.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\41d6faf0d8d2151cf59fd7226633dd3a\jetified-places-2.4.0\AndroidManifest.xml:9:5-79
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:9:22-76
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:10:22-76
 uses-permission#android.permission.SEND_SMS
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:10:5-67
-	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:10:22-64
-uses-permission#android.permission.INTERNET
 ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:11:5-67
-MERGED from [com.google.android.libraries.places:places:2.4.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\41d6faf0d8d2151cf59fd7226633dd3a\jetified-places-2.4.0\AndroidManifest.xml:11:5-67
-MERGED from [com.google.android.libraries.places:places:2.4.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\41d6faf0d8d2151cf59fd7226633dd3a\jetified-places-2.4.0\AndroidManifest.xml:11:5-67
-MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\d9a7a5ade5772b5f380a98b30bbdc236\jetified-play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
-MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\d9a7a5ade5772b5f380a98b30bbdc236\jetified-play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
-MERGED from [com.google.firebase:firebase-auth:20.0.2] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\07f712a8f59324fa4f75b46185a2424c\jetified-firebase-auth-20.0.2\AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-auth:20.0.2] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\07f712a8f59324fa4f75b46185a2424c\jetified-firebase-auth-20.0.2\AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-database:19.6.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\d14bd3ca746a90185963ede9ad73c3a2\jetified-firebase-database-19.6.0\AndroidManifest.xml:26:5-67
-MERGED from [com.google.firebase:firebase-database:19.6.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\d14bd3ca746a90185963ede9ad73c3a2\jetified-firebase-database-19.6.0\AndroidManifest.xml:26:5-67
-MERGED from [com.google.firebase:firebase-storage:19.2.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\64e3c4dba3cd11f683f332ffc6b40ca0\jetified-firebase-storage-19.2.1\AndroidManifest.xml:27:5-67
-MERGED from [com.google.firebase:firebase-storage:19.2.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\64e3c4dba3cd11f683f332ffc6b40ca0\jetified-firebase-storage-19.2.1\AndroidManifest.xml:27:5-67
-MERGED from [com.google.android.gms:play-services-analytics:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\5f3ed1b68deb437f8db0980db3266d84\jetified-play-services-analytics-12.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-analytics:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\5f3ed1b68deb437f8db0980db3266d84\jetified-play-services-analytics-12.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-analytics-impl:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\ae6374e2ee7ef0046ccebe1c4b58f378\jetified-play-services-analytics-impl-12.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-analytics-impl:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\ae6374e2ee7ef0046ccebe1c4b58f378\jetified-play-services-analytics-impl-12.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-appinvite:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\4a0d0d59780f711b59c7d304be4de9d1\jetified-play-services-appinvite-12.0.1\AndroidManifest.xml:22:5-67
-MERGED from [com.google.android.gms:play-services-appinvite:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\4a0d0d59780f711b59c7d304be4de9d1\jetified-play-services-appinvite-12.0.1\AndroidManifest.xml:22:5-67
-MERGED from [com.google.android.gms:play-services-gcm:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\c9035ac6d6b580cb4d948fdeaa23fef5\jetified-play-services-gcm-12.0.1\AndroidManifest.xml:24:5-67
-MERGED from [com.google.android.gms:play-services-gcm:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\c9035ac6d6b580cb4d948fdeaa23fef5\jetified-play-services-gcm-12.0.1\AndroidManifest.xml:24:5-67
-MERGED from [com.google.android.gms:play-services-iid:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\bb434487b4d73ac7c0e8a0801c4dc159\jetified-play-services-iid-12.0.1\AndroidManifest.xml:24:5-67
-MERGED from [com.google.android.gms:play-services-iid:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\bb434487b4d73ac7c0e8a0801c4dc159\jetified-play-services-iid-12.0.1\AndroidManifest.xml:24:5-67
-MERGED from [com.google.android.gms:play-services-ads-lite:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\2ffd405524d43381f96e42173d4326fc\jetified-play-services-ads-lite-12.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-ads-lite:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\2ffd405524d43381f96e42173d4326fc\jetified-play-services-ads-lite-12.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-crash:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\f0241d30319c6362604c49f42064b420\jetified-firebase-crash-12.0.1\AndroidManifest.xml:22:5-67
-MERGED from [com.google.firebase:firebase-crash:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\f0241d30319c6362604c49f42064b420\jetified-firebase-crash-12.0.1\AndroidManifest.xml:22:5-67
-MERGED from [com.google.android.gms:play-services-tagmanager-api:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\ebd00f70c59a3fe09f610a31f81fa66f\jetified-play-services-tagmanager-api-12.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.gms:play-services-tagmanager-api:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\ebd00f70c59a3fe09f610a31f81fa66f\jetified-play-services-tagmanager-api-12.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-analytics:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\25a26a6cff0e36f5ef2a9c77199eac46\jetified-firebase-analytics-12.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-analytics:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\25a26a6cff0e36f5ef2a9c77199eac46\jetified-firebase-analytics-12.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-analytics-impl:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\9741bf50fba84e6454b1be5fa319fa5d\jetified-firebase-analytics-impl-12.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-analytics-impl:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\9741bf50fba84e6454b1be5fa319fa5d\jetified-firebase-analytics-impl-12.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-iid:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\b2385fbf8cfb052f55a1436bb82524ba\jetified-firebase-iid-12.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.firebase:firebase-iid:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\b2385fbf8cfb052f55a1436bb82524ba\jetified-firebase-iid-12.0.1\AndroidManifest.xml:23:5-67
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\35bf9a387e887c7d671807377edb7e38\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:26:5-67
-MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\35bf9a387e887c7d671807377edb7e38\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:26:5-67
 	android:name
 		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:11:22-64
-uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:12:5-80
+uses-permission#android.permission.INTERNET
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:12:5-67
+MERGED from [com.google.android.libraries.places:places:2.4.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\41d6faf0d8d2151cf59fd7226633dd3a\jetified-places-2.4.0\AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.libraries.places:places:2.4.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\41d6faf0d8d2151cf59fd7226633dd3a\jetified-places-2.4.0\AndroidManifest.xml:11:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\d9a7a5ade5772b5f380a98b30bbdc236\jetified-play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\d9a7a5ade5772b5f380a98b30bbdc236\jetified-play-services-maps-17.0.0\AndroidManifest.xml:24:5-67
+MERGED from [com.google.firebase:firebase-auth:20.0.2] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\07f712a8f59324fa4f75b46185a2424c\jetified-firebase-auth-20.0.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-auth:20.0.2] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\07f712a8f59324fa4f75b46185a2424c\jetified-firebase-auth-20.0.2\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-database:19.6.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\d14bd3ca746a90185963ede9ad73c3a2\jetified-firebase-database-19.6.0\AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-database:19.6.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\d14bd3ca746a90185963ede9ad73c3a2\jetified-firebase-database-19.6.0\AndroidManifest.xml:26:5-67
+MERGED from [com.google.firebase:firebase-storage:19.2.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\64e3c4dba3cd11f683f332ffc6b40ca0\jetified-firebase-storage-19.2.1\AndroidManifest.xml:27:5-67
+MERGED from [com.google.firebase:firebase-storage:19.2.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\64e3c4dba3cd11f683f332ffc6b40ca0\jetified-firebase-storage-19.2.1\AndroidManifest.xml:27:5-67
+MERGED from [com.google.android.gms:play-services-analytics:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\5f3ed1b68deb437f8db0980db3266d84\jetified-play-services-analytics-12.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-analytics:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\5f3ed1b68deb437f8db0980db3266d84\jetified-play-services-analytics-12.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\ae6374e2ee7ef0046ccebe1c4b58f378\jetified-play-services-analytics-impl-12.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-analytics-impl:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\ae6374e2ee7ef0046ccebe1c4b58f378\jetified-play-services-analytics-impl-12.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-appinvite:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\4a0d0d59780f711b59c7d304be4de9d1\jetified-play-services-appinvite-12.0.1\AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-appinvite:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\4a0d0d59780f711b59c7d304be4de9d1\jetified-play-services-appinvite-12.0.1\AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-gcm:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\c9035ac6d6b580cb4d948fdeaa23fef5\jetified-play-services-gcm-12.0.1\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-gcm:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\c9035ac6d6b580cb4d948fdeaa23fef5\jetified-play-services-gcm-12.0.1\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-iid:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\bb434487b4d73ac7c0e8a0801c4dc159\jetified-play-services-iid-12.0.1\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-iid:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\bb434487b4d73ac7c0e8a0801c4dc159\jetified-play-services-iid-12.0.1\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-ads-lite:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\2ffd405524d43381f96e42173d4326fc\jetified-play-services-ads-lite-12.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-ads-lite:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\2ffd405524d43381f96e42173d4326fc\jetified-play-services-ads-lite-12.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-crash:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\f0241d30319c6362604c49f42064b420\jetified-firebase-crash-12.0.1\AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-crash:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\f0241d30319c6362604c49f42064b420\jetified-firebase-crash-12.0.1\AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-tagmanager-api:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\ebd00f70c59a3fe09f610a31f81fa66f\jetified-play-services-tagmanager-api-12.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-tagmanager-api:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\ebd00f70c59a3fe09f610a31f81fa66f\jetified-play-services-tagmanager-api-12.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\25a26a6cff0e36f5ef2a9c77199eac46\jetified-firebase-analytics-12.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\25a26a6cff0e36f5ef2a9c77199eac46\jetified-firebase-analytics-12.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\9741bf50fba84e6454b1be5fa319fa5d\jetified-firebase-analytics-impl-12.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-analytics-impl:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\9741bf50fba84e6454b1be5fa319fa5d\jetified-firebase-analytics-impl-12.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\b2385fbf8cfb052f55a1436bb82524ba\jetified-firebase-iid-12.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:12.0.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\b2385fbf8cfb052f55a1436bb82524ba\jetified-firebase-iid-12.0.1\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\35bf9a387e887c7d671807377edb7e38\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:26:5-67
+MERGED from [com.google.android.datatransport:transport-backend-cct:2.3.0] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\35bf9a387e887c7d671807377edb7e38\jetified-transport-backend-cct-2.3.0\AndroidManifest.xml:26:5-67
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:12:22-77
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:12:22-64
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:13:5-80
+	android:name
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:13:22-77
 application
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:14:5-57:19
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:15:5-59:19
 MERGED from [com.google.android.material:material:1.3.0-beta01] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\283d2cbe7bc500d3b3e13f0bfcb6d187\material-1.3.0-beta01\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.3.0-beta01] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\283d2cbe7bc500d3b3e13f0bfcb6d187\material-1.3.0-beta01\AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.4] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\006b46906b2f770011761845d9282045\constraintlayout-2.0.4\AndroidManifest.xml:9:5-20
@@ -419,75 +419,83 @@ MERGED from [com.google.android.gms:play-services-wearable-license:12.0.1] C:\Us
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.1] C:\Users\IDO\.gradle\caches\transforms-2\files-2.1\0fd693cbeda8be952cfd72e782f62993\core-1.3.1\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:19:9-36
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:20:9-36
 	android:label
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:17:9-41
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:18:9-41
 	android:roundIcon
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:18:9-54
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:19:9-54
 	android:icon
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:16:9-43
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:17:9-43
 	android:allowBackup
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:15:9-35
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:16:9-35
 	android:theme
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:20:9-40
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:21:9-40
+service#com.example.airpnp.Resources.MyService
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:22:9-25:47
+	android:enabled
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:24:13-35
+	android:exported
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:25:13-36
+	android:name
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:23:13-48
 activity#com.example.airpnp.AuthPackage.RegisterSecStep
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:21:9-74
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:27:9-65
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:21:19-62
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:27:19-62
 meta-data#com.google.android.geo.API_KEY
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:23:9-25:55
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:29:9-31:55
 	android:value
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:25:13-52
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:31:13-52
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:24:13-58
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:30:13-58
 activity#com.example.airpnp.MapPackage.MainActivityBotNav
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:34:9-37:20
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:40:9-42:90
 	android:theme
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:36:13-78
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:42:13-78
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:35:13-58
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:41:13-58
 activity#com.example.airpnp.MapPackage.NavigationDrawerActivity
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:39:9-43:20
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:43:9-46:68
 	android:label
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:41:13-69
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:45:13-69
 	android:theme
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:42:13-56
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:46:13-56
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:40:13-64
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:44:13-64
 activity#com.example.airpnp.AuthPackage.EmailVerification
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:45:9-67
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:47:9-67
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:45:19-64
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:47:19-64
 activity#com.example.airpnp.ContactUser.SmsSender
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:46:9-59
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:48:9-59
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:46:19-56
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:48:19-56
 activity#com.example.airpnp.UserPackage.ProfileActivity
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:47:9-65
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:49:9-65
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:47:19-62
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:49:19-62
 activity#com.example.airpnp.AuthPackage.RegisterUser
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:48:9-62
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:50:9-62
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:48:19-59
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:50:19-59
 activity#com.example.airpnp.AuthPackage.Authentication
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:49:9-64
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:51:9-64
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:49:19-61
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:51:19-61
 activity#com.example.airpnp.MainActivity
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:50:9-56:20
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:52:9-58:20
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:50:19-47
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:52:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:51:13-55:29
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:53:13-57:29
 action#android.intent.action.MAIN
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:52:17-69
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:54:17-69
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:52:25-66
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:54:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:54:17-77
+ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:56:17-77
 	android:name
-		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:54:27-74
+		ADDED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml:56:27-74
 uses-sdk
 INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\IDO\Documents\AndroidStudioGithub\AirPnP\app\src\main\AndroidManifest.xml

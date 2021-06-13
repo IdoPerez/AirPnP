@@ -25,31 +25,25 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class OrdersFragment extends Fragment {
+
+    public static final String ordersFragmentTAG = "ordersFragment";
     ListView listView;
     OrdersControl ordersControl;
     CustomAdapterCardList customAdapterCardList;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     public OrdersFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
-        final Fragment fragment = new OrderDetails();
-        // Inflate the layout for this fragment
+        final Fragment detailsFragment = new OrderDetails();
+        // Inflate the layout for this detailsFragment
         View root = inflater.inflate(R.layout.fragment_orders, container, false);
         listView = root.findViewById(R.id.listView_orders);
         ordersControl = OrdersControl.getInstance();
+
         final DataTransferHelper dataTransferHelper = DataTransferHelper.newInstance();
         ParkingSpaceControl parkingSpaceControl = ParkingSpaceControl.getInstance();
         final ArrayList<ParkingSpace> parkingSpaces = new ArrayList<>();
@@ -57,16 +51,21 @@ public class OrdersFragment extends Fragment {
              ordersControl.userOrdersList) {
             parkingSpaces.add(parkingSpaceControl.getParkingSpaceById(order.getParkingSpaceID()));
         }
-        customAdapterCardList = new CustomAdapterCardList(requireContext(), parkingSpaces);
 
+        customAdapterCardList = new CustomAdapterCardList(requireContext(), parkingSpaces);
         listView.setAdapter(customAdapterCardList);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                dataTransferHelper.setParentTAG(ordersFragmentTAG);
+                dataTransferHelper.setParentTAG(ordersFragmentTAG);
+                dataTransferHelper.putOrder("OrderForTransfer", ordersControl.userOrdersList.get(position));
+                dataTransferHelper.putParkingSpace("ParkingSpaceForTransfer", parkingSpaces.get(position));
 //                dataTransferHelper.putOrder(ordersControl.userOrdersList.get(position));
 //                dataTransferHelper.putParkingSpace(parkingSpaces.get(position));
-                ((MyProfileFragment) getParentFragment()).replaceFragments(fragment);
+                ((MyProfileFragment) getParentFragment()).replaceFragments(detailsFragment);
             }
         });
         return root;

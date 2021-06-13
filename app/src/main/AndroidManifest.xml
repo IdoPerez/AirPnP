@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.airpnp">
+
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -18,7 +19,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
-        <activity android:name=".AuthPackage.RegisterSecStep"></activity>
+        <service
+            android:name=".Resources.MyService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".AuthPackage.RegisterSecStep" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -33,15 +39,11 @@
         -->
         <activity
             android:name=".MapPackage.MainActivityBotNav"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
-        </activity>
-
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"></activity>
         <activity
             android:name=".MapPackage.NavigationDrawerActivity"
             android:label="@string/title_activity_navigation_drawer"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".AuthPackage.EmailVerification" />
         <activity android:name=".ContactUser.SmsSender" />
         <activity android:name=".UserPackage.ProfileActivity" />

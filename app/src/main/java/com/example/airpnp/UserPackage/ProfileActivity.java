@@ -50,29 +50,29 @@ public class ProfileActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == IMAGE_REQUEST && resultCode == RESULT_OK) {
             imageUri = data.getData();
-            uploadImage();
+            //uploadImage();
         }
     }
-    //מעלה תמונה לפיירבייס
-    private void uploadImage(){
-        final ProgressDialog pd = new ProgressDialog(this);
-        pd.setMessage("uploading");
-        pd.show();
-
-        String fileLocation = "userLogo/"+getUserUid();
-        firebaseHelper.uploadFile(fileLocation, imageUri, ProfileActivity.this, new ActionDone() {
-            @Override
-            public void onSuccess() {
-                downloadProfileImage();
-            }
-
-            @Override
-            public void onFailed() {
-
-            }
-        });
-        pd.dismiss();
-    }
+//    //מעלה תמונה לפיירבייס
+//    private void uploadImage(){
+//        final ProgressDialog pd = new ProgressDialog(this);
+//        pd.setMessage("uploading");
+//        pd.show();
+//
+//        String fileLocation = "userLogo/"+getUserUid();
+//        firebaseHelper.uploadFile(fileLocation, imageUri, ProfileActivity.this, new ActionDone() {
+//            @Override
+//            public void onSuccess() {
+//                downloadProfileImage();
+//            }
+//
+//            @Override
+//            public void onFailed() {
+//
+//            }
+//        });
+//        pd.dismiss();
+//    }
 
             /*
         if(imageUri != null){

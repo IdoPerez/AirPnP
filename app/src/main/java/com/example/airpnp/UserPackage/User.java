@@ -21,6 +21,10 @@ public class User {
         this.userCars = userCars;
     }
 
+    public User(){
+
+    }
+
 
     public String getUserID(){return userID;}
 

@@ -2556,6 +2556,7 @@ drawable ic_vol_type_speaker_group_light
 drawable ic_vol_type_speaker_light
 drawable ic_vol_type_tv_dark
 drawable ic_vol_type_tv_light
+drawable icon_marker
 drawable material_cursor_drawable
 drawable material_ic_calendar_black_24dp
 drawable material_ic_clear_black_24dp

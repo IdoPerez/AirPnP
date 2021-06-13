@@ -38,6 +38,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * @author Ido Perez
+ * @version 0.1
+ * @since 20.5.2021
+ */
 public class RentActivity extends Fragment {
     EditText priceLayout, timeLayout, edName;
     Spinner sizeSpinner;
@@ -133,6 +138,9 @@ public class RentActivity extends Fragment {
         return root;
     }
 
+    /**
+     * checking the edit text input if all ok creats new parking space and reset all the fields.
+     */
     private void inputCheck(){
         String workingHours = timeLayout.getText().toString();
         String stPrice = Objects.requireNonNull(priceLayout.getText().toString().trim());
@@ -161,9 +169,9 @@ public class RentActivity extends Fragment {
         }
         sizePosition = sizeSpinner.getSelectedItemPosition();
         createParkingSpace(parkingSpaceName,price, address, sizePosition, workingHours);
-        edName.getText().clear();
-        edName.setHint("השם של החניה");
 
+        edName.getText().clear();
+        edName.setHint("Parking Space Name");
         priceLayout.getText().clear();
         priceLayout.setHint("Price p/h");
         sizeSpinner.setSelection(0);
@@ -174,6 +182,14 @@ public class RentActivity extends Fragment {
         Toast.makeText(requireContext(), "Parking Space has been created", Toast.LENGTH_LONG).show();
     }
 
+    /**
+     * creays new parking space and upload her to firebase
+     * @param parkingSpaceName
+     * @param price
+     * @param address
+     * @param sizeNum
+     * @param workingHours
+     */
     private void createParkingSpace(String parkingSpaceName, double price, String address, int sizeNum, String workingHours){
         String[] splitAddress = address.split(",");
         String parkingSpaceCity = splitAddress[1];
@@ -197,8 +213,11 @@ public class RentActivity extends Fragment {
 
         parkingSpaceControl.userParkingSpacesList.add(parkingSpace);
         Log.v("ParkingSpace", parkingSpace.toString());
-        firebaseHelper.uploadParkingSpace(parkingSpace,ParkingSpaceControl.parkingSpacesPath);
+        firebaseHelper.uploadParkingSpace(parkingSpace);
     }
+
+
+
     private void onCheckBoxClicked(int checkBoxId, TextView checkBoxTV, TextView timeTV){
         CheckBox checkBox = dayCheckBoxView.findViewById(checkBoxId);
         if (checkBox.isChecked()){

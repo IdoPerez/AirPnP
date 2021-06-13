@@ -12,7 +12,11 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.Marker;
 
 import java.util.ArrayList;
-
+/**
+ * @author Ido Perez
+ * @version 1.1
+ * @since 26.12.2020
+ */
 public class MapControl {
     public  ArrayList<MarkerButton> markerButtonsList;
     private final ParkingSpaceControl parkingSpaceControl;
@@ -25,6 +29,11 @@ public class MapControl {
         googleMap = map;
         this.context = context;
     }
+
+    /**
+     * update the location Ui in the map
+     * @param activity
+     */
     public void updateLocationUI(Activity activity) {
         if (googleMap == null) {
             return;
@@ -43,6 +52,10 @@ public class MapControl {
         }
     }
 
+    /**
+     * creates markerButtons by the parkingSpaces array
+     * @see ParkingSpaceControl
+     */
     public void createMarkers(){
         markerButtonsList.clear();
         for (ParkingSpace parkingSpace: parkingSpaceControl.parkingSpacesList) {
@@ -50,12 +63,22 @@ public class MapControl {
         }
     }
 
+    /**
+     * creats new markerButton
+     * @param parkingSpace
+     */
     public void createMarkerButton(ParkingSpace parkingSpace){
         MarkerButton markerButton = new MarkerButton(googleMap, parkingSpace);
         markerButtonsList.add(markerButton);
         markerButton.addMarkerOnMap();
     }
 
+    /**
+     * return the marker that was clicked in the map.
+     * @see MarkerButton
+     * @param marker
+     * @return
+     */
     public MarkerButton getMarkerButtonClicked(Marker marker) {
         for (MarkerButton markerButton : markerButtonsList) {
             if (marker.equals(markerButton.getMarker())) {

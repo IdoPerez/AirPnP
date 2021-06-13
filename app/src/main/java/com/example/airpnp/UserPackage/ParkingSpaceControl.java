@@ -1,19 +1,26 @@
 package com.example.airpnp.UserPackage;
 
 import com.example.airpnp.Helper.FirebaseHelper;
+import com.example.airpnp.MapPackage.MarkerButton;
 
 import java.util.ArrayList;
-
+/**
+ * @author Ido Perez
+ * @version 0.1
+ * @since 20.11.2020
+ */
 public class ParkingSpaceControl {
     private static ParkingSpaceControl parkingSpaceControl_instance = null;
     public ArrayList<ParkingSpace> parkingSpacesList;
     public ArrayList<ParkingSpace> userParkingSpacesList;
+    public ArrayList<MarkerButton> markerButtons;
     public static final String parkingSpacesPath = "ParkingSpaces/"; // after creating start app class set the path!!!!!!!
     public ParkingSpace parkingSpaceOnBooking;
 
     private ParkingSpaceControl(){
         parkingSpacesList = new ArrayList<>();
         userParkingSpacesList = new ArrayList<>();
+        markerButtons = new ArrayList<>();
     }
 
     public static ParkingSpaceControl getInstance(){
@@ -39,9 +46,13 @@ public class ParkingSpaceControl {
     public ParkingSpace getParkingSpaceById(String parkingSpaceID){
         for (ParkingSpace parking:
              parkingSpacesList) {
-            if (parking.getParkingSpaceID().equals(parkingSpaceID))
+            if (parking.getParkingSpaceID().contentEquals(parkingSpaceID))
                 return parking;
         }
         return null;
+    }
+
+    public void updateParkingSpaceById(ParkingSpace updateParkingSpace){
+
     }
 }
