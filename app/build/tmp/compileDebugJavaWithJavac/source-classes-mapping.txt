@@ -47,8 +47,9 @@ com/example/airpnp/MapPackage/PaymentChoiceFragment.java
  com.example.airpnp.MapPackage.PaymentChoiceFragment$3
 com/example/airpnp/Helper/FirebaseControl.java
  com.example.airpnp.Helper.FirebaseControl
-com/example/airpnp/AuthPackage/EmailVerification.java
- com.example.airpnp.AuthPackage.EmailVerification
+com/example/airpnp/Resources/CustomAdapterCarList.java
+ com.example.airpnp.Resources.CustomAdapterCarList
+ com.example.airpnp.Resources.CustomAdapterCarList$ItemClickListener
 com/example/airpnp/UserPackage/ParkingSpace.java
  com.example.airpnp.UserPackage.ParkingSpace
 com/example/airpnp/MapPackage/MarkerButton.java
@@ -78,23 +79,6 @@ com/example/airpnp/Resources/CardRecyclerViewAdapter.java
  com.example.airpnp.Resources.CardRecyclerViewAdapter$ItemClickListener
 com/example/airpnp/Helper/DataTransferHelper.java
  com.example.airpnp.Helper.DataTransferHelper
-com/example/airpnp/AuthPackage/RegisterSecStep.java
- com.example.airpnp.AuthPackage.RegisterSecStep
- com.example.airpnp.AuthPackage.RegisterSecStep$1
- com.example.airpnp.AuthPackage.RegisterSecStep$2
- com.example.airpnp.AuthPackage.RegisterSecStep$2$1
-com/example/airpnp/UserPackage/UserInstance.java
- com.example.airpnp.UserPackage.UserInstance
-com/example/airpnp/AuthPackage/Authentication.java
- com.example.airpnp.AuthPackage.Authentication
- com.example.airpnp.AuthPackage.Authentication$1
- com.example.airpnp.AuthPackage.Authentication$2
- com.example.airpnp.AuthPackage.Authentication$3
-com/example/airpnp/Resources/CustomAdapterCarList.java
- com.example.airpnp.Resources.CustomAdapterCarList
- com.example.airpnp.Resources.CustomAdapterCarList$ItemClickListener
-com/example/airpnp/ContactUser/SmsSender.java
- com.example.airpnp.ContactUser.SmsSender
 com/example/airpnp/MapPackage/MapActivity.java
  com.example.airpnp.MapPackage.MapActivity
  com.example.airpnp.MapPackage.MapActivity$1
@@ -108,12 +92,28 @@ com/example/airpnp/MapPackage/MapActivity.java
  com.example.airpnp.MapPackage.MapActivity$7
  com.example.airpnp.MapPackage.MapActivity$8
  com.example.airpnp.MapPackage.MapActivity$9
+com/example/airpnp/UserPackage/UserInstance.java
+ com.example.airpnp.UserPackage.UserInstance
 com/example/airpnp/MapPackage/MainActivityBotNav.java
  com.example.airpnp.MapPackage.MainActivityBotNav
  com.example.airpnp.MapPackage.MainActivityBotNav$1
  com.example.airpnp.MapPackage.MainActivityBotNav$2
+com/example/airpnp/AuthPackage/EmailVerification.java
+ com.example.airpnp.AuthPackage.EmailVerification
+com/example/airpnp/ContactUser/SmsSender.java
+ com.example.airpnp.ContactUser.SmsSender
 com/example/airpnp/MainActivity.java
  com.example.airpnp.MainActivity
+com/example/airpnp/AuthPackage/Authentication.java
+ com.example.airpnp.AuthPackage.Authentication
+ com.example.airpnp.AuthPackage.Authentication$1
+ com.example.airpnp.AuthPackage.Authentication$2
+ com.example.airpnp.AuthPackage.Authentication$3
+com/example/airpnp/AuthPackage/RegisterSecStep.java
+ com.example.airpnp.AuthPackage.RegisterSecStep
+ com.example.airpnp.AuthPackage.RegisterSecStep$1
+ com.example.airpnp.AuthPackage.RegisterSecStep$2
+ com.example.airpnp.AuthPackage.RegisterSecStep$2$1
 com/example/airpnp/AuthPackage/RegisterUser.java
  com.example.airpnp.AuthPackage.RegisterUser
  com.example.airpnp.AuthPackage.RegisterUser$1

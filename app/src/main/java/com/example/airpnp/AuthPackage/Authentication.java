@@ -39,7 +39,7 @@ public class Authentication extends AppCompatActivity {
     public EditText edEmail, edPassword;
     private FirebaseAuth mAuth;
 
-    //progress bar
+    ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +47,7 @@ public class Authentication extends AppCompatActivity {
 
         edEmail = findViewById(R.id.edEmail);
         edPassword = findViewById(R.id.edPassword);
-
+        pd = new ProgressDialog(this);
         mAuth = FirebaseAuth.getInstance();
     }
 
@@ -89,11 +89,13 @@ public class Authentication extends AppCompatActivity {
             edPassword.requestFocus();
             return;
         }
-        final ProgressDialog pd= ProgressDialog.show(this,"Login","Connecting...",true);
+        pd.setTitle("Login");
+        pd.setMessage("connecting...");
+        pd.setIndeterminate(true);
+        pd.show();
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                pd.dismiss();
                 if(task.isSuccessful()){
                     edEmail.setHint("Email");
                     edPassword.setHint("Password");
@@ -134,7 +136,9 @@ public class Authentication extends AppCompatActivity {
             @Override
             public void singleUserRead(User user) {
                 UserInstance.currentUser = user;
+                pd.dismiss();
                 startActivity(new Intent(Authentication.this, MainActivityBotNav.class));
+                pd.dismiss();
             }
 
             @Override
