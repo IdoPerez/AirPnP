@@ -3,6 +3,9 @@ package com.example.airpnp.UserPackage;
 import com.example.airpnp.Helper.FirebaseHelper;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author Ido Perez
  * @version 0.1
@@ -11,12 +14,14 @@ import java.util.ArrayList;
 public class OrdersControl {
     private static OrdersControl ordersControl_instance = null;
     public ArrayList<Order> userOrdersList;
+    public Map<String, User> orderUsers;
     public static final String ordersPath =  "Orders/";
     private FirebaseHelper firebaseHelper;
 
     private OrdersControl(){
         firebaseHelper = new FirebaseHelper();
         userOrdersList = new ArrayList<>();
+        orderUsers = new HashMap<>();
     }
 
     /**

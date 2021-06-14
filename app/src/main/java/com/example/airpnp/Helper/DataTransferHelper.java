@@ -2,6 +2,9 @@ package com.example.airpnp.Helper;
 
 import com.example.airpnp.UserPackage.Order;
 import com.example.airpnp.UserPackage.ParkingSpace;
+import com.example.airpnp.UserPackage.User;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Dictionary;
@@ -37,7 +40,7 @@ public class DataTransferHelper {
         parentTAG = TAG;
     }
 
-    public void putParkingSpace(String key ,ParkingSpace parkingSpaceForTransfer){
+    public void putParkingSpace(String key , ParkingSpace parkingSpaceForTransfer){
         data.put(key, parkingSpaceForTransfer);
     }
     public void putOrder(String key ,Order orderForTransfer){
@@ -55,4 +58,9 @@ public class DataTransferHelper {
     public String getParentTAG() {
         return parentTAG;
     }
+
+    public void putUser(String key, User tempUser) {
+        data.put(key, tempUser);
+    }
+    public User getUserByKey(String key){return (User) data.get(key);}
 }

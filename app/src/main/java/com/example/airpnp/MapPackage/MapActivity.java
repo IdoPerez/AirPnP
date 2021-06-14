@@ -1,9 +1,11 @@
 package com.example.airpnp.MapPackage;
 
+import android.app.AlertDialog;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
@@ -25,14 +27,19 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.airpnp.Helper.DataTransferHelper;
 import com.example.airpnp.Helper.FirebaseHelper;
 import com.example.airpnp.LocationPackage.LocationControl;
 import com.example.airpnp.R;
 import com.example.airpnp.Resources.CardItem;
+import com.example.airpnp.Resources.CustomAdapterCarList;
 import com.example.airpnp.UserPackage.OrdersControl;
 import com.example.airpnp.UserPackage.ParkingSpace;
 import com.example.airpnp.UserPackage.ParkingSpaceControl;
 import com.example.airpnp.UserPackage.User;
+import com.example.airpnp.UserPackage.UserCar;
+import com.example.airpnp.UserPackage.UserInstance;
+import com.google.android.gms.common.util.concurrent.HandlerExecutor;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -45,6 +52,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -60,10 +68,12 @@ import static com.example.airpnp.LocationPackage.LocationControl.ACCESS_LOCATION
  */
 public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickListener, OnMapReadyCallback, AdapterView.OnItemClickListener {
 
-    public static String TAG = "Map_Fragment";
+    public static String MAP_TAG = "Map_Fragment";
     private final int MAP_ZOOM_VALUE = 17;
+    private final int FAB_DELAY = 3000;
     GoogleMap mMap;
-    FloatingActionButton fab;
+    ExtendedFloatingActionButton fab_userCar;
+    AlertDialog alertDialog;
     MapControl mapControl;
     FirebaseHelper firebaseHelper;
     LocationControl locationControl;
@@ -76,24 +86,22 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
     LinearLayout bottomSheetLayout;
     BottomSheetBehavior bottomSheetBehavior;
 
+    //bottomSheet variables
     TextView tvPrice, tvAddress, tvParkingSpaceName, timeAvailable, tvStatus, tvPhoneNum, tvEmail;
     ImageView sizeImage;
     Button rentButton;
     Fragment mapFragment;
     FrameLayout frameLayout;
+    LinearLayout bottomLayout, topLayout;
+    ImageButton expendBtn, closeBtn;
+    float topLayoutHeight, bottomLayoutHeight, screenHeight,screenWidth, bottomSheetRatio;
+    //end
 
     ListView userParkingSpaceList;
     ArrayList<String> userParkingSpacesNameList;
     ArrayList<CardItem> cardItemList;
 
-    LinearLayout bottomLayout, topLayout;
-
-    ImageButton expendBtn, closeBtn;
-
-    float topLayoutHeight, bottomLayoutHeight, screenHeight,screenWidth, bottomSheetRatio;
-
-    User myUser;
-    Button bookButton;
+    User tempUser;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -112,10 +120,11 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 
         final View root = inflater.inflate(R.layout.activity_map, container, false);
 
-        View layout = getActivity().findViewById(R.id.bottom_sheet_quick_sell);
+        View layout = requireActivity().findViewById(R.id.bottom_sheet_quick_sell);
         userParkingSpaceList = layout.findViewById(R.id.listView_parkingSpaces);
-
-
+        fab_userCar = root.findViewById(R.id.extended_fab_userCar);
+        fab_userCar.shrink();
+        createCustomDialog();
         bottomSheetLayout = root.findViewById(R.id.bottom_sheet_layout);
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheetLayout);
 
@@ -179,6 +188,57 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         return root;
     }
 
+    public void initUserCarFab(){
+        fab_userCar.extend();
+        UserCar userCar = UserInstance.currentCar;
+        if (userCar == null)
+            return;
+        fab_userCar.setText(userCar.getCarName());
+        int id;
+        switch (userCar.getCarSize()){
+            case 0: id = R.drawable.car_icon_a; break;
+            case 1: id = R.drawable.van_icon; break;
+            case 2: id = R.drawable.truck_icon; break;
+            default: id = -1;
+        }
+        if (id != -1)
+            fab_userCar.setIconResource(id);
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                fab_userCar.shrink();
+            }
+        }, FAB_DELAY);
+    }
+
+    public void createCustomDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+        LayoutInflater inflater = getLayoutInflater();
+        View convertView = (View) inflater.inflate(R.layout.custom_alert_dialog_user_cars, null);
+        builder.setView(convertView);
+        builder.setTitle("Select car");
+        ListView lv = (ListView) convertView.findViewById(R.id.list_view_cars);
+        alertDialog = builder.create();
+        CustomAdapterCarList customAdapterCarList = new CustomAdapterCarList(requireContext(), UserInstance.currentUser.getUserCars());
+        customAdapterCarList.setOnItemClickListener(new CustomAdapterCarList.ItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                UserInstance.currentCar = UserInstance.currentUser.getUserCars().get(position);
+                alertDialog.dismiss();
+                initUserCarFab();
+            }
+        });
+        lv.setAdapter(customAdapterCarList);
+        fab_userCar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.show();
+            }
+        });
+    }
+
     /**
      * @param googleMap
      * Manipulates the map once available.
@@ -204,6 +264,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         }
         getDeviceLocation();
         mapControl.updateLocationUI(requireActivity());
+        alertDialog.show();
     }
 
     /**
@@ -249,13 +310,13 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
     }
 
     /**
-     * found the ratio of the topLayout bottom sheet and the bottomLayout bottom sheet combined.
+     * calculate the ratio of the topLayout bottom sheet and the bottomLayout bottom sheet combined.
      * by percents equation
      */
     private void halfScreenRatio(){
         bottomSheetRatio = ((topLayoutHeight+bottomLayoutHeight)*100)/screenHeight;
         bottomSheetBehavior.setHalfExpandedRatio(bottomSheetRatio/100);
-        Log.v("Ratio", String.valueOf(bottomSheetRatio)+" "+topLayoutHeight+" "+bottomLayoutHeight+" "+screenHeight);
+        Log.v("Ratio", bottomSheetRatio +" "+topLayoutHeight+" "+bottomLayoutHeight+" "+screenHeight);
     }
 
     /**
@@ -269,7 +330,9 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 //                if (newState != BottomSheetBehavior.STATE_COLLAPSED)
 //                    bottomLayout.setVisibility(View.VISIBLE);
                 switch (newState) {
-                    case BottomSheetBehavior.STATE_COLLAPSED:
+                    case BottomSheetBehavior.STATE_COLLAPSED:{
+                        expendBtn.setScaleY(1);
+                    } break;
                     case BottomSheetBehavior.STATE_HALF_EXPANDED: {
 //                        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
 //                        bottomNavigationView.setVisibility(View.VISIBLE);
@@ -321,12 +384,17 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
         final ParkingSpace parkingSpace = markerButton.getParkingSpace();
         displayParkingSpace(parkingSpace);
+        displayUser(parkingSpace);
 
         final Fragment fragment = new PaymentChoiceFragment();
         rentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 parkingSpaceControl.parkingSpaceOnBooking = parkingSpace;
+                DataTransferHelper dataTransferHelper = DataTransferHelper.newInstance();
+                dataTransferHelper.setParentTAG(MAP_TAG);
+                dataTransferHelper.putParkingSpace("parkingOnBooking", parkingSpace);
+                dataTransferHelper.putUser("parkingSpaceUser", tempUser);
                 ((MainActivityBotNav) getActivity()).replaceFragments(fragment.getClass());
             }
         });
@@ -351,6 +419,23 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         }
         tvPrice.setText(String.valueOf(parkingSpace.getPrice()) + " "+"p/h");
         timeAvailable.setText(parkingSpace.getParkingSpaceWorkingHours());
+    }
+
+    public void displayUser(final ParkingSpace parkingSpace){
+        firebaseHelper.getUserById(parkingSpace.getUserUID(), new FirebaseHelper.GetUserOnActionDone() {
+            @Override
+            public void singleUserRead(User user) {
+//                ordersControl.orderUsers.put(parkingSpace.getParkingSpaceID(), user);
+                tempUser = user;
+                tvPhoneNum.setText(user.getPhoneNumber());
+                tvEmail.setText(user.getEmail());
+            }
+
+            @Override
+            public void groupUserRead(ArrayList<User> users) {
+
+            }
+        });
     }
 
 //    private void setActivityListView(){
@@ -434,20 +519,21 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 
     private void downloadParkingSpaces(){
         Log.v("Path",ParkingSpaceControl.parkingSpacesPath+locationControl.getUserCityName());
-
+        parkingSpaceControl.userParkingSpacesList.clear();
+        parkingSpaceControl.parkingSpacesList.clear();
         mMap.clear();
         //if (!FirebaseHelper.isParkingSpacesListenerOn){
-            firebaseHelper.getAllParkingSpaces(new ChildEventListener() {
+        //if (FirebaseHelper.childEventListener == null){
+            FirebaseHelper.childEventListener = new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                     ParkingSpace parkingSpace = snapshot.getValue(ParkingSpace.class);
-                    //if (parkingSpace.isActive()){
-                    if (parkingSpace.getUserUID().equals(firebaseHelper.getUserUid())){
+                    if (parkingSpace != null && parkingSpace.getUserUID().equals(firebaseHelper.getUserUid())){
                         parkingSpaceControl.userParkingSpacesList.add(parkingSpace);
                     }
+                    //add else
                     parkingSpaceControl.parkingSpacesList.add(parkingSpace);
                     mapControl.createMarkerButton(parkingSpace);
-                    //}
                 }
 
                 @Override
@@ -469,7 +555,9 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
                 public void onCancelled(@NonNull DatabaseError error) {
 
                 }
-            });
+            };
+            firebaseHelper.getAllParkingSpaces();
+        //}
         //}
 
 //        firebaseHelper.getAllParkingSpaces(locationControl, new ActionDone() {

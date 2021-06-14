@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.airpnp.R;
@@ -28,6 +29,7 @@ public class PaymentChoiceFragment extends Fragment {
 
     RecyclerView parkingTimeRecycler, paymentTypeRecycler;
     TextView tvTitleName, tvAddress, tvTotalPrice;
+    ImageButton cancelBtn;
     Button payBtn;
     ParkingSpaceControl parkingSpaceControl;
     OrdersControl ordersControl;
@@ -62,6 +64,8 @@ public class PaymentChoiceFragment extends Fragment {
         tvAddress = root.findViewById(R.id.payAddress);
         tvTotalPrice = root.findViewById(R.id.tv_paymentPrice);
         payBtn = root.findViewById(R.id.payButton);
+        cancelBtn = root.findViewById(R.id.cancelBtn_payment);
+
         payBtn.setEnabled(false);
 
         tvTitleName.setText(parkingSpaceControl.parkingSpaceOnBooking.getParkingSpaceName());
@@ -105,6 +109,13 @@ public class PaymentChoiceFragment extends Fragment {
                 ((MainActivityBotNav) requireActivity()).popFromStack();
             }
         });
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MainActivityBotNav) requireActivity()).popFromStack();
+            }
+        });
+
         return root;
     }
 }

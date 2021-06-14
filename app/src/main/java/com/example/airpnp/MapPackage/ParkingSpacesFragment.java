@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.example.airpnp.Helper.DataTransferHelper;
@@ -56,7 +57,7 @@ public class ParkingSpacesFragment extends Fragment {
                 dataTransferHelper.putParkingSpace("ParkingSpaceForTransfer", parkingSpaceControl.userParkingSpacesList.get(position));
 //                dataTransferHelper.putOrder(ordersControl.userOrdersList.get(position));
 //                dataTransferHelper.putParkingSpace(parkingSpaces.get(position));
-                ((MyProfileFragment) getParentFragment()).replaceFragments(fragment);
+                ((MyProfileFragment) requireParentFragment()).replaceFragments(fragment);
             }
         });
         return root;

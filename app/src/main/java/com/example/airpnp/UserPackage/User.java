@@ -2,7 +2,6 @@ package com.example.airpnp.UserPackage;
 
 import java.util.ArrayList;
 
-//fullName, tv_phoneNum, email;
 public class User {
 
     private String userID;
@@ -21,9 +20,15 @@ public class User {
         this.userCars = userCars;
     }
 
-    public User(){
-
+    public User(String UID, String fullName, String email, String phoneNumber, ArrayList<UserCar> userCars, ArrayList<String> parkingSpaceID, String logImage){
+        this.userID = UID; this.fullName = fullName; this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.parkingSpaceID = parkingSpaceID;
+        this.userCars = userCars;
+        this.logImage = logImage;
     }
+
+    public User(){}
 
 
     public String getUserID(){return userID;}

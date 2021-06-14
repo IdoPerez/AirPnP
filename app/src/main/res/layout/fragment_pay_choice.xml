@@ -21,9 +21,10 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/cancelBtn_payment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
                 android:src="@drawable/ic_dialog_close_light" />
 
             <TextView

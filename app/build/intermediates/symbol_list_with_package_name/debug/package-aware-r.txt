@@ -2775,6 +2775,7 @@ id autoComplete
 id autoCompleteToEnd
 id autoCompleteToStart
 id autocomplete_fragment
+id back_myZone
 id background_image_view
 id background_place_holder_image_view
 id barrier
@@ -2793,7 +2794,6 @@ id bottom_sheet_design
 id bottom_sheet_design_layout
 id bottom_sheet_design_user_display
 id bottom_sheet_layout
-id bottom_sheet_layout_UPD
 id bottom_sheet_quick_sell
 id bounce
 id btnSendSMS
@@ -2817,6 +2817,7 @@ id buy_now
 id buy_with
 id buy_with_google
 id cache_measures
+id cancelBtn_payment
 id cancel_action
 id cancel_button
 id card
@@ -2908,7 +2909,6 @@ id disableHome
 id disablePostScroll
 id disableScroll
 id disjoint
-id display_ps_design
 id divider
 id donate_with
 id donate_with_google
@@ -2952,6 +2952,7 @@ id expandButton
 id expand_activities_button
 id expanded_controller_layout
 id expanded_menu
+id extended_fab_userCar
 id fab
 id fade
 id favorites
@@ -3004,9 +3005,7 @@ id ifRoom
 id ignore
 id ignoreRequest
 id image
-id imageButton
 id imageButton2
-id imageButton3
 id imageView
 id imageView2
 id image_size_icon
@@ -3041,11 +3040,11 @@ id line1
 id line3
 id linear
 id linearLayout
-id listHeader
 id listMode
 id listView_orders
 id listView_parkingSpaces
 id list_item
+id list_view_cars
 id live_stream_indicator
 id live_stream_seek_bar
 id loading_indicator
@@ -3163,7 +3162,6 @@ id mtrl_picker_title_text
 id mtrl_view_tag_bottom_padding
 id multiply
 id nav_controller_view_tag
-id nav_gallery
 id nav_home
 id nav_host_fragment_container
 id nav_map
@@ -3194,7 +3192,6 @@ id parent_matrix
 id parkingInfo
 id parkingSpaceImage
 id parkingSpacePrice2
-id parkingSpacesList
 id parkingSpaces_profile
 id parkingTime
 id parkingTimeRecyclerView
@@ -3370,6 +3367,7 @@ id textView11
 id textView12
 id textView13
 id textView14
+id textView15
 id textView16
 id textView2
 id textView22
@@ -3451,6 +3449,7 @@ id useLogo
 id userCar_list
 id userImage
 id verifyBtn
+id view
 id view_offset_helper
 id visible
 id visible_removing_fragment_view_tag
@@ -3560,6 +3559,7 @@ layout cast_mini_controller
 layout cast_tracks_chooser_dialog_layout
 layout cast_tracks_chooser_dialog_row_layout
 layout content_main
+layout custom_alert_dialog_user_cars
 layout custom_dialog
 layout custom_item_size_menu
 layout custom_window_layout
@@ -3580,7 +3580,6 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
-layout fragment_gallery
 layout fragment_my_profile
 layout fragment_order_details
 layout fragment_orders
@@ -3692,7 +3691,6 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
-layout user_ps_display_design
 layout wallet_test_layout
 menu activity_main_drawer
 menu bottom_nav_menu

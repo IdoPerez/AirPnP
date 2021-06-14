@@ -3,6 +3,7 @@ package com.example.airpnp.AuthPackage;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -142,7 +143,7 @@ public class RegisterSecStep extends AppCompatActivity {
      * creates new user in fire base auth and new instance of user in fire base real time.
      */
     private void createUserFireBase(){
-                //progresBar = true
+        final ProgressDialog pd= ProgressDialog.show(this,"Login","Creating user...",true);
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -153,7 +154,7 @@ public class RegisterSecStep extends AppCompatActivity {
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
-                                    //PROGRES BAR FALSE;
+                                    pd.dismiss();
                                     if(task.isSuccessful()){
                                         Toast.makeText(RegisterSecStep.this, "Register succeed", Toast.LENGTH_LONG).show();
                                         Intent intent = new Intent(RegisterSecStep.this, Authentication.class);

@@ -15,6 +15,22 @@
             android:layout_height="match_parent"
             tools:context=".MapPackage.MapActivity"/>
 
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/extended_fab_userCar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:collapsedSize="36dp"
+            android:layout_margin="16dp"
+            android:layout_gravity="top|left"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:text="CarName"
+            app:strokeColor="#000"
+            app:strokeWidth="1dp"
+            android:backgroundTint="#FAFFFB"
+            app:iconSize="24dp"
+            app:icon="@drawable/car_icon_a"/>
+
     <include
         android:id="@+id/bottom_sheet_layout"
         layout="@layout/bottom_sheet_layout"/>

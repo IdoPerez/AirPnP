@@ -211,7 +211,7 @@ public class RentActivity extends Fragment {
                 addressLatlng.longitude, workingHours);
         parkingSpace.setActive(true);
 
-        parkingSpaceControl.userParkingSpacesList.add(parkingSpace);
+//        parkingSpaceControl.userParkingSpacesList.add(parkingSpace);
         Log.v("ParkingSpace", parkingSpace.toString());
         firebaseHelper.uploadParkingSpace(parkingSpace);
     }

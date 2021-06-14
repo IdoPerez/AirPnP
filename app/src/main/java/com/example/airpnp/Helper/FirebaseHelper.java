@@ -9,13 +9,14 @@ import androidx.annotation.NonNull;
 
 import com.example.airpnp.LocationPackage.LocationControl;
 import com.example.airpnp.UserPackage.Order;
-import com.example.airpnp.UserPackage.OrdersControl;
 import com.example.airpnp.UserPackage.ParkingSpace;
 import com.example.airpnp.UserPackage.ParkingSpaceControl;
 import com.example.airpnp.UserPackage.User;
 import com.example.airpnp.UserPackage.UserInstance;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.appindexing.FirebaseUserActions;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -29,14 +30,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.ArrayList;
+
 /**
  * @author Ido Perez
  * @version 0.1
  * @since 10.1.2021
  */
 public class FirebaseHelper {
-
-    public static final FirebaseHelper firebaseHelper_instance  = null;
 
     //firebase instances:
     public static FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
@@ -45,10 +46,12 @@ public class FirebaseHelper {
     public static FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 
     //data base references:
-    public static DatabaseReference usersRef = firebaseDatabase.getReference("User");
+    public static DatabaseReference usersRef = firebaseDatabase.getReference("Users");
     public static DatabaseReference parkingSpacesRef = firebaseDatabase.getReference("ParkingSpaces");
     public static DatabaseReference ordersRef = firebaseDatabase.getReference("Orders");
     public static StorageReference userLogoRef = FirebaseStorage.getInstance().getReference("UserLogo");
+
+    public static ChildEventListener childEventListener;
 
 //    public static boolean isParkingSpacesListenerOn = false;
 
@@ -56,11 +59,6 @@ public class FirebaseHelper {
 
     }
 
-    public static FirebaseHelper getInstance() {
-        if (firebaseHelper_instance == null)
-            return new FirebaseHelper();
-        return firebaseHelper_instance;
-    }
 /*
     //FirebaseStorage.getInstance().getReference().child("userLogo").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
     public void uploadFile(final String fileLocation, Uri imageUri, final Context context, final ActionDone actionDone){
@@ -201,15 +199,16 @@ public class FirebaseHelper {
      * @see ParkingSpaceControl
      * @see com.example.airpnp.MapPackage.MapActivity
      * @see com.example.airpnp.MapPackage.MapControl
-     * @param childEventListener
+     * @see #childEventListener
      */
-    public void getAllParkingSpaces(ChildEventListener childEventListener){
+    public void getAllParkingSpaces(){
         //String path = ParkingSpaceControl.parkingSpacesPath+locationControl.getCountry();
         final ParkingSpaceControl parkingSpaceControl = ParkingSpaceControl.getInstance();
         //Log.v("userCityName:", locationControl.getUserCityName());
         parkingSpacesRef = FirebaseDatabase.getInstance().getReference("ParkingSpaces");
         Query query = parkingSpacesRef;
-        query.addChildEventListener(childEventListener);
+        if (childEventListener != null)
+            query.addChildEventListener(childEventListener);
         //isParkingSpacesListenerOn = true;
     }
 
@@ -290,24 +289,34 @@ public class FirebaseHelper {
      * gets from data base the user instance by uid.
      * @see User
      * @see UserInstance
-     * @param actionDone
      */
-    public void getCurrentUser(final ActionDone actionDone){
-        Query query = usersRef.orderByChild("userID").equalTo(firebaseUser.getUid());
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+    public void getUserById(String UID ,final GetUserOnActionDone actionDone){
+        usersRef.child(UID).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot data :
-                        snapshot.getChildren()) {
-                    UserInstance.currentUser = data.getValue(User.class);
-                }
-                actionDone.onSuccess();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                actionDone.onFailed();
+            public void onSuccess(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                actionDone.singleUserRead(user);
             }
         });
+//        usersRef.orderByChild("userID").equalTo(UID)
+//        databaseReference.child("Users").child(firebaseUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+//            User user;
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for (DataSnapshot childSnapshot: snapshot.getChildren()) {
+//                    user = childSnapshot.getValue(User.class);
+//                }
+//                actionDone.singleUserRead(user);
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
+    }
+
+    public interface GetUserOnActionDone {
+         void singleUserRead(User user);
+         void groupUserRead(ArrayList<User> users);
     }
 }

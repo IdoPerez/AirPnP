@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -13,14 +14,19 @@ import com.example.airpnp.R;
 import com.example.airpnp.UserPackage.UserCar;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-public class CustomAdapterCarList extends BaseAdapter {
+public class CustomAdapterCarList extends BaseAdapter implements View.OnClickListener {
     Context context;
     ArrayList<UserCar> carItems;
+    ItemClickListener itemClickListener;
+    Map<View, Integer> items;
 
     public CustomAdapterCarList(Context context, ArrayList<UserCar> carItems){
         this.context = context;
         this.carItems = carItems;
+        items = new HashMap<>();
     }
 
     @Override
@@ -58,8 +64,23 @@ public class CustomAdapterCarList extends BaseAdapter {
             id = (R.drawable.van_icon);
         else
             id = R.drawable.truck_icon;
-        if ( id != -1)
-            sizeIcon.setImageResource(id);
+        sizeIcon.setImageResource(id);
+        listItem.setOnClickListener(this);
+        items.put(listItem, position);
         return listItem;
+    }
+
+    public void setOnItemClickListener(ItemClickListener clickListener){
+        itemClickListener = clickListener;
+    }
+
+    @Override
+    public void onClick(View v) {
+        int pos = items.get(v);
+        if (itemClickListener != null) itemClickListener.onItemClick(v, pos);
+    }
+
+    public interface ItemClickListener {
+        void onItemClick(View view, int position);
     }
 }

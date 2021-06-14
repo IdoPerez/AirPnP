@@ -11,6 +11,10 @@ public class UserCar {
         carSize = size;
     }
 
+    public UserCar(){
+
+    }
+
     public String getCarName() {
         return carName;
     }

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -36,7 +37,13 @@ public class OrderDetails extends Fragment {
         View root = inflater.inflate(R.layout.fragment_order_details, container, false);
         DataTransferHelper dataTransferHelper = DataTransferHelper.getInstance();
 
-
+        ImageButton backBtn = root.findViewById(R.id.back_myZone);
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((MyProfileFragment) requireParentFragment()).popBackStack();
+            }
+        });
         LinearLayout layout_orderInfo;
         TextView tv_orderInfoTitle;
         layout_orderInfo = root.findViewById(R.id.orderInfo);

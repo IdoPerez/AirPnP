@@ -1,5 +1,6 @@
 package com.example.airpnp.AuthPackage;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
@@ -22,6 +23,8 @@ import com.example.airpnp.R;
 import com.example.airpnp.RentPackage.RentActivity;
 import com.example.airpnp.UserPackage.Order;
 import com.example.airpnp.UserPackage.OrdersControl;
+import com.example.airpnp.UserPackage.User;
+import com.example.airpnp.UserPackage.UserInstance;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -29,6 +32,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class Authentication extends AppCompatActivity {
     public EditText edEmail, edPassword;
@@ -84,10 +89,11 @@ public class Authentication extends AppCompatActivity {
             edPassword.requestFocus();
             return;
         }
-
+        final ProgressDialog pd= ProgressDialog.show(this,"Login","Connecting...",true);
         mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                pd.dismiss();
                 if(task.isSuccessful()){
                     edEmail.setHint("Email");
                     edPassword.setHint("Password");
@@ -110,6 +116,7 @@ public class Authentication extends AppCompatActivity {
                      snapshot.getChildren()) {
                     Order order = data.getValue(Order.class);
                     ordersControl.userOrdersList.add(order);
+                    //startActivity(new Intent(Authentication.this, MainActivityBotNav.class));
                 }
             }
 
@@ -123,57 +130,58 @@ public class Authentication extends AppCompatActivity {
     }
 
     public void getUserData(FirebaseHelper firebaseHelper){
-        firebaseHelper.getCurrentUser(new ActionDone() {
+        firebaseHelper.getUserById(FirebaseHelper.firebaseUser.getUid(), new FirebaseHelper.GetUserOnActionDone() {
             @Override
-            public void onSuccess() {
+            public void singleUserRead(User user) {
+                UserInstance.currentUser = user;
                 startActivity(new Intent(Authentication.this, MainActivityBotNav.class));
             }
 
             @Override
-            public void onFailed() {
+            public void groupUserRead(ArrayList<User> users) {
 
             }
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        Intent intent;
-        int id = item.getItemId();
-        switch (id){
-            case R.id.Auth:{
-                intent = new Intent(this, Authentication.class);
-                startActivity(intent);
-                break;
-            }
-            case R.id.MapActiv:{
-                intent = new Intent(this, MapActivity.class);
-                startActivity(intent);
-                break;
-            }
-            case R.id.SmsSender:{
-                intent = new Intent(this, SmsSender.class);
-                startActivity(intent);
-                break;
-            }
-            case R.id.RentActivity:{
-                intent = new Intent(this, RentActivity.class);
-                startActivity(intent);
-                break;
-            }
-            case R.id.register:{
-                intent = new Intent(this, RegisterUser.class);
-                startActivity(intent);
-                break;
-            }
-        }
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.main, menu);
+//        return true;
+//    }
+//
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        Intent intent;
+//        int id = item.getItemId();
+//        switch (id){
+//            case R.id.Auth:{
+//                intent = new Intent(this, Authentication.class);
+//                startActivity(intent);
+//                break;
+//            }
+//            case R.id.MapActiv:{
+//                intent = new Intent(this, MapActivity.class);
+//                startActivity(intent);
+//                break;
+//            }
+//            case R.id.SmsSender:{
+//                intent = new Intent(this, SmsSender.class);
+//                startActivity(intent);
+//                break;
+//            }
+//            case R.id.RentActivity:{
+//                intent = new Intent(this, RentActivity.class);
+//                startActivity(intent);
+//                break;
+//            }
+//            case R.id.register:{
+//                intent = new Intent(this, RegisterUser.class);
+//                startActivity(intent);
+//                break;
+//            }
+//        }
+//        return true;
+//    }
 
 }
