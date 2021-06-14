@@ -7,53 +7,36 @@ com/example/airpnp/Resources/MyService.java
  com.example.airpnp.Resources.MyService$1
 com/example/airpnp/LocationPackage/LocationControl.java
  com.example.airpnp.LocationPackage.LocationControl
-com/example/airpnp/MapPackage/OrderDetails.java
- com.example.airpnp.MapPackage.OrderDetails
- com.example.airpnp.MapPackage.OrderDetails$1
+com/example/airpnp/Resources/CardRecyclerViewAdapter.java
+ com.example.airpnp.Resources.CardRecyclerViewAdapter
+ com.example.airpnp.Resources.CardRecyclerViewAdapter$ExampleViewHolder
+ com.example.airpnp.Resources.CardRecyclerViewAdapter$ItemClickListener
 com/example/airpnp/UserPackage/ProfileControl.java
  com.example.airpnp.UserPackage.ProfileControl
-com/example/airpnp/Resources/Restarter.java
- com.example.airpnp.Resources.Restarter
-com/example/airpnp/Resources/CardItem.java
- com.example.airpnp.Resources.CardItem
+com/example/airpnp/UserPackage/UserInstance.java
+ com.example.airpnp.UserPackage.UserInstance
+com/example/airpnp/AuthPackage/Authentication.java
+ com.example.airpnp.AuthPackage.Authentication
+ com.example.airpnp.AuthPackage.Authentication$1
+ com.example.airpnp.AuthPackage.Authentication$2
+ com.example.airpnp.AuthPackage.Authentication$3
 com/example/airpnp/Resources/PlaceAutocompleteAdapter.java
  com.example.airpnp.Resources.PlaceAutocompleteAdapter
  com.example.airpnp.Resources.PlaceAutocompleteAdapter$1
 com/example/airpnp/UserPackage/User.java
  com.example.airpnp.UserPackage.User
-com/example/airpnp/MapPackage/OrdersFragment.java
- com.example.airpnp.MapPackage.OrdersFragment
- com.example.airpnp.MapPackage.OrdersFragment$1
+com/example/airpnp/UserPackage/UserCar.java
+ com.example.airpnp.UserPackage.UserCar
 com/example/airpnp/BuildConfig.java
  com.example.airpnp.BuildConfig
-com/example/airpnp/MapPackage/MyProfileFragment.java
- com.example.airpnp.MapPackage.MyProfileFragment
- com.example.airpnp.MapPackage.MyProfileFragment$1
+com/example/airpnp/Resources/Restarter.java
+ com.example.airpnp.Resources.Restarter
 com/example/airpnp/MapPackage/MapControl.java
  com.example.airpnp.MapPackage.MapControl
 com/example/airpnp/Resources/SizeItem.java
  com.example.airpnp.Resources.SizeItem
 com/example/airpnp/Resources/CustomAdapterCardList.java
  com.example.airpnp.Resources.CustomAdapterCardList
-com/example/airpnp/MapPackage/ParkingSpacesFragment.java
- com.example.airpnp.MapPackage.ParkingSpacesFragment
- com.example.airpnp.MapPackage.ParkingSpacesFragment$1
-com/example/airpnp/UserPackage/UserCar.java
- com.example.airpnp.UserPackage.UserCar
-com/example/airpnp/MapPackage/PaymentChoiceFragment.java
- com.example.airpnp.MapPackage.PaymentChoiceFragment
- com.example.airpnp.MapPackage.PaymentChoiceFragment$1
- com.example.airpnp.MapPackage.PaymentChoiceFragment$2
- com.example.airpnp.MapPackage.PaymentChoiceFragment$3
-com/example/airpnp/Helper/FirebaseControl.java
- com.example.airpnp.Helper.FirebaseControl
-com/example/airpnp/Resources/CustomAdapterCarList.java
- com.example.airpnp.Resources.CustomAdapterCarList
- com.example.airpnp.Resources.CustomAdapterCarList$ItemClickListener
-com/example/airpnp/UserPackage/ParkingSpace.java
- com.example.airpnp.UserPackage.ParkingSpace
-com/example/airpnp/MapPackage/MarkerButton.java
- com.example.airpnp.MapPackage.MarkerButton
 com/example/airpnp/Helper/FirebaseHelper.java
  com.example.airpnp.Helper.FirebaseHelper
  com.example.airpnp.Helper.FirebaseHelper$1
@@ -61,29 +44,15 @@ com/example/airpnp/Helper/FirebaseHelper.java
  com.example.airpnp.Helper.FirebaseHelper$3
  com.example.airpnp.Helper.FirebaseHelper$4
  com.example.airpnp.Helper.FirebaseHelper$GetUserOnActionDone
-com/example/airpnp/Helper/ActionDone.java
- com.example.airpnp.Helper.ActionDone
-com/example/airpnp/Resources/PaymentDetails.java
- com.example.airpnp.Resources.PaymentDetails
-com/example/airpnp/Resources/CustomAdapterSizeMenu.java
- com.example.airpnp.Resources.CustomAdapterSizeMenu
-com/example/airpnp/UserPackage/ParkingSpaceControl.java
- com.example.airpnp.UserPackage.ParkingSpaceControl
-com/example/airpnp/RentPackage/RentActivity.java
- com.example.airpnp.RentPackage.RentActivity
- com.example.airpnp.RentPackage.RentActivity$1
- com.example.airpnp.RentPackage.RentActivity$2
-com/example/airpnp/Resources/CardRecyclerViewAdapter.java
- com.example.airpnp.Resources.CardRecyclerViewAdapter
- com.example.airpnp.Resources.CardRecyclerViewAdapter$ExampleViewHolder
- com.example.airpnp.Resources.CardRecyclerViewAdapter$ItemClickListener
-com/example/airpnp/Helper/DataTransferHelper.java
- com.example.airpnp.Helper.DataTransferHelper
 com/example/airpnp/MapPackage/MapActivity.java
  com.example.airpnp.MapPackage.MapActivity
  com.example.airpnp.MapPackage.MapActivity$1
  com.example.airpnp.MapPackage.MapActivity$10
  com.example.airpnp.MapPackage.MapActivity$11
+ com.example.airpnp.MapPackage.MapActivity$11$1
+ com.example.airpnp.MapPackage.MapActivity$12
+ com.example.airpnp.MapPackage.MapActivity$13
+ com.example.airpnp.MapPackage.MapActivity$14
  com.example.airpnp.MapPackage.MapActivity$2
  com.example.airpnp.MapPackage.MapActivity$3
  com.example.airpnp.MapPackage.MapActivity$4
@@ -92,30 +61,65 @@ com/example/airpnp/MapPackage/MapActivity.java
  com.example.airpnp.MapPackage.MapActivity$7
  com.example.airpnp.MapPackage.MapActivity$8
  com.example.airpnp.MapPackage.MapActivity$9
-com/example/airpnp/UserPackage/UserInstance.java
- com.example.airpnp.UserPackage.UserInstance
-com/example/airpnp/MapPackage/MainActivityBotNav.java
- com.example.airpnp.MapPackage.MainActivityBotNav
- com.example.airpnp.MapPackage.MainActivityBotNav$1
- com.example.airpnp.MapPackage.MainActivityBotNav$2
+com/example/airpnp/MapPackage/PaymentChoiceFragment.java
+ com.example.airpnp.MapPackage.PaymentChoiceFragment
+ com.example.airpnp.MapPackage.PaymentChoiceFragment$1
+ com.example.airpnp.MapPackage.PaymentChoiceFragment$2
+ com.example.airpnp.MapPackage.PaymentChoiceFragment$3
+com/example/airpnp/Helper/FirebaseControl.java
+ com.example.airpnp.Helper.FirebaseControl
 com/example/airpnp/AuthPackage/EmailVerification.java
  com.example.airpnp.AuthPackage.EmailVerification
-com/example/airpnp/ContactUser/SmsSender.java
- com.example.airpnp.ContactUser.SmsSender
-com/example/airpnp/MainActivity.java
- com.example.airpnp.MainActivity
-com/example/airpnp/AuthPackage/Authentication.java
- com.example.airpnp.AuthPackage.Authentication
- com.example.airpnp.AuthPackage.Authentication$1
- com.example.airpnp.AuthPackage.Authentication$2
- com.example.airpnp.AuthPackage.Authentication$3
+com/example/airpnp/UserPackage/ParkingSpace.java
+ com.example.airpnp.UserPackage.ParkingSpace
+com/example/airpnp/MapPackage/MarkerButton.java
+ com.example.airpnp.MapPackage.MarkerButton
+com/example/airpnp/Resources/CustomAdapterCarList.java
+ com.example.airpnp.Resources.CustomAdapterCarList
+ com.example.airpnp.Resources.CustomAdapterCarList$ItemClickListener
+com/example/airpnp/Helper/ActionDone.java
+ com.example.airpnp.Helper.ActionDone
+com/example/airpnp/Resources/PaymentDetails.java
+ com.example.airpnp.Resources.PaymentDetails
+com/example/airpnp/Resources/CustomAdapterSizeMenu.java
+ com.example.airpnp.Resources.CustomAdapterSizeMenu
+com/example/airpnp/UserPackage/ParkingSpaceControl.java
+ com.example.airpnp.UserPackage.ParkingSpaceControl
 com/example/airpnp/AuthPackage/RegisterSecStep.java
  com.example.airpnp.AuthPackage.RegisterSecStep
  com.example.airpnp.AuthPackage.RegisterSecStep$1
  com.example.airpnp.AuthPackage.RegisterSecStep$2
  com.example.airpnp.AuthPackage.RegisterSecStep$2$1
+com/example/airpnp/UserPackage/ProfileActivity.java
+ com.example.airpnp.UserPackage.ProfileActivity
+com/example/airpnp/Helper/DataTransferHelper.java
+ com.example.airpnp.Helper.DataTransferHelper
+com/example/airpnp/Resources/CardItem.java
+ com.example.airpnp.Resources.CardItem
+com/example/airpnp/RentPackage/RentActivity.java
+ com.example.airpnp.RentPackage.RentActivity
+ com.example.airpnp.RentPackage.RentActivity$1
+ com.example.airpnp.RentPackage.RentActivity$2
+com/example/airpnp/ContactUser/SmsSender.java
+ com.example.airpnp.ContactUser.SmsSender
 com/example/airpnp/AuthPackage/RegisterUser.java
  com.example.airpnp.AuthPackage.RegisterUser
  com.example.airpnp.AuthPackage.RegisterUser$1
-com/example/airpnp/UserPackage/ProfileActivity.java
- com.example.airpnp.UserPackage.ProfileActivity
+com/example/airpnp/MainActivity.java
+ com.example.airpnp.MainActivity
+com/example/airpnp/MapPackage/OrdersFragment.java
+ com.example.airpnp.MapPackage.OrdersFragment
+ com.example.airpnp.MapPackage.OrdersFragment$1
+com/example/airpnp/MapPackage/MyProfileFragment.java
+ com.example.airpnp.MapPackage.MyProfileFragment
+ com.example.airpnp.MapPackage.MyProfileFragment$1
+com/example/airpnp/MapPackage/OrderDetails.java
+ com.example.airpnp.MapPackage.OrderDetails
+ com.example.airpnp.MapPackage.OrderDetails$1
+com/example/airpnp/MapPackage/ParkingSpacesFragment.java
+ com.example.airpnp.MapPackage.ParkingSpacesFragment
+ com.example.airpnp.MapPackage.ParkingSpacesFragment$1
+com/example/airpnp/MapPackage/MainActivityBotNav.java
+ com.example.airpnp.MapPackage.MainActivityBotNav
+ com.example.airpnp.MapPackage.MainActivityBotNav$1
+ com.example.airpnp.MapPackage.MainActivityBotNav$2

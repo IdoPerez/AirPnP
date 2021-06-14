@@ -86,12 +86,13 @@
     </LinearLayout>
 
     <EditText
-        android:gravity="center"
         android:id="@+id/layoutTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:hint="Working hours"
-        android:inputType="time" />
+        android:inputType="time"
+        android:visibility="invisible" />
 
   </LinearLayout>
 

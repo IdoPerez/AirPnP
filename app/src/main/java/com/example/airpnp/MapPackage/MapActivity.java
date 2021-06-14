@@ -1,6 +1,7 @@
 package com.example.airpnp.MapPackage;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -39,7 +40,6 @@ import com.example.airpnp.UserPackage.ParkingSpaceControl;
 import com.example.airpnp.UserPackage.User;
 import com.example.airpnp.UserPackage.UserCar;
 import com.example.airpnp.UserPackage.UserInstance;
-import com.google.android.gms.common.util.concurrent.HandlerExecutor;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -53,7 +53,6 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -73,7 +72,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
     private final int FAB_DELAY = 3000;
     GoogleMap mMap;
     ExtendedFloatingActionButton fab_userCar;
-    AlertDialog alertDialog;
+    AlertDialog carDialog;
     MapControl mapControl;
     FirebaseHelper firebaseHelper;
     LocationControl locationControl;
@@ -220,13 +219,13 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         builder.setView(convertView);
         builder.setTitle("Select car");
         ListView lv = (ListView) convertView.findViewById(R.id.list_view_cars);
-        alertDialog = builder.create();
+        carDialog = builder.create();
         CustomAdapterCarList customAdapterCarList = new CustomAdapterCarList(requireContext(), UserInstance.currentUser.getUserCars());
         customAdapterCarList.setOnItemClickListener(new CustomAdapterCarList.ItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 UserInstance.currentCar = UserInstance.currentUser.getUserCars().get(position);
-                alertDialog.dismiss();
+                carDialog.dismiss();
                 initUserCarFab();
             }
         });
@@ -234,7 +233,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         fab_userCar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                alertDialog.show();
+                carDialog.show();
             }
         });
     }
@@ -264,7 +263,8 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         }
         getDeviceLocation();
         mapControl.updateLocationUI(requireActivity());
-        alertDialog.show();
+        if (UserInstance.currentCar == null)
+            carDialog.show();
     }
 
     /**
@@ -351,7 +351,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
                         break;
 
                     case BottomSheetBehavior.STATE_HIDDEN:{
-                        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
+                        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottomNavigationView);
                         bottomNavigationView.setVisibility(View.VISIBLE);
                     }
                         break;
@@ -374,7 +374,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
      */
     @Override
     public boolean onMarkerClick(Marker marker) {
-        BottomNavigationView bottomNavigationView = getActivity().findViewById(R.id.bottomNavigationView);
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setVisibility(View.GONE);
         bottomLayout.setVisibility(View.GONE);
 
@@ -390,15 +390,63 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
         rentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                parkingSpaceControl.parkingSpaceOnBooking = parkingSpace;
-                DataTransferHelper dataTransferHelper = DataTransferHelper.newInstance();
-                dataTransferHelper.setParentTAG(MAP_TAG);
-                dataTransferHelper.putParkingSpace("parkingOnBooking", parkingSpace);
-                dataTransferHelper.putUser("parkingSpaceUser", tempUser);
-                ((MainActivityBotNav) getActivity()).replaceFragments(fragment.getClass());
+                compareSize(parkingSpace, fragment);
             }
         });
         return false;
+    }
+
+    public void transferFragment(Fragment fragment){
+        ((MainActivityBotNav) requireActivity()).replaceFragments(fragment.getClass());
+    }
+
+    public void saveData(ParkingSpace parkingSpace){
+        parkingSpaceControl.parkingSpaceOnBooking = parkingSpace;
+        DataTransferHelper dataTransferHelper = DataTransferHelper.newInstance();
+        dataTransferHelper.setParentTAG(MAP_TAG);
+        dataTransferHelper.putParkingSpace("parkingOnBooking", parkingSpace);
+        dataTransferHelper.putUser("parkingSpaceUser", tempUser);
+    }
+
+    private void compareSize(final ParkingSpace parkingSpace, final Fragment fragment){
+        if (parkingSpace.getSize() >= UserInstance.currentCar.getCarSize()){
+            saveData(parkingSpace);
+
+            transferFragment(fragment);
+            return;
+        }
+        final AlertDialog.Builder adb= new AlertDialog.Builder(requireContext());
+        adb.setTitle("Warning");
+        adb.setMessage("The parking can be too small for your vehicle");
+        adb.setPositiveButton("Continue", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                saveData(parkingSpace);
+                bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+                transferFragment(fragment);
+            }
+        });
+        adb.setNeutralButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        adb.setNegativeButton("Change car", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        carDialog.show();
+                    }
+                }, 1000);
+            }
+        });
+        AlertDialog sizeDialog = adb.create();
+        sizeDialog.show();
     }
 
     /**

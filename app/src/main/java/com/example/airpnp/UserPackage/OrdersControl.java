@@ -44,6 +44,6 @@ public class OrdersControl {
         Order order = new Order(parkingSpace.getParkingSpaceID(), parkingSpace.getUserUID(), firebaseHelper.getUserUid(), parkingHours, null , null, true);
         String orderPath = ordersPath+firebaseHelper.getUserUid();
         firebaseHelper.uploadOrder(order);
-        userOrdersList.add(order);
+        //userOrdersList.add(order);
     }
 }

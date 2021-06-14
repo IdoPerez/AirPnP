@@ -59,11 +59,11 @@ public class MyProfileFragment extends Fragment {
                 switch (tab.getPosition()){
                     case FRAGMENT_MyParkingSpace_POS:{
                         getChildFragmentManager().beginTransaction().replace(R.id.fragFrame_myProfile, parkingSpacesFragment).commit();
-                        Toast.makeText(requireContext(), "Fragment MyParkingSpace", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(requireContext(), "Fragment MyParkingSpace", Toast.LENGTH_SHORT).show();
                     } break;
                     case FRAGMENT_Orders_POS: {
                         getChildFragmentManager().beginTransaction().replace(R.id.fragFrame_myProfile, ordersFragment).commit();
-                        Toast.makeText(requireContext(), "Fragment MyOrders", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(requireContext(), "Fragment MyOrders", Toast.LENGTH_SHORT).show();
                     } break;
                 }
             }
@@ -83,7 +83,7 @@ public class MyProfileFragment extends Fragment {
 
     public void replaceFragments(Fragment fragment){
         getChildFragmentManager().beginTransaction().replace(R.id.fragFrame_myProfile, fragment).addToBackStack(null).commit();
-        Toast.makeText(requireContext(), "Fragment MyParkingSpace", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(requireContext(), "Fragment MyParkingSpace", Toast.LENGTH_SHORT).show();
     }
 
     public void popBackStack(){
