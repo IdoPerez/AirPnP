@@ -185,9 +185,14 @@ public class FirebaseHelper {
      * @see com.example.airpnp.MapPackage.PaymentChoiceFragment
      * @param order
      */
-    public void uploadOrder(Order order){
+    public void uploadOrder(Order order, final ActionDone actionDone){
         order.setOrderID(ordersRef.push().getKey());
-        ordersRef.child(firebaseUser.getUid()).child(order.getOrderID()).setValue(order);
+        ordersRef.child(firebaseUser.getUid()).child(order.getOrderID()).setValue(order).addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void aVoid) {
+                actionDone.onSuccess();
+            }
+        });
         Log.v("Order Path",order.toString());
     }
 

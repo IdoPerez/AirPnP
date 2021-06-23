@@ -89,8 +89,6 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
     TextView tvPrice, tvAddress, tvParkingSpaceName, timeAvailable, tvStatus, tvPhoneNum, tvEmail;
     ImageView sizeImage;
     Button rentButton;
-    Fragment mapFragment;
-    FrameLayout frameLayout;
     LinearLayout bottomLayout, topLayout;
     ImageButton expendBtn, closeBtn;
     float topLayoutHeight, bottomLayoutHeight, screenHeight,screenWidth, bottomSheetRatio;
@@ -98,8 +96,6 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 
     ListView userParkingSpaceList;
     ArrayList<String> userParkingSpacesNameList;
-    ArrayList<CardItem> cardItemList;
-
     User tempUser;
 
     @Override
@@ -176,6 +172,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 
        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
               .findFragmentById(R.id.map);
+        assert mapFragment != null;
         mapFragment.getMapAsync(this);
 
         parkingSpaceControl = ParkingSpaceControl.getInstance();
@@ -249,6 +246,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        //bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mapControl = new MapControl(getContext(), mMap);
@@ -275,13 +273,13 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
 
         //gets the screen height
         DisplayMetrics displaymetrics = new DisplayMetrics();
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        requireActivity().getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
         screenHeight = displaymetrics.heightPixels;
         screenWidth = displaymetrics.widthPixels;
 
         //gets the action bar height
         TypedValue tv = new TypedValue();
-        if (getActivity().getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
+        if (requireActivity().getTheme().resolveAttribute(android.R.attr.actionBarSize, tv, true))
         {
             int actionBarHeight = TypedValue.complexToDimensionPixelSize(tv.data,getResources().getDisplayMetrics());
             screenHeight -= actionBarHeight;
@@ -369,7 +367,7 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
      * @see ParkingSpace
      * @see MarkerButton
      * @see BottomSheetBehavior
-     * @param marker
+     * @param marker the clicked map marker
      * @return
      */
     @Override
@@ -409,9 +407,13 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
     }
 
     private void compareSize(final ParkingSpace parkingSpace, final Fragment fragment){
+        if (UserInstance.currentCar == null){
+            carDialog.show();
+            return;
+        }
         if (parkingSpace.getSize() >= UserInstance.currentCar.getCarSize()){
             saveData(parkingSpace);
-
+            bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
             transferFragment(fragment);
             return;
         }
@@ -432,19 +434,19 @@ public class MapActivity extends Fragment implements GoogleMap.OnMarkerClickList
                 dialog.cancel();
             }
         });
-        adb.setNegativeButton("Change car", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        carDialog.show();
-                    }
-                }, 1000);
-            }
-        });
+//        adb.setNegativeButton("Change car", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.cancel();
+//                Handler handler = new Handler();
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        carDialog.show();
+//                    }
+//                }, 1000);
+//            }
+//        });
         AlertDialog sizeDialog = adb.create();
         sizeDialog.show();
     }

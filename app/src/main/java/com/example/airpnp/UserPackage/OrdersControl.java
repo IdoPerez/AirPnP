@@ -40,10 +40,17 @@ public class OrdersControl {
      * @param parkingSpace
      * @param parkingHours
      */
-    public void createNewOrder(ParkingSpace parkingSpace, int parkingHours){
-        Order order = new Order(parkingSpace.getParkingSpaceID(), parkingSpace.getUserUID(), firebaseHelper.getUserUid(), parkingHours, null , null, true);
+    public void createNewOrder(ParkingSpace parkingSpace, int parkingHours, String checkIn, String checkOut){
+        Order order = new Order(parkingSpace.getParkingSpaceID(), parkingSpace.getUserUID(), firebaseHelper.getUserUid(), parkingHours, checkIn , checkOut, true);
         String orderPath = ordersPath+firebaseHelper.getUserUid();
-        firebaseHelper.uploadOrder(order);
+        //firebaseHelper.uploadOrder(order);
+        //userOrdersList.add(order);
+    }
+
+    public void createNewOrder(Order order){
+        //Order order = new Order(parkingSpace.getParkingSpaceID(), parkingSpace.getUserUID(), firebaseHelper.getUserUid(), parkingHours, checkIn , checkOut, true);
+        String orderPath = ordersPath+firebaseHelper.getUserUid();
+        //firebaseHelper.uploadOrder(order);
         //userOrdersList.add(order);
     }
 }

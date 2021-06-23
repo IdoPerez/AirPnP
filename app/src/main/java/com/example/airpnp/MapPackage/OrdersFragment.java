@@ -65,7 +65,7 @@ public class OrdersFragment extends Fragment {
                 dataTransferHelper.putParkingSpace("ParkingSpaceForTransfer", parkingSpaces.get(position));
 //                dataTransferHelper.putOrder(ordersControl.userOrdersList.get(position));
 //                dataTransferHelper.putParkingSpace(parkingSpaces.get(position));
-                ((MyProfileFragment) getParentFragment()).replaceFragments(detailsFragment);
+                ((MyProfileFragment) requireParentFragment()).replaceFragments(detailsFragment);
             }
         });
         return root;

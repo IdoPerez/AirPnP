@@ -80,7 +80,7 @@ public class OrderDetails extends Fragment {
 
         tv_name.setText(parkingSpace.getParkingSpaceName());
         tv_address.setText(parkingSpace.getAddress());
-        tv_price.setText(String.valueOf(parkingSpace.getPrice()));
+        tv_price.setText("Price p/h"+" "+parkingSpace.getPrice()+"₪");
 
         if (parkingSpace.isActive()){
             tv_status.setText("פעילה");
@@ -109,9 +109,9 @@ public class OrderDetails extends Fragment {
         tv_checkOut = root.findViewById(R.id.tv_checkOut);
         tv_orderStatus  = root.findViewById(R.id.tv_orderStatus);
 
-        tv_totalPrice.setText(String.valueOf(order.getPrice()));
-        tv_checkIn.setText(order.getCheckInTime());
-        tv_checkOut.setText(order.getCheckOutTime());
+        tv_totalPrice.setText("Total: "+(order.getPrice())+"₪");
+        tv_checkIn.setText("CheckIn: "+order.getCheckInTime());
+        tv_checkOut.setText("CheckOut: "+order.getCheckOutTime());
 
         if (order.isActive()){
             tv_orderStatus.setText("פעילה");

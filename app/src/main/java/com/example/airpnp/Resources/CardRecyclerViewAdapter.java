@@ -22,6 +22,7 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
     private ItemClickListener itemClickListener;
     public boolean firstCheck = true;
     public MaterialCardView  lastCardView;
+    public View lastCard;
 
 
     public class ExampleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
@@ -54,13 +55,14 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
             cardView.setChecked(!cardView.isChecked());
             if (cardView.isChecked()){
                 if (firstCheck){
-                    lastCardView = cardView;
+                    //lastCardView = cardView;
+                    lastCard = v;
                     firstCheck = false;
                 } else{
 //                    lastCardView.setChecked(false);
 //                    cardStateTheme(lastCardView, Color.BLACK, R.drawable.card_state_regular);
 //                    lastCardView = cardView;
-                    cancelLastCheck();
+                    cancelLastCheck(v);
                 }
                 cardStateTheme(cardView ,colorCheckedState, drawableCheckedState);
             }
@@ -70,21 +72,23 @@ public class CardRecyclerViewAdapter extends RecyclerView.Adapter<CardRecyclerVi
             if (itemClickListener != null) itemClickListener.onItemClick(v, getAdapterPosition());
         }
 
-        private void cardStateTheme(MaterialCardView cv,int color, int drawable){
+        private void cardStateTheme(MaterialCardView cv, int color, int drawable){
             cv.setBackgroundResource(drawable);
             tv_titleName.setTextColor(color);
             tv_subText.setTextColor(color);
         }
 
-        private void cancelLastCheck(){
-            View root = lastCardView.getRootView();
-            TextView tvHours = root.findViewById(R.id.card_hours);
-            TextView tvSubText = root.findViewById(R.id.card_price);
-            lastCardView.setChecked(false);
-            lastCardView.setBackgroundResource(drawableRegularState);
+        private void cancelLastCheck(View v){
+            //View root = lastCardView.getRootView();
+            TextView tvHours = lastCard.findViewById(R.id.card_hours);
+            TextView tvSubText = lastCard.findViewById(R.id.card_price);
+            MaterialCardView materialCardView = lastCard.findViewById(R.id.paymentCard);
+            materialCardView.setChecked(false);
+            materialCardView.setBackgroundResource(drawableRegularState);
             tvHours.setTextColor(colorRegularState);
             tvSubText.setTextColor(colorRegularState);
-            lastCardView = cardView;
+            //lastCardView = cardView;
+            lastCard = v;
         }
     }
 //    private void setCheckedCardView(View view){

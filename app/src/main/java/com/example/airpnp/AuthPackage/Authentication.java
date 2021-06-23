@@ -1,5 +1,6 @@
 package com.example.airpnp.AuthPackage;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -89,6 +91,7 @@ public class Authentication extends AppCompatActivity {
             edPassword.requestFocus();
             return;
         }
+        hideKeyboard(Authentication.this);
         pd.setTitle("Login");
         pd.setMessage("connecting...");
         pd.setIndeterminate(true);
@@ -100,6 +103,7 @@ public class Authentication extends AppCompatActivity {
                     edEmail.setHint("Email");
                     edPassword.setHint("Password");
                     getAllUserData();
+                    Toast.makeText(Authentication.this, "Download information", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Toast.makeText(Authentication.this, "login failed! Try again", Toast.LENGTH_LONG).show();
@@ -114,6 +118,7 @@ public class Authentication extends AppCompatActivity {
         firebaseHelper.getUserOrders(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ordersControl.userOrdersList.clear();
                 for (DataSnapshot data:
                      snapshot.getChildren()) {
                     Order order = data.getValue(Order.class);
@@ -127,7 +132,6 @@ public class Authentication extends AppCompatActivity {
 
             }
         });
-
         getUserData(firebaseHelper);
     }
 
@@ -146,6 +150,17 @@ public class Authentication extends AppCompatActivity {
 
             }
         });
+    }
+
+    public static void hideKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        //Find the currently focused view, so we can grab the correct window token from it.
+        View view = activity.getCurrentFocus();
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = new View(activity);
+        }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
 //    @Override
