@@ -210,8 +210,11 @@ public class PaymentChoiceFragment extends Fragment {
                    min++;
                    sec = 0;
                 }
-            }else
+            }else{
                 sec = now.getSecond();
+                min = now.getMinute();
+            }
+
             checkOut = convertTime(now.getYear(), now.getMonth().getValue(), now.getDayOfMonth(), hourOfDay, min, sec);
             nextRun = now.withHour(hourOfDay).withMinute(min).withSecond(sec);
             if(now.compareTo(nextRun) > 0)
@@ -225,7 +228,7 @@ public class PaymentChoiceFragment extends Fragment {
                 c.set(Calendar.MINUTE, now.getMinute());
                 c.set(Calendar.SECOND, nextRun.getSecond());
             }else{
-                c.set(Calendar.HOUR_OF_DAY, now.getHour());
+                c.set(Calendar.HOUR_OF_DAY, nextRun.getHour());
                 c.set(Calendar.MINUTE, nextRun.getMinute());
                 c.set(Calendar.SECOND, nextRun.getSecond());
             }

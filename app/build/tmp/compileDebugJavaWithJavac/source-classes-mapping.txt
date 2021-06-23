@@ -10,12 +10,11 @@ com/example/airpnp/LocationPackage/LocationControl.java
 com/example/airpnp/MapPackage/OrdersFragment.java
  com.example.airpnp.MapPackage.OrdersFragment
  com.example.airpnp.MapPackage.OrdersFragment$1
-com/example/airpnp/MapPackage/PaymentChoiceFragment.java
- com.example.airpnp.MapPackage.PaymentChoiceFragment
- com.example.airpnp.MapPackage.PaymentChoiceFragment$1
- com.example.airpnp.MapPackage.PaymentChoiceFragment$2
- com.example.airpnp.MapPackage.PaymentChoiceFragment$3
- com.example.airpnp.MapPackage.PaymentChoiceFragment$4
+com/example/airpnp/AuthPackage/RegisterSecStep.java
+ com.example.airpnp.AuthPackage.RegisterSecStep
+ com.example.airpnp.AuthPackage.RegisterSecStep$1
+ com.example.airpnp.AuthPackage.RegisterSecStep$2
+ com.example.airpnp.AuthPackage.RegisterSecStep$2$1
 com/example/airpnp/UserPackage/ProfileControl.java
  com.example.airpnp.UserPackage.ProfileControl
 com/example/airpnp/UserPackage/UserCar.java
@@ -41,21 +40,9 @@ com/example/airpnp/Resources/SizeItem.java
  com.example.airpnp.Resources.SizeItem
 com/example/airpnp/Resources/CustomAdapterCardList.java
  com.example.airpnp.Resources.CustomAdapterCardList
-com/example/airpnp/MapPackage/MapActivity.java
- com.example.airpnp.MapPackage.MapActivity
- com.example.airpnp.MapPackage.MapActivity$1
- com.example.airpnp.MapPackage.MapActivity$10
- com.example.airpnp.MapPackage.MapActivity$11
- com.example.airpnp.MapPackage.MapActivity$12
- com.example.airpnp.MapPackage.MapActivity$13
- com.example.airpnp.MapPackage.MapActivity$2
- com.example.airpnp.MapPackage.MapActivity$3
- com.example.airpnp.MapPackage.MapActivity$4
- com.example.airpnp.MapPackage.MapActivity$5
- com.example.airpnp.MapPackage.MapActivity$6
- com.example.airpnp.MapPackage.MapActivity$7
- com.example.airpnp.MapPackage.MapActivity$8
- com.example.airpnp.MapPackage.MapActivity$9
+com/example/airpnp/AuthPackage/RegisterUser.java
+ com.example.airpnp.AuthPackage.RegisterUser
+ com.example.airpnp.AuthPackage.RegisterUser$1
 com/example/airpnp/MapPackage/MainActivityBotNav.java
  com.example.airpnp.MapPackage.MainActivityBotNav
  com.example.airpnp.MapPackage.MainActivityBotNav$1
@@ -117,11 +104,24 @@ com/example/airpnp/AuthPackage/Authentication.java
  com.example.airpnp.AuthPackage.Authentication$3
 com/example/airpnp/UserPackage/ProfileActivity.java
  com.example.airpnp.UserPackage.ProfileActivity
-com/example/airpnp/AuthPackage/RegisterSecStep.java
- com.example.airpnp.AuthPackage.RegisterSecStep
- com.example.airpnp.AuthPackage.RegisterSecStep$1
- com.example.airpnp.AuthPackage.RegisterSecStep$2
- com.example.airpnp.AuthPackage.RegisterSecStep$2$1
-com/example/airpnp/AuthPackage/RegisterUser.java
- com.example.airpnp.AuthPackage.RegisterUser
- com.example.airpnp.AuthPackage.RegisterUser$1
+com/example/airpnp/MapPackage/MapActivity.java
+ com.example.airpnp.MapPackage.MapActivity
+ com.example.airpnp.MapPackage.MapActivity$1
+ com.example.airpnp.MapPackage.MapActivity$10
+ com.example.airpnp.MapPackage.MapActivity$11
+ com.example.airpnp.MapPackage.MapActivity$12
+ com.example.airpnp.MapPackage.MapActivity$13
+ com.example.airpnp.MapPackage.MapActivity$2
+ com.example.airpnp.MapPackage.MapActivity$3
+ com.example.airpnp.MapPackage.MapActivity$4
+ com.example.airpnp.MapPackage.MapActivity$5
+ com.example.airpnp.MapPackage.MapActivity$6
+ com.example.airpnp.MapPackage.MapActivity$7
+ com.example.airpnp.MapPackage.MapActivity$8
+ com.example.airpnp.MapPackage.MapActivity$9
+com/example/airpnp/MapPackage/PaymentChoiceFragment.java
+ com.example.airpnp.MapPackage.PaymentChoiceFragment
+ com.example.airpnp.MapPackage.PaymentChoiceFragment$1
+ com.example.airpnp.MapPackage.PaymentChoiceFragment$2
+ com.example.airpnp.MapPackage.PaymentChoiceFragment$3
+ com.example.airpnp.MapPackage.PaymentChoiceFragment$4
