@@ -106,6 +106,7 @@ public class Authentication extends AppCompatActivity {
                     Toast.makeText(Authentication.this, "Download information", Toast.LENGTH_SHORT).show();
                 }
                 else{
+                    pd.dismiss();
                     Toast.makeText(Authentication.this, "login failed! Try again", Toast.LENGTH_LONG).show();
                 }
             }

@@ -81,8 +81,14 @@ public class RegisterSecStep extends AppCompatActivity {
             public void onClick(View v) {
                 carName = edCarName.getText().toString();
                 carNumber = edCarNumber.getText().toString();
-                userCars.add(new UserCar(carName, carNumber, sizeSpinner.getSelectedItemPosition()));
-                customAdapterCarList.notifyDataSetChanged();
+                if ((!carName.isEmpty() && !carNumber.isEmpty()) || carEditTextCheck()){
+                    userCars.add(new UserCar(carName, carNumber, sizeSpinner.getSelectedItemPosition()));
+                    edCarName.getText().clear();
+                    edCarName.setHint("Car name");
+                    edCarNumber.getText().clear();
+                    edCarNumber.setHint("Car number");
+                    customAdapterCarList.notifyDataSetChanged();
+                }
             }
         });
     }
@@ -117,26 +123,27 @@ public class RegisterSecStep extends AppCompatActivity {
                 edCarNumber.requestFocus();
                 edCarNumber.setError("You must enter car number");
             }
+            return false;
         }
-        else{
-            if (name.isEmpty() && !carNumber.isEmpty()){
-                edCarName.requestFocus();
-                edCarName.setError("You must enter car name");
-                return false;
-            }
-            else if(carNumber.isEmpty() && !name.isEmpty()){
-                edCarNumber.requestFocus();
-                edCarNumber.setError("You must enter car number");
-            }
-            else{
-                edCarName.getText().clear();
-                edCarName.setHint("Car name");
-                edCarNumber.getText().clear();
-                edCarNumber.setHint("Car number");
-                return true;
-            }
-        }
-    return false;
+//        else{
+//            if (name.isEmpty() && !carNumber.isEmpty()){
+//                edCarName.requestFocus();
+//                edCarName.setError("You must enter car name");
+//                return false;
+//            }
+//            else if(carNumber.isEmpty() && !name.isEmpty()){
+//                edCarNumber.requestFocus();
+//                edCarNumber.setError("You must enter car number");
+//            }
+//            else{
+//                edCarName.getText().clear();
+//                edCarName.setHint("Car name");
+//                edCarNumber.getText().clear();
+//                edCarNumber.setHint("Car number");
+//                return true;
+//            }
+//        }
+    return true;
     }
 
     /**
@@ -150,7 +157,7 @@ public class RegisterSecStep extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             final User user = new User(FirebaseAuth.getInstance().getCurrentUser().getUid(), username, email, phoneNum, userCars);
-                            FirebaseDatabase.getInstance().getReference(FirebaseHelper.USER_UID)
+                            FirebaseDatabase.getInstance().getReference("Users")
                                     .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
